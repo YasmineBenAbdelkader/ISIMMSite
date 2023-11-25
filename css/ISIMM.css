@@ -139,6 +139,7 @@ nav img {
     margin:auto;
     text-align: center;
     padding-top: 30px;
+    
 }
 .histo h1{
     font-size:36px;
@@ -150,9 +151,40 @@ nav img {
 .histo p {
     padding-top: 25px;
     font-size:20px;
-    text-align: left;
+    text-align: justify;
+    
 }
 .histo img{
     padding-top: 25px;
 
+
+}
+
+.row {
+    display: flex;
+}
+
+.image {
+    flex: 1;
+    margin: 0 10px; /* Add some margin between images */
+    flex-basis: 32%;
+    border-radius: 15px;
+    margin-bottom :30px;
+    position:relative;
+    overflow:hidden;
+    
+}
+.image img {
+    width: 95%;
+    height: 95%;
+    
+    
+
+}
+.Equipe {
+    width:80%;
+    margin:auto;
+    text-align: center;
+    padding-top: 30px;
+    
 }
