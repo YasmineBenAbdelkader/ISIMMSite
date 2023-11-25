@@ -120,9 +120,7 @@ p{
     .row {
         flex-direction: column;
     }
-    .row {
-        flex-direction: column;
-    }
+   
 }
 /*------Infrastructure------*/
 .Infrastructure {
@@ -144,30 +142,25 @@ p{
     overflow:hidden;
 }
 .Infra-col img {
-    width: 95%;
+    width: 94%;
     height: 95%;
 
 }
 .layer {
     background: transparent;
     height: 95%;
-    width:95%;
+    width: 95%;
     position: absolute;
     top: 0;
-    left:10px;
-    transition: 0.5s;
+    left: 10px;
+    transition: 0.5s ;
 }
-#cour {
-    padding-top:250px;
-    color: transparent;
 
 
-}
+
 .layer:hover{
     background: rgba(227, 233, 243, 0.7);
-}
-#cour:hover {
-    color: #0a0a0a;
+   
 }
 
 
