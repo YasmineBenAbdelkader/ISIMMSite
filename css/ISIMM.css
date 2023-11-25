@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Crimson Text', serif;
+    --font-color: rgba(248, 180, 108, 0.882);
     
 }
 
@@ -19,8 +20,8 @@ nav {
     padding: 1.2% 1%;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff; /* Background color for the navbar */
-    box-shadow: 0 0 10px rgba(1, 1, 1, 0.1); /* Box shadow for a subtle lift */
+    background-color: #fff; 
+    box-shadow: 0 0 10px rgba(1, 1, 1, 0.1);
 }
 
 nav img {
@@ -132,4 +133,26 @@ nav img {
         text-align: left;
         z-index: 2;
     }
+}
+.histo {
+    width:80%;
+    margin:auto;
+    text-align: center;
+    padding-top: 30px;
+}
+.histo h1{
+    font-size:36px;
+    font-weight: 600;
+    border-bottom: 1px solid rgb(23, 19, 19); 
+    padding-bottom: 25px;
+
+}
+.histo p {
+    padding-top: 25px;
+    font-size:20px;
+    text-align: left;
+}
+.histo img{
+    padding-top: 25px;
+
 }
