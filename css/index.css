@@ -2,8 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Crimson Text', serif;
-    --font-color : rgb(33, 111, 237);
-
+    --font-color : rgba(248, 180, 108, 0.882);
 }
 
 .header{
@@ -17,78 +16,12 @@
     
 }
 
-nav {
-    display:flex;
-    padding: 10px;
-    justify-content: space-between;
-    align-items: center;
-    
-
-}
-nav img {
-    width: 50px;
-    margin-right : 10px;
-    object-fit: contain; 
-    
-
-
-}
-
-
-.nav-links {
-    flex: 1;
-    text-align: center;
-}
-
-.nav-links ul li{
-    list-style : none;
-    display :inline-block;
-    position: relative;
-    padding : 8px 12px;
-
-}
-.nav-links ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-}
-
-.nav-left {
-    float :right;
-}
-
-.nav-left ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-left ul li {
-    display: inline-block;
-    padding-top:12px;
-}
-    
-
-.nav-links ul li::after {
-    content:'';
-    width:0%;
-    height: 2px;
-    background: var( --font-color);
-    display:block;
-    margin:auto;
-    transition: 0.3s;
-
-}
-
-.nav-links ul li:hover::after {
-    width:100%;
-}
 
 .text-box {
     width:90%;
     color: #fff;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left :50%;
     transform: translate(-50%,-50%);
     text-align : center;
@@ -120,9 +53,10 @@ nav img {
     cursor: pointer;
 
 }
+/*rgba(244, 124, 5, 0.882);*/
 .hero-btn:hover {
-    border:1px solid var(--font-color );
-    background: var(--font-color );
+    border:1px solid  var(--font-color);
+    background: var(--font-color);
     transition: 1s;
 }
 nav .fas {
@@ -135,14 +69,23 @@ nav .fas {
     width:80%;
     margin:auto;
     text-align: center;
-    padding-top: 70px;
+    padding-top: 30px;
 }
 h1{
     font-size:36px;
     font-weight: 600;
+
+}
+#depDesc{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 15px;
+
+
+
 }
 p{
-    color: #777;
+    color: #000;
     font-size: 14px;
     font-weight: 300;
     line-height:22px ;
@@ -158,7 +101,7 @@ p{
 }
 .dep-col{
     flex-basis: 31%;
-    background: #fff3f3;
+    background: var(--font-color);
     border-radius: 10px;
     margin-bottom: 5%;
     padding:20px 12px ;
@@ -181,6 +124,7 @@ p{
         flex-direction: column;
     }
 }
+/*------Infrastructure------*/
 
 
 
@@ -192,7 +136,7 @@ p{
     }
     .nav-links{
         position: absolute;
-        background: rgb(33, 111, 237);
+        background:var(--font-color);
         height: 100vh;
         width: 200px;
         top: 0;
