@@ -1,13 +1,13 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Poppins',  'sans serif';
+    font-family: 'Crimson Text', serif;
     --font-color : rgb(33, 111, 237);
 
 }
 
 .header{
-    min-height: 100vh;
+    height: 650px;
     width:100%;
     background-image: linear-gradient(rgba(4, 9, 30, 0.7),rgba(4, 9, 30, 0.7)),url(../images/14.jpeg);
     background-position: center;
@@ -16,6 +16,7 @@
    
     
 }
+
 nav {
     display:flex;
     padding: 10px;
@@ -64,7 +65,7 @@ nav img {
 
 .nav-left ul li {
     display: inline-block;
-    padding-top:px;
+    padding-top:12px;
 }
     
 
@@ -72,7 +73,7 @@ nav img {
     content:'';
     width:0%;
     height: 2px;
-    background: var(--font-color );
+    background: var( --font-color);
     display:block;
     margin:auto;
     transition: 0.3s;
@@ -95,13 +96,16 @@ nav img {
 }
 
 .text-box h1 {
-    font-size: 30px;
+    font-size: 36px;
+    
 }
 
 .text-box p {
     margin: 10px 0 40px;
-    font-size: 15px;
+    font-size: 18px;
     color : #fff;
+    text-align : center;
+
 }
 
 .hero-btn {
@@ -110,7 +114,7 @@ nav img {
     color:#fff;
     border: 1px  solid #fff;
     padding: 10px 20px;
-    font-size: 14px;
+    font-size: 23px;
     background:transparent;
     position: relative;
     cursor: pointer;
@@ -125,6 +129,62 @@ nav .fas {
     display: none;
 
 }
+
+/*-----departement----*/
+.departement {
+    width:80%;
+    margin:auto;
+    text-align: center;
+    padding-top: 70px;
+}
+h1{
+    font-size:36px;
+    font-weight: 600;
+}
+p{
+    color: #777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height:22px ;
+    padding:10px;
+    text-align: left;
+}
+
+
+.row{
+    margin-top: 5% ;
+    display: flex ;
+    justify-content: space-between;
+}
+.dep-col{
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding:20px 12px ;
+    box-sizing:border-box ;
+}
+.dep-col h3 {
+    text-align: center;
+    font-weight: 600;
+    margin:10px 0;
+
+}
+.dep-col:hover {
+    box-shadow: 0 0 20px 0px rgba(4, 9, 30, 0.7);
+}
+
+
+
+@media(max-width:700px){
+    .row {
+        flex-direction: column;
+    }
+}
+
+
+
+
 
 @media (max-width: 700px){
     .text-box h1 {
