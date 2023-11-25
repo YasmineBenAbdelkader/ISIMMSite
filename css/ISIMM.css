@@ -1,68 +1,75 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Crimson Text', serif;
     
 }
 
-
-.header{
+.header {
     height: 650px;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7),rgba(4, 9, 30, 0.7)),url(../images/image1.jpg);
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/20.jpeg);
     background-position: center;
     background-size: cover;
     position: relative;
 }
-nav{
+
+nav {
     display: flex;
-    padding: 2% 6%;
+    padding: 1.5% 1%;
     justify-content: space-between;
     align-items: center;
+    background-color: #fff; /* Background color for the navbar */
+    box-shadow: 0 0 10px rgba(1, 1, 1, 0.1); /* Box shadow for a subtle lift */
 }
 
 nav img {
-    width: 150px;
-
+    width: 120px;
+    margin-right: 10px;
 }
 
-.nav-links{
+.nav-links {
     flex: 1;
     text-align: center;
-    
+}
 
+.nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links ul li {
     list-style: none;
     display: inline-block;
-    padding: 6px 25px;
+    margin: 0 15px; /* Add some spacing between navbar items */
+    padding: 10px 20px;
     position: relative;
     font-family: 'Canela Web', 'Cairo';
-    
 }
 
-.nav-links ul li a{
-    color: #f6eded;
+.nav-links ul li a {
+    color: #333; /* Text color for navbar items */
     text-decoration: none;
-    font-size: 19px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase; /* Uppercase text for a professional look */
 }
 
-
-.nav-links ul li::after{
+.nav-links ul li::after {
     content: '';
     width: 0px;
     height: 2px;
-    background: rgb(33, 111, 237);
-    display: block; 
+    background: var(--font-color);
+    display: block;
     margin: auto;
 }
 
-.nav-links ul li:hover::after{
-    width: 100px;
-
+.nav-links ul li:hover::after {
+    width: 100%;
 }
 
-.text-box{
+.text-box {
     width: 90%;
     color: #fff;
     position: absolute;
@@ -70,82 +77,55 @@ nav img {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-
 }
-.text-box h1{
+
+.text-box h1 {
     font-size: 70px;
-    
 }
 
-.text-box p{
+.text-box p {
     margin: 10px 0 40px;
     font-size: 18px;
-    color: #fff
+    color: #fff;
 }
 
-.text-box a{
-    margin: 10px 0 40px;
+.text-box a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
     font-size: 16px;
-    color: #fff;
-    
-    
-}
-.hero-btn-1{
-    display: inline-block;
-    text-decoration: none;
-    color: #fff;
-    border: 1px solid #fff;
-    padding: 12px 34px;
-    font-size: 13px;
     background: transparent;
+    transition: 1s;
     position: relative;
     cursor: pointer;
-    
-     
 }
-.hero-btn-1:hover{
-    border: 1px solid rgb(33, 111, 237);
-    background: rgb(33, 111, 237);
+
+.text-box a:hover {
+    border: 1px solid var(--font-color);
+    background: var(--font-color);
     transform: 1s;
 }
 
-.hero-btn-2{
-    display: inline-block;
-    text-decoration: none;
-    color: #fff;
-    border: 1px solid #fff;
-    padding: 12px 34px;
-    font-size: 13px;
-    background: transparent;
-    position: relative;
-    cursor: pointer;
-    left:1%;
-}    
-.hero-btn-2:hover{
-    border: 1px solid rgb(33, 111, 237);
-    background: rgb(33, 111, 237);
-    transform: 1s;
-}
-
-@media(max-width: 700px){
-    .text-box h1{
+@media (max-width: 700px) {
+    .text-box h1 {
         font-size: 50px;
-        
     }
+
     .nav-links ul li {
-       display: block;
-        
+        display: block;
+        margin: 10px 0; /* Add spacing between mobile navbar items */
     }
-    .nav-links{
-        position:absolute ;
-        background: rgb(33, 111, 237);
+
+    .nav-links {
+        position: absolute;
+        background: var(--font-color);
         height: 100vh;
         width: 200px;
         top: 0;
         right: 0;
         text-align: left;
         z-index: 2;
-
     }
-    
 }
