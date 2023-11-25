@@ -79,14 +79,11 @@ h1{
 #depDesc{
     text-align: center;
     padding-top: 20px;
-    font-size: 15px;
-
-
-
+    font-size: 17px;
 }
 p{
     color: #000;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 300;
     line-height:22px ;
     padding:10px;
@@ -123,8 +120,56 @@ p{
     .row {
         flex-direction: column;
     }
+    .row {
+        flex-direction: column;
+    }
 }
 /*------Infrastructure------*/
+.Infrastructure {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top:50 px;
+}
+#InfraDesc{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 17px;
+}
+.Infra-col {
+    flex-basis: 32%;
+    border-radius: 15px;
+    margin-bottom :30px;
+    position:relative;
+    overflow:hidden;
+}
+.Infra-col img {
+    width: 95%;
+    height: 95%;
+
+}
+.layer {
+    background: transparent;
+    height: 95%;
+    width:95%;
+    position: absolute;
+    top: 0;
+    left:10px;
+    transition: 0.5s;
+}
+#cour {
+    padding-top:250px;
+    color: transparent;
+
+
+}
+.layer:hover{
+    background: rgba(227, 233, 243, 0.7);
+}
+#cour:hover {
+    color: #0a0a0a;
+}
+
 
 
 
