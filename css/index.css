@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Crimson Text', serif;
-    --font-color : rgba(248, 180, 108, 0.882);
+    --font-color : #3586ff;
 }
 
 .header{
