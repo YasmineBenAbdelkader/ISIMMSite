@@ -1,6 +1,6 @@
 // navbar.js
 document.addEventListener('DOMContentLoaded', function () {
-    const navbarContainer = document.querySelector('.header object'); // Updated selector
+    const navbarContainer = document.querySelector('.header'); // Updated selector
     const navbarHtmlPath = '../html/Navbar.html'; // Update the path if necessary
 
     fetch(navbarHtmlPath)
