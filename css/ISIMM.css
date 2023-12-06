@@ -10,7 +10,7 @@
 .header {
     height: 650px;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/20.jpeg);
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/header2.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -158,13 +158,14 @@ nav img {
 }
 
 .content-1 p {
-    padding-top: 25px;
+    padding-top: 2px;
     font-size:20px;
     text-align: justify;
     
 }
 .content-1 img{
     margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 10px;
 
 }
@@ -181,7 +182,7 @@ nav img {
     margin: 0 10px; /* Add some margin between images */
     flex-basis: 32%;
     border-radius: 15px;
-    margin-bottom :30px;
+    margin-bottom :20px;
     position:relative;
     overflow:hidden;
     
@@ -311,4 +312,7 @@ nav img {
     color: rgba(247, 176, 9, 0.882);
 }
 
+footer{
+    margin-top:2%;
+}
 
