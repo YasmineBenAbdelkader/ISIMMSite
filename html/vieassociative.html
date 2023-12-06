@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ISIMM - Vie associative </title>
+        <link rel="stylesheet" href ="../css/vieassociative.css">
+        <!-- Add this to the head of your HTML document -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="../JS/clubs.js"></script>
+
+        <!-- Add this before the closing body tag -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </head>
+    
+    <body>
+        <section class="header">
+            <object type="text/html" data="Navbar.html" width="100%" height="auto"></object>
+    
+            <div class="text-box">
+                <h1>Vie associative </h1>
+                    <p>À l'ISIMM, la vie associative est le cœur battant de notre communauté étudiante<br> Elle offre  un éventail dynamique d'opportunités pour s'impliquer, apprendre et grandir. </p>
+                    <a href="#" class="hero-btn-1" id="bouton1" onclick="afficherContenu('bouton1')" data-section="sectionInformatique">Clubs d'informatique</a>
+                    <a href="#" class="hero-btn-2" id="bouton2" onclick="afficherContenu('bouton2')" data-section="sectionElectronique">Clubs d'électronique</a>
+                    <a href="#" class="hero-btn-3" id="bouton3"onclick="afficherContenu('bouton3')" data-section="sectionAutresClubs">Autres Clubs</a>
+                    
+            </div>
+        </section>
+       
+
+        <section class="content-1" id ="sectionInformatique">
+            <h1>Club d'Informatique</h1>
+            <p>Les clubs d'informatique au sein de l'ISIMM représentent des communautés énergiques où les étudiants partagent leur passion pour l'informatique et les mathématiques. À travers des événements variés et des projets collaboratifs, ces clubs offrent un espace stimulant pour le développement des compétences techniques et la création de liens au sein de la communauté estudiantine.</p>
+            <div class="container">
+                <div class="container">
+                    <div class="profil-box">
+                        <div class="position"> </div>
+                        <img src="../images/ieee.jpeg" alt="profile-image">
+                        <h3>IEEE ISIMM STUDENT BRANCH</h3>
+                        <p>Email: <a href="mailto:sb-isimm@ieee.org">sb-isimm@ieee.org</a></p>
+                    </div>
+
+                    <div class="profil-box">
+                        <div class="position"> </div>
+                        <img src="../images/atia.jpeg" alt="profile-image">
+                        <h3>ATIA ISIMM STUDENT BRANCH</h3>
+                    </div>
+                    <div class="profil-box">
+                        <div class="position"> </div>
+                        <img src="../images/bey.jpeg" alt="profile-image">
+                        <h3>THE BEY CODE</h3>
+                        <p>Email: <a href="mailto:sb-isimm@ieee.org">sb-isimm@ieee.org</a></p>
+                    </div>
+                    </div>
+                </div>        
+            </div>
+
+        </section>
+
+        <section class="content-1" id ="sectionElectronique">
+            <h1>Club d'Electronique</h1>
+            <p>Les clubs d'électronique à l'ISIMM forment une communauté dynamique et innovante où les étudiants partagent leur passion pour l'électronique et la technologie. Ces clubs offrent un environnement propice à l'apprentissage et à la collaboration, mettant en avant des projets stimulants et des activités variées. Des événements tels que des ateliers, des compétitions et des présentations permettent aux membres d'explorer les dernières avancées technologiques, de développer leurs compétences pratiques et de tisser des liens durables au sein de la communauté estudiantine de l'ISIMM.</p>
+            <div class="container">
+                <div class="container">
+                    <div class="profil-box">
+                        <div class="position"> </div>
+                        <img src="../images/cpu.jpeg" alt="profile-image">
+                        <h3>CYBER BOT UNIT</h3>
+                        <p>Email: <a href="mailto:sb-isimm@ieee.org">sb-isimm@ieee.org</a></p>
+                    </div>
+
+                    <div class="profil-box">
+                        <div class="position"> </div>
+                        <img src="../images/cri.jpeg" alt="profile-image">
+                        <h3>CLUB ROBOTIQUE ISIMM</h3>
+                    </div>
+                    
+                    </div>
+                </div>        
+            </div>
+
+        </section>
+         
+
+
+        <section class="content-1" id ="sectionAutresClubs">
+            <h1>Autre Clubs </h1>
+            <p>Au sein de la faculté de l'ISIMM, la richesse de la vie étudiante ne se limite pas aux domaines de l'informatique et de l'électronique. Divers clubs florissent, couvrant un éventail étendu d'intérêts. Des clubs artistiques stimulent la créativité, offrant aux étudiants la possibilité d'explorer les arts visuels et la production artistique. Les clubs de langues, tels que le club d'anglais, encouragent l'apprentissage linguistique et la compréhension interculturelle.</p>
+            <div class="container">
+                <div class="container">
+                    <div class="profil-box">
+                        <div class="position"> </div>
+                        <img src="../images/artmood.jpeg" alt="profile-image">
+                        <h3>CYBER BOT UNIT</h3>
+                        <p>Email: <a href="mailto:sb-isimm@ieee.org">sb-isimm@ieee.org</a></p>
+                    </div>
+
+                    <div class="profil-box">
+                        <div class="position"> </div>
+                        <img src="../images/tunivision.jpeg" alt="profile-image">
+                        <h3>CLUB ROBOTIQUE ISIMM</h3>
+                    </div>
+
+                    <div class="profil-box">
+                        <div class="position"> </div>
+                        <img src="../images/beats.jpeg" alt="profile-image">
+                        <h3>CLUB ROBOTIQUE ISIMM</h3>
+                    </div>
+                    </div>
+                </div>        
+            </div>
+
+        </section>
+         
+
+    </body>
+
