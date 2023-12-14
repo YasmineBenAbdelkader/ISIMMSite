@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Crimson Text', serif;
-    --font-color: #f8b46ce1;
+    --font-color: #3586ff;
     
     
 }
@@ -10,7 +10,7 @@
 .header {
     height: 650px;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/header2.jpg);
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/555.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -84,6 +84,7 @@ nav img {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: left;
+    
 }
 
 .text-box h1 {
@@ -96,6 +97,7 @@ nav img {
     font-size: 20px;
     color: #fff;
     margin-bottom: 15px;
+    
 }
 
 .text-box a {
@@ -153,20 +155,29 @@ nav img {
     font-weight: 600;
     border-bottom: 1px solid rgb(25, 25, 25); 
     padding-bottom: 25px;
-    
+   
 
 }
 
 .content-1 p {
-    padding-top: 2px;
-    font-size:20px;
+    font-size: 20px;
+    line-height: 1.5; /* Ajuste ce chiffre pour augmenter l'espace entre les lignes */
     text-align: justify;
-    
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
+
+.content-1 a {
+
+    color: #111;
+    text-decoration: none;
+
+}
+
 .content-1 img{
     margin-top: 20px;
-    margin-bottom: 20px;
     border-radius: 10px;
+    margin-bottom: 20px;
 
 }
 
@@ -182,18 +193,11 @@ nav img {
     margin: 0 10px; /* Add some margin between images */
     flex-basis: 32%;
     border-radius: 15px;
-    margin-bottom :20px;
     position:relative;
     overflow:hidden;
     
 }
-.image img {
-    width: 95%;
-    height: 95%;
-    
-    
 
-}
 .Equipe {
     width:80%;
     margin:auto;
@@ -232,13 +236,14 @@ nav img {
 
 .profil-box {
     width: 300px;
-    background: rgb(254, 248, 241);
+    background: rgb(255, 255, 255);
     text-align: center;
     padding: 20px;
     margin: 15px 0;
-    border: 2px solid rgba(248, 206, 108, 0.882);
+    border: 2px solid  #3586ff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
 }
 
 .profil-box img {
@@ -261,11 +266,11 @@ nav img {
 }
 
 .profil-box p{
-    text-align: left;
+    text-align: center;
 }
 
 .profil-box a{
-    color: rgba(91, 62, 3, 0.882);
+    color: rgba(33, 0, 139, 0.882);
 }
 
 .profil-box {
@@ -315,4 +320,12 @@ nav img {
 footer{
     margin-top:2%;
 }
+
+iframe{
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+    padding-top: 2%;
+}
+
 
