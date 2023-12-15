@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Crimson Text', serif;
+    --font-color: #3586ff;
+    
+    
+}
+
+.header {
+    height: 650px;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/photo2.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    flex: 1;
+}
+
+nav {
+    display: flex;
+    padding: 1.2% 1%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff; 
+    box-shadow: 0 0 10px rgba(1, 1, 1, 0.1);
+
+    
+}
+
+nav img {
+    width: 120px;
+    margin-right: 10px;
+    object-fit: contain;
+    border-right:  1px solid rgb(23, 19, 19);
+}
+
+.nav-links {
+    flex: 1;
+    text-align: center;
+}
+
+.nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 15px; /* Add some spacing between navbar items */
+    padding: 10px 20px;
+    position: relative;
+    font-family: 'Canela Web', 'Cairo';
+}
+
+.nav-links ul li a {
+    color: #333; /* Text color for navbar items */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase; /* Uppercase text for a professional look */
+}
+
+.nav-links ul li::after {
+    content: '';
+    width: 0px;
+    height: 2px;
+    background: var(--font-color);
+    display: block;
+    margin: auto;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
+.text-box {
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    
+}
+
+.text-box h1 {
+    font-size: 60px;
+    
+}
+
+.text-box p {
+    margin: 10px 0 40px;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 15px;
+    
+}
+
+.text-box a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 16px 34px;
+    font-size: 18px;
+    background: transparent;
+    transition: 1s;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+    
+}
+
+.text-box a:hover {
+    border: 1px solid var(--font-color);
+    background: var(--font-color);
+    transform: 1s;
+}
+
+/*Mou7awla met3 sub-Menu*/
+
+/*.sub-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    width: 240px;
+    height: auto;
+}
+
+.nav-links ul li {
+    position: relative; /
+
+
+}
+
+.nav-links ul li:hover .sub-menu {
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+}*/
+
+
+
+
+@media (max-width: 700px) {
+    .text-box h1 {
+        font-size: 50px;
+    }
+
+    .nav-links ul li {
+        display: block;
+        margin: 10px 0; /* Add spacing between mobile navbar items */
+    }
+
+    .nav-links {
+        position: absolute;
+        background: var(--font-color);
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: 0;
+        text-align: left;
+        z-index: 2;
+    }
+}
