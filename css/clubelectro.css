@@ -14,7 +14,7 @@
     background-size: cover;
     position: relative;
 }
-
+/*navbar*/
 nav {
     display: flex;
     padding: 1.2% 1%;
@@ -47,18 +47,18 @@ nav img {
 .nav-links ul li {
     list-style: none;
     display: inline-block;
-    margin: 0 15px; /* Add some spacing between navbar items */
+    margin: 0 15px; 
     padding: 10px 20px;
     position: relative;
     font-family: 'Canela Web', 'Cairo';
 }
 
 .nav-links ul li a {
-    color: #333; /* Text color for navbar items */
+    color: #333; 
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
-    text-transform: uppercase; /* Uppercase text for a professional look */
+    text-transform: uppercase; 
 }
 
 .nav-links ul li::after {
@@ -73,6 +73,26 @@ nav img {
 .nav-links ul li:hover::after {
     width: 100%;
 }
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    background-color: rgb(183, 207, 214);
+    width: 240px;
+    height: auto;
+}
+
+.nav-links ul li:hover .sub-menu {
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+/** fin NavBar**/
+
 
 .text-box {
     width: 90%;
@@ -147,6 +167,7 @@ nav img {
     margin:auto;
     text-align: center;
     padding-top: 30px;
+    padding-bottom: 30px;
     
 }
 
