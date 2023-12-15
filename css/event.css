@@ -4,15 +4,17 @@
     font-family: 'Crimson Text', serif;
     --font-color: #3586ff;
     
+    
 }
 
 .header {
     height: 650px;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/4.jpeg);
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/e2.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
+    flex: 1;
 }
 
 nav {
@@ -82,6 +84,7 @@ nav img {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: left;
+    
 }
 
 .text-box h1 {
@@ -94,6 +97,7 @@ nav img {
     font-size: 20px;
     color: #fff;
     margin-bottom: 15px;
+    
 }
 
 .text-box a {
@@ -116,6 +120,33 @@ nav img {
     background: var(--font-color);
     transform: 1s;
 }
+
+/*Mou7awla met3 sub-Menu*/
+
+/*.sub-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    width: 240px;
+    height: auto;
+}
+
+.nav-links ul li {
+    position: relative; /
+
+
+}
+
+.nav-links ul li:hover .sub-menu {
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+}*/
+
+
 
 
 @media (max-width: 700px) {
@@ -140,41 +171,46 @@ nav img {
     }
 }
 .content-1 {
-    
     width:80%;
     margin:auto;
     text-align: center;
     padding-top: 30px;
     
 }
-
 .content-1 h1{
     font-size:36px;
     font-weight: 600;
     border-bottom: 1px solid rgb(25, 25, 25); 
     padding-bottom: 25px;
-    
+   
 
 }
 
 .content-1 p {
-    padding-top: 25px;
-    font-size:20px;
+    font-size: 20px;
+    line-height: 1.5; /* Ajuste ce chiffre pour augmenter l'espace entre les lignes */
     text-align: justify;
-    
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
+
+.content-1 a {
+
+    color: #111;
+    text-decoration: none;
+
+}
+
 .content-1 img{
     margin-top: 20px;
     border-radius: 10px;
+    margin-bottom: 20px;
 
 }
 
 .row {
     display: flex;
 }
-
-
-
 .content-1 img:hover {
     box-shadow: 0 0 20px 0px rgba(4, 9, 30, 0.7);
 }
@@ -184,18 +220,11 @@ nav img {
     margin: 0 10px; /* Add some margin between images */
     flex-basis: 32%;
     border-radius: 15px;
-    margin-bottom :0px;
     position:relative;
     overflow:hidden;
     
 }
-.image img {
-    width: 90%;
-    height: 85%;
-    
-    
 
-}
 .Equipe {
     width:80%;
     margin:auto;
@@ -204,91 +233,44 @@ nav img {
     
 }
 
-/*content-2* met3 les clubs */
-.content-2 {
-    display: none;
-    width:80%;
-    margin:auto;
-    text-align: center;
-    padding-top: 30px;
-    
+/*equipe de l'isimm */
+
+.header-2 {
+    height: 650px;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/20.jpeg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }
 
-.content-2 h1{
-    font-size:36px;
+.content-1 h2{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 30px;
+    color: #020a0f;
     font-weight: 600;
-    border-bottom: 1px solid rgb(25, 25, 25); 
-    padding-bottom: 25px;
-    
-
+    display: inline-block; /* Ajout de cette ligne */
+    border-bottom: 1px solid #020609;
 }
 
-.content-2 p {
-    padding-top: 25px;
-    font-size:20px;
-    text-align: justify;
-    
-}
-.content-2 img{
-    margin-top: 20px;
-    border-radius: 10px;
-
-}
-
-.row {
-    display: flex;
-}
-
-
-
-.content-2 img:hover {
-    box-shadow: 0 0 20px 0px rgba(4, 9, 30, 0.7);
-}
-
-.image {
-    flex: 1;
-    margin: 0 10px; /* Add some margin between images */
-    flex-basis: 32%;
-    border-radius: 15px;
-    margin-bottom :0px;
-    position:relative;
-    overflow:hidden;
-    
-}
-.image img {
-    width: 90%;
-    height: 85%;
-    
-    
-
-}
-.Equipe {
-    width:80%;
-    margin:auto;
-    text-align: center;
-    padding-top: 30px;
-    
-}
-
-
-
-/*clubs*/
 .container {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
-.profil-box {
 
+.profil-box {
     width: 300px;
-    background: rgb(254, 248, 241);
+    background: rgb(255, 255, 255);
     text-align: center;
     padding: 20px;
     margin: 15px 0;
-    border: 2px solid rgba(248, 206, 108, 0.882);
+    border: 2px solid  #3586ff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
 }
 
 .profil-box img {
@@ -307,7 +289,6 @@ nav img {
     margin: 0;
     color: #333;
     font-weight: bold;
-    font-size: 18px;
   
 }
 
@@ -316,7 +297,7 @@ nav img {
 }
 
 .profil-box a{
-    color: rgba(91, 62, 3, 0.882);
+    color: rgba(33, 0, 139, 0.882);
 }
 
 .profil-box {
@@ -337,4 +318,41 @@ nav img {
 .profile-bottom p {
     font-size: 18px;
 }
+
+
+.learn-more {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    border: 2px solid #3498db;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+#arrow {
+    width: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.position {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgba(247, 176, 9, 0.882);
+}
+
+footer{
+    margin-top:2%;
+}
+
+iframe{
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+    padding-top: 2%;
+}
+
 
