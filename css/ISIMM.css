@@ -10,7 +10,7 @@
 .header {
     height: 650px;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/555.jpg);
+    background-image: linear-gradient(rgba(51, 35, 35, 0.7), rgba(43, 44, 45, 0.7)), url(../images/555.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -195,10 +195,13 @@ nav img {
 }
 
 .content-1 a {
+    color: #3586ff;
+    transition: color 0.3s ease; /* Transition de couleur au survol */
+}
 
-    color: #111;
-    text-decoration: none;
-
+.content-1 a:hover {
+    color: #5e7aa3; /* Couleur au survol de la souris */
+    transform: translateY(-5px); /* Translation de 5 pixels vers le haut */
 }
 
 .content-1 img{
@@ -354,5 +357,11 @@ iframe{
     width: 100%;
     padding-top: 2%;
 }
+#contentContainer {
+    display: none;
+}
+
+
+
 
 
