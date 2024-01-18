@@ -161,11 +161,11 @@ h1{
 #depDesc{
     text-align: center;
     padding-top: 20px;
-    font-size: 17px;
+    font-size: 20px;
 }
 p{
     color: #000;
-    font-size: 17px;
+    font-size:20px;
     font-weight: 300;
     line-height:22px ;
     padding:10px;
@@ -216,7 +216,7 @@ p{
 #InfraDesc{
     text-align: center;
     padding-top: 20px;
-    font-size: 17px;
+    font-size: 20px;
 }
 .Infra-col {
     flex-basis: 32%;
