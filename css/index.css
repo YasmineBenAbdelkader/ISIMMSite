@@ -61,7 +61,8 @@ nav img {
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
-    text-transform: uppercase; 
+    text-transform: uppercase;
+     
 }
 
 .nav-links ul li::after {
@@ -81,8 +82,8 @@ nav img {
     display: none;
     position: absolute;
     background-color: #fff;
-    background-color: rgb(183, 207, 214);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: rgb(254, 254, 254);
+    box-shadow: 0 16px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
     width: 300px;
     height: auto;

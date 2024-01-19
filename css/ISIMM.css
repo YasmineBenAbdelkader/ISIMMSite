@@ -10,7 +10,7 @@
 .header {
     height: 650px;
     width: 100%;
-    background-image: linear-gradient(rgba(51, 35, 35, 0.7), rgba(43, 44, 45, 0.7)), url(../images/555.jpg);
+    background-image: linear-gradient(rgba(51, 35, 35, 0.7), rgba(43, 44, 45, 0.7)), url(../images/31.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -68,35 +68,75 @@ nav img {
     content: '';
     width: 0px;
     height: 2px;
-    background: var(--font-color);
     display: block;
     margin: auto;
+    
 }
 
 .nav-links ul li:hover::after {
     width: 100%;
+    
 }
+.nav-links ul li a:hover {
+    color: var(--font-color);
+}
+
 
 .sub-menu {
     display: none;
     position: absolute;
     background-color: #fff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    background-color: rgb(183, 207, 214);
-    width: 240px;
-    height: auto;
+    width: 250px;
+    padding: 10px 0;
+    border-radius: 10px;
+    opacity: 0;
+    transform: scaleY(0.8);
+    transform-origin: top;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.sub-menu li {
+    padding: 12px 20px;
+    font-family: 'Canela Web', 'Cairo';
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 8px;
+}
+
+.sub-menu a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: none;
+    transition: color 0.3s;
+    display: block;
+}
+
+
+.sub-menu ul li a {
+    text-transform: lowercase; 
+}
+
+.sub-menu li:hover {
+    background-color: #f1f1f1;
+}
+
+.sub-menu li a:hover {
+    color: var(--font-color);
 }
 
 .nav-links ul li:hover .sub-menu {
     display: block;
     top: 100%;
-    left: 0;
-    right: 0;
+    opacity: 1;
+    transform: scaleY(1);
 }
+
 /** fin NavBar**/
 
-
+/** hero-slide**/
 .text-box {
     width: 90%;
     color: #fff;
@@ -142,32 +182,84 @@ nav img {
     transform: 1s;
 }
 
-/*Mou7awla met3 sub-Menu*/
-
-/*.sub-menu {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    width: 240px;
-    height: auto;
+/* Bouttons*/
+.text-box a.hero-btn-1,
+.text-box a.hero-btn-2 {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--font-color);
+    padding: 16px 32px;
+    font-size: 18px;
+    border: 2px solid var(--font-color);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    margin: 10px;
 }
 
-.nav-links ul li {
-    position: relative; /
-
-
+.text-box a.hero-btn-1:hover,
+.text-box a.hero-btn-2:hover {
+    background-color: transparent;
+    color: var(--font-color);
+    transform: translateY(-3px);
 }
 
-.nav-links ul li:hover .sub-menu {
-    display: block;
-    top: 100%;
-    left: 0;
-    right: 0;
-}*/
+.text-box a.hero-btn-2 {
+    background-color: transparent;
+    color: var(--font-color);
+    border-color: var(--font-color);
+}
 
+.text-box a.hero-btn-2:hover {
+    background-color: var(--font-color);
+    color: #fff;
+}
 
+.text-box a {
+    display: inline-block;
+}
+
+.text-box h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.text-box p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.text-box {
+    text-align: left;
+}
+
+/* Add subtle box-shadow for depth */
+.text-box a.hero-btn-1,
+.text-box a.hero-btn-2 {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/**nav slide**/
+.colored-slide {
+    background-color: #e1e1e1; /* Set your desired background color */
+    padding: 35px;
+    text-align: center;
+}
+
+.colored-slide h2 {
+    font-size: 22px;
+    color: #333; /* Set your desired text color */
+    font-weight: 200;
+}
+
+.colored-slide a {
+    font-size: 22px;
+    color: var(--font-color);
+    text-decoration: none; /* Remove underline */
+ 
+}
+
+/**fin hero-slide**/
 
 
 @media (max-width: 700px) {
@@ -292,7 +384,7 @@ nav img {
     padding: 20px;
     margin: 15px 0;
     border: 2px solid  #3586ff;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
 }
@@ -381,6 +473,10 @@ iframe{
 #contentContainer {
     display: none;
 }
+
+
+
+
 
 
 
