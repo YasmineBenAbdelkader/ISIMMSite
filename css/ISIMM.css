@@ -10,7 +10,7 @@
 .header {
     height: 650px;
     width: 100%;
-    background-image: linear-gradient(rgba(51, 35, 35, 0.7), rgba(43, 44, 45, 0.7)), url(../images/31.jpg);
+    background-image: linear-gradient(rgba(51, 35, 35, 0.7), rgba(43, 44, 45, 0.7)), url(../images/22.jpeg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -182,7 +182,7 @@ nav img {
     transform: 1s;
 }
 
-/* Bouttons*/
+/* Bouttons
 .text-box a.hero-btn-1,
 .text-box a.hero-btn-2 {
     display: inline-block;
@@ -232,7 +232,7 @@ nav img {
 .text-box {
     text-align: left;
 }
-
+*/
 /* Add subtle box-shadow for depth */
 .text-box a.hero-btn-1,
 .text-box a.hero-btn-2 {
@@ -309,7 +309,8 @@ nav img {
 
 .content-1 a {
     color: #3586ff;
-    transition: color 0.3s ease; /* Transition de couleur au survol */
+    transition: color 0.3s ease; 
+    text-decoration: none;
 }
 
 .content-1 a:hover {
@@ -369,24 +370,22 @@ nav img {
     display: inline-block; /* Ajout de cette ligne */
     border-bottom: 1px solid #020609;
 }
-
 .container {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
-
 .profil-box {
+
     width: 300px;
-    background: rgb(255, 255, 255);
+    background: rgb(254, 248, 241);
     text-align: center;
     padding: 20px;
     margin: 15px 0;
-    border: 2px solid  #3586ff;
-    border-radius: 20px;
+    border: 2px solid rgba(248, 206, 108, 0.882);
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
 }
 
 .profil-box img {
@@ -405,6 +404,7 @@ nav img {
     margin: 0;
     color: #333;
     font-weight: bold;
+    font-size: 18px;
   
 }
 
@@ -413,7 +413,7 @@ nav img {
 }
 
 .profil-box a{
-    color: rgba(33, 0, 139, 0.882);
+    color: rgba(91, 62, 3, 0.882);
 }
 
 .profil-box {
@@ -434,6 +434,8 @@ nav img {
 .profile-bottom p {
     font-size: 18px;
 }
+
+
 
 
 .learn-more {
