@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="profil-box">
                     <div class="position"></div>
-                    <img src="../images/person.jpg" alt="profile-image">
+                    <img src="../images/vieAsso1.jpg" alt="profile-image">
                     <h3>HAMDI MABROUK</h3>
                     <p>Email: <a href="mailto:autre@admin.com">hamdimabrouk305@gmail.com</a></p>
                     <div class="profile-bottom">
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <section class="content-1" id="Finance">
                 <div class="container">
                 <div class="profil-box">
-                    <img src="../images/person.jpg" alt="profile-image">
+                    <img src="../images/person2.jpg" alt="profile-image">
                     <h3>RESPONSABLE FINANCE</h3>
                     <p>WAFA MEZRIOUI</p>
                     <p>Email: <a href="mailto:directeur@admin.com">wafa.mezrioui@gmail.com
@@ -212,13 +212,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 <section class="content-1" id="Biblio">
                 <div class="container">
                 <div class="profil-box">
-                    <img src="../images/person.jpg" alt="profile-image">
+                    <img src="../images/person2.jpg" alt="profile-image">
                     <h3>BIBLIOTHÉCAIRE</h3>
                     <p>HAJER ABID</p>
                     <p>Email: <a href="mailto:directeur@admin.com">abidihajer11@gmail.com</a></p>
                 </div>
                 <div class="profil-box">
-                    <img src="../images/person.jpg" alt="profile-image">
+                    <img src="../images/person2.jpg" alt="profile-image">
                     <h3>CONSERVATEUR BIBLIOTHÈQUE</h3>
                     <p>SAWSSEN BEN REJEB</p>
                     <p>Email: <a href="mailto:directeur@admin.com"> sawssen.benrejeb@gmail.com

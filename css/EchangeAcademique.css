@@ -4,18 +4,18 @@
     font-family: 'Crimson Text', serif;
     --font-color: #3586ff;
     
-    
 }
 
 .header {
     height: 650px;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/e2.jpg);
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/eras2.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
-    flex: 1;
 }
+
+
 /*navbar*/
 nav {
     display: flex;
@@ -77,7 +77,7 @@ nav img {
     
 }
 .nav-links ul li a:hover {
-    color: #3586ff;
+    color: var(--font-color);
 }
 
 
@@ -123,7 +123,7 @@ nav img {
 }
 
 .sub-menu li a:hover {
-    color: #3586ff;
+    color: var(--font-color);
 }
 
 .nav-links ul li:hover .sub-menu {
@@ -135,28 +135,6 @@ nav img {
 
 /** fin NavBar**/
 
-/**nav slide**/
-.colored-slide {
-    background-color: #e1e1e1; /* Set your desired background color */
-    padding: 35px;
-    text-align: center;
-}
-
-.colored-slide h2 {
-    font-size: 22px;
-    color: #333; /* Set your desired text color */
-    font-weight: 200;
-}
-
-.colored-slide a {
-    font-size: 22px;
-    color: #3586ff;
-    text-decoration: none; /* Remove underline */
- 
-}
-/**fin **/
-
-
 .text-box {
     width: 90%;
     color: #fff;
@@ -165,7 +143,6 @@ nav img {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: left;
-    
 }
 
 .text-box h1 {
@@ -178,7 +155,6 @@ nav img {
     font-size: 20px;
     color: #fff;
     margin-bottom: 15px;
-    
 }
 
 .text-box a {
@@ -202,33 +178,26 @@ nav img {
     transform: 1s;
 }
 
-/*Mou7awla met3 sub-Menu*/
 
-/*.sub-menu {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    width: 240px;
-    height: auto;
+/**nav slide**/
+.colored-slide {
+    background-color: #e1e1e1; /* Set your desired background color */
+    padding: 35px;
+    text-align: center;
 }
 
-.nav-links ul li {
-    position: relative; /
-
-
+.colored-slide h2 {
+    font-size: 22px;
+    color: #333; /* Set your desired text color */
+    font-weight: 200;
 }
 
-.nav-links ul li:hover .sub-menu {
-    display: block;
-    top: 100%;
-    left: 0;
-    right: 0;
-}*/
-
-
-
+.colored-slide a {
+    font-size: 22px;
+    color: var(--font-color);
+    text-decoration: none; /* Remove underline */
+ 
+}
 
 @media (max-width: 700px) {
     .text-box h1 {
@@ -252,46 +221,44 @@ nav img {
     }
 }
 .content-1 {
+    
     width:80%;
     margin:auto;
     text-align: center;
     padding-top: 30px;
+    padding-bottom: 30px;
     
 }
+
 .content-1 h1{
     font-size:36px;
     font-weight: 600;
     border-bottom: 1px solid rgb(25, 25, 25); 
     padding-bottom: 25px;
-   
+    
 
 }
 
 .content-1 p {
-    font-size: 20px;
-    line-height: 1.5; /* Ajuste ce chiffre pour augmenter l'espace entre les lignes */
+    padding-top: 25px;
+    font-size:20px;
     text-align: justify;
-    padding-top: 2%;
-    padding-bottom: 2%;
+    padding-bottom: 15px;
+    line-height: 1.5; 
+    
 }
-
-.content-1 a {
-
-    color: #111;
-    text-decoration: none;
-
-}
-
 .content-1 img{
     margin-top: 20px;
     border-radius: 10px;
-    margin-bottom: 20px;
 
 }
 
 .row {
     display: flex;
 }
+
+
+
 .content-1 img:hover {
     box-shadow: 0 0 20px 0px rgba(4, 9, 30, 0.7);
 }
@@ -301,11 +268,18 @@ nav img {
     margin: 0 10px; /* Add some margin between images */
     flex-basis: 32%;
     border-radius: 15px;
+    margin-bottom :0px;
     position:relative;
     overflow:hidden;
     
 }
+.image img {
+    width: 90%;
+    height: 85%;
+    
+    
 
+}
 .Equipe {
     width:80%;
     margin:auto;
@@ -314,126 +288,99 @@ nav img {
     
 }
 
-/*equipe de l'isimm */
-
-.header-2 {
-    height: 650px;
-    width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/20.jpeg);
-    background-position: center;
-    background-size: cover;
-    position: relative;
+.content-2 {
+    padding: 50px; /* Adjust the padding as needed */
 }
+/* Existing styles remain unchanged */
 
-.content-1 h2{
-    text-align: center;
-    margin-top: 15px;
-    font-size: 30px;
-    color: #020a0f;
-    font-weight: 600;
-    display: inline-block; /* Ajout de cette ligne */
-    border-bottom: 1px solid #020609;
-}
-
-.container {
+.news-cards {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.profil-box {
+.news-card {
     width: 300px;
-    background: rgb(255, 255, 255);
-    text-align: center;
+    margin: 15px;
     padding: 20px;
-    margin: 15px 0;
-    border: 2px solid  #3586ff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    background-color: #fff;
+    overflow: hidden; /* Ensure that content doesn't overflow */
 }
 
-.profil-box img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 0 auto 15px;
+.news-card:hover {
+    transform: scale(1.05);
 }
 
-.profil-box:hover {
-    box-shadow: 0 0 20px 0px rgba(4, 9, 30, 0.7);
-}
-
-.profil-box h3{
-    margin: 0;
-    color: #333;
-    font-weight: bold;
-  
-}
-
-.profil-box p{
-    text-align: center;
-}
-
-.profil-box a{
-    color: rgba(33, 0, 139, 0.882);
-}
-
-.profil-box {
-    display: flex;
-    flex-direction: column;
-}
-
-.profile-bottom {
-    color: #555;
-    padding: 15px;
-    border-radius: 0 0 10px 10px;
-    flex-grow: 1;
-    margin-top: 10px;
-    flex-grow: 1;
-    font-size: 10PX;
-
-}
-.profile-bottom p {
-    font-size: 18px;
-}
-
-
-.learn-more {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 10px;
-    border: 2px solid #3498db;
-    padding: 8px 15px;
-    border-radius: 5px;
-}
-
-#arrow {
-    width: 15px;
-    margin-top: 15px;
-    cursor: pointer;
-}
-
-.position {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: rgba(247, 176, 9, 0.882);
-}
-
-footer{
-    margin-top:2%;
-}
-
-iframe{
-    padding-left: 10%;
-    padding-right: 10%;
+.news-card img {
     width: 100%;
-    padding-top: 2%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+
+.news-card:hover img {
+    transform: scale(1.1); /* Enlarge image on hover */
+}
+
+.news-card h3 {
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.news-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.news-card a {
+    padding-left: 180px;
+}
+
+/* Existing styles remain unchanged */
+
+/* Existing styles remain unchanged */
+
+/* Existing styles remain unchanged */
+
+.read-more, .hero-btn-1 {
+    text-decoration: none;
+    color: #007BFF; /* Set text color to your preference */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+.read-more:hover, .hero-btn-1:hover {
+    color: #0056b3; /* Change color on hover */
+}
+
+
+
+
+/* Add this style to your existing CSS */
+
+h2.h2 {
+    text-align: left;
+    padding: 10px 20px; /* Add padding to all sides for better spacing */
+    font-size: 25px; /* Increased font size for better visibility */
+    color: #007BFF; /* Change color to your preferred color */
+    margin-top: 0px; /* Adjusted margin for better spacing */
+    margin-bottom: 20px;
+    background-color: #f8f9fa; /* Add a subtle background color for emphasis */
+    border-left: 5px solid #007BFF; /* Add a left border for emphasis */
+}
+
+@media (max-width: 700px) {
+    h2.h2 {
+        font-size: 24px; /* Adjusted font size for smaller screens */
+    }
 }
 
 

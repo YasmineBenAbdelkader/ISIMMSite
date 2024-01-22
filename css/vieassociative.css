@@ -15,6 +15,8 @@
     position: relative;
 }
 
+
+/*navbar*/
 nav {
     display: flex;
     padding: 1.2% 1%;
@@ -47,32 +49,91 @@ nav img {
 .nav-links ul li {
     list-style: none;
     display: inline-block;
-    margin: 0 15px; /* Add some spacing between navbar items */
+    margin: 0 15px; 
     padding: 10px 20px;
     position: relative;
     font-family: 'Canela Web', 'Cairo';
 }
 
 .nav-links ul li a {
-    color: #333; /* Text color for navbar items */
+    color: #333; 
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
-    text-transform: uppercase; /* Uppercase text for a professional look */
+    text-transform: uppercase; 
 }
 
 .nav-links ul li::after {
     content: '';
     width: 0px;
     height: 2px;
-    background: var(--font-color);
     display: block;
     margin: auto;
+    
 }
 
 .nav-links ul li:hover::after {
     width: 100%;
+    
 }
+.nav-links ul li a:hover {
+    color: var(--font-color);
+}
+
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    width: 250px;
+    padding: 10px 0;
+    border-radius: 10px;
+    opacity: 0;
+    transform: scaleY(0.8);
+    transform-origin: top;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.sub-menu li {
+    padding: 12px 20px;
+    font-family: 'Canela Web', 'Cairo';
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 8px;
+}
+
+.sub-menu a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: none;
+    transition: color 0.3s;
+    display: block;
+}
+
+
+.sub-menu ul li a {
+    text-transform: lowercase; 
+}
+
+.sub-menu li:hover {
+    background-color: #f1f1f1;
+}
+
+.sub-menu li a:hover {
+    color: var(--font-color);
+}
+
+.nav-links ul li:hover .sub-menu {
+    display: block;
+    top: 100%;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/** fin NavBar**/
 
 .text-box {
     width: 90%;
@@ -118,6 +179,26 @@ nav img {
 }
 
 
+/**nav slide**/
+.colored-slide {
+    background-color: #e1e1e1; /* Set your desired background color */
+    padding: 35px;
+    text-align: center;
+}
+
+.colored-slide h2 {
+    font-size: 22px;
+    color: #333; /* Set your desired text color */
+    font-weight: 200;
+}
+
+.colored-slide a {
+    font-size: 22px;
+    color: var(--font-color);
+    text-decoration: none; /* Remove underline */
+ 
+}
+
 @media (max-width: 700px) {
     .text-box h1 {
         font-size: 50px;
@@ -145,6 +226,7 @@ nav img {
     margin:auto;
     text-align: center;
     padding-top: 30px;
+    padding-bottom: 30px;
     
 }
 
@@ -342,4 +424,11 @@ nav img {
 
 embed {
     padding-bottom: 30px;
+}
+
+.partenaires img{
+    width: 180px;
+    height: 130px;
+    margin-left: 10px;
+    border-radius: 10px;
 }
