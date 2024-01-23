@@ -4,8 +4,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ISIMM - Emplois de temps </title>
         <!-- Add this to the head of your HTML document -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/JiK3dFXT+Tt+kO5Rn5lZ9t0En" crossorigin="anonymous">
 
         <!-- Add this before the closing body tag -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -160,15 +158,9 @@
                 
             </select>
             <div id="imageContainer"></div>
-            <button href="#" class="back-button" onclick="goBack()">Retour</button>
+            <button class="back-button" onclick="goBack()">Retirer</button>
             <button onclick="showTimetable()">Choisir</button>
-            <img  src="../images/imprimante.png" alt="Imprimante" class="printer-icon">
-           
-            
-
-
-            
-            
+            <button class="print-button" onclick="window.print()">Imprimer</button>
         </section>
         <footer><script src="../JS/footer.js"></script></footer>
          
@@ -177,36 +169,33 @@
 
 <script>
     function showTimetable() {
-    var levelSelector = document.getElementById("levelSelector");
-    var selectedLevel = levelSelector.value;
+        var levelSelector = document.getElementById("levelSelector");
+        var selectedLevel = levelSelector.value;
 
-    var imageContainer = document.getElementById("imageContainer");
+        var imageContainer = document.getElementById("imageContainer");
 
-    // Utilisez une balise <img> pour charger l'image depuis le site distant
-    var imgElement = document.createElement("img");
-
-    switch (selectedLevel) {
-        case "ING1_INFO_TD1":
-            imgElement.src = 'http://www.isimm.rnu.tn/public/afficher_emploi/ING2_INFO_TD1';
-            imgElement.alt = "Emploi de temps pour Cycle Ingénieur";
-            break;
-        case "master":
-            imgElement.src = 'http://www.isimm.rnu.tn/public/emploi/master.jpg';
-            imgElement.alt = "Emploi de temps pour Master";
-            break;
-        default:
-            imageContainer.innerHTML = "<p>Sélection invalide</p>";
-            return; // Arrêtez la fonction si la sélection est invalide
+        switch (selectedLevel) {
+            case "ING1_INFO_TD1":
+                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
+                break;
+            case "master":
+                imageContainer.innerHTML = "<h1>Emploi de temps pour Master</h1><img src='path/to/master_image.jpg' alt='Master Group Image'>";
+                break;
+            default:
+                imageContainer.innerHTML = "<p>selection invalide</p>";
+        }
     }
-
-    // Efface le contenu précédent et ajoute l'élément image à l'imageContainer
-    imageContainer.innerHTML = "";
-    imageContainer.appendChild(imgElement);
-    }
-
 
     function goBack() {
         var imageContainer = document.getElementById("imageContainer");
         imageContainer.innerHTML = ""; // Efface le contenu de l'imageContainer pour revenir à l'état initial
     }
+
+    function printTimetable() {
+    setTimeout(function() {
+        document.execCommand('print', false, null);
+    }, 200);
+}
+
+
 </script>
