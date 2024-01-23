@@ -160,7 +160,7 @@
             <div id="imageContainer"></div>
             <button class="back-button" onclick="goBack()">Retirer</button>
             <button onclick="showTimetable()">Choisir</button>
-            <button class="print-button" onclick="window.print()">Imprimer</button>
+            <button onclick="printImage()">Imprimer</button>
         </section>
         <footer><script src="../JS/footer.js"></script></footer>
          
@@ -191,10 +191,41 @@
         imageContainer.innerHTML = ""; // Efface le contenu de l'imageContainer pour revenir à l'état initial
     }
 
-    function printTimetable() {
-    setTimeout(function() {
-        document.execCommand('print', false, null);
-    }, 200);
+    function printImage() {
+    var levelSelector = document.getElementById("levelSelector");
+    var selectedLevel = levelSelector.value;
+
+    var imageSource;
+    var imageAlt;
+
+    switch (selectedLevel) {
+        case "ING1_INFO_TD1":
+            imageSource = '../images/emploi.png';
+            imageAlt = 'Ingénieur Group Image';
+            break;
+        case "master":
+            imageSource = 'path/to/master_image.jpg';
+            imageAlt = 'Master Group Image';
+            break;
+        default:
+            alert("Sélection invalide");
+            return;
+    }
+
+    var printWindow = window.open('', '_blank');
+    printWindow.document.write('<html><head><title>Image à imprimer</title></head><body>');
+    printWindow.document.write('<h1>Emploi de temps</h1>');
+    printWindow.document.write('<img src="' + imageSource + '" alt="' + imageAlt + '">');
+    printWindow.document.write('</body></html>');
+    
+    printWindow.document.close(); // Ferme le flux d'écriture
+
+    printWindow.onload = function() {
+        printWindow.print();
+        printWindow.onafterprint = function() {
+            printWindow.close();
+        };
+    };
 }
 
 
