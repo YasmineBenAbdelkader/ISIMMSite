@@ -540,5 +540,9 @@ iframe{
     margin: 0 auto 15px;
 }
 
+.profil-boxDep:hover {
+    box-shadow: 0 0 20px 0px rgba(4, 9, 30, 0.7);
+}
+
 
 
