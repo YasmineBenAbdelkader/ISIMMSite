@@ -410,8 +410,12 @@ select option:hover {
     font-size: 16px;
     padding: 10px;
     margin: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 5px;
+
+}
+#levelSelector  {
+    width: 600px;
 }
 
 .content-1 button {
