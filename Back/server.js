@@ -1,32 +1,30 @@
-const express = require ("express")
-const app = express()
+const express = require("express");
 const cors = require('cors');
-require('dotenv').config()
-const secretKey = require("./Config/config")
-const path = require('path');
-const session = require('express-session');
+const etudiantRoute = require("./Routes/Etudiant");
 const database = require("./Config/database")
 
+const app = express();
+const PORT = process.env.PORT || 5000;
 
+app.use(cors({
+    origin: 'http://your-allowed-origin.com', // Adjust to your needs
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+}));
 
-const PORT = process.env.PORT || 5000
-app.listen(PORT,function(){
-    console.log(`server runing on http://localhost:${PORT}`)
-})
-
-
-
-
-const cookieParser = require('cookie-parser');
-app.use(cors());
-app.use(express.json())
-app.use(cookieParser());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(session({
-    secret: 'ISIMM',
-    resave: false,
-    saveUninitialized: false
-  }));
-  
 
+// Routes
+app.use("/etudiant", etudiantRoute);
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
