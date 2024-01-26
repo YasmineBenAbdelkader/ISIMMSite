@@ -4,7 +4,7 @@ const etudiantRoute = require("./Routes/Etudiant");
 const database = require("./Config/database")
 
 const app = express();
-const PORT = process.env.PORT || 5100;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors({
     origin: 'http://your-allowed-origin.com', // Adjust to your needs
