@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-const url = "mongodb+srv://mestirimouna2:4MOQJbguIcYHVjeznod@cluster0.xbpxrbq.mongodb.net/?retryWrites=true&w=majority"
+const url = "mongodb+srv://mestirimouna2:4MOQJbguIcYHVjez@cluster0.xbpxrbq.mongodb.net/ISIMMDB?retryWrites=false"
 
 async function connect() {
     try {
