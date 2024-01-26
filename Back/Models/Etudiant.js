@@ -302,6 +302,22 @@ const EtudiantSchema = new mongoose.Schema({
         default: null
 
     },
+
+    mot_de_passe: {
+        type: String,
+        required: false,
+        default: null
+        
+    },
+    inscri: {
+        type: Boolean,
+        default: false
+    }
+
+},baseOptions, 
+{
+    timestamps: true,
+    
 })
 
 const Etudiant = mongoose.model('Etudiant', EtudiantSchema);

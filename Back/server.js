@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/etudiant", etudiantRoute);
+app.use("/EmploiEtudiant", etudiantRoute);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
