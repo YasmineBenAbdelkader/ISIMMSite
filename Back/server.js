@@ -1,6 +1,10 @@
 const express = require("express");
 const cors = require('cors');
 const etudiantRoute = require("./Routes/Etudiant");
+const enseignantRoute = require("./Routes/Enseignant");
+const event4ctRoute = require("./Routes/Event4C");
+
+
 const database = require("./Config/database")
 
 const app = express();
@@ -19,6 +23,10 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use("/etudiant", etudiantRoute);
 app.use("/EmploiEtudiant", etudiantRoute);
+app.use('/enseignant', enseignantRoute);
+app.use('/event4c', event4ctRoute);
+
+
 
 // Error handling middleware
 app.use((err, req, res, next) => {

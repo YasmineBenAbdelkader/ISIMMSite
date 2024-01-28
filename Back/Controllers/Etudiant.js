@@ -263,7 +263,8 @@ findByIdEtudiant: async (req, res) => {
     return res.status(400).json({ message: 'ID does not exist.' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: `Une erreur est survenue lors de l'ajout de l'étudiant: ${error.message}` });
+    res.status(500).json({ message: `Une erreur est survenue lors de l'ajout de l'étudiant: ${error.message}` }
+    );
   }
 },
 
