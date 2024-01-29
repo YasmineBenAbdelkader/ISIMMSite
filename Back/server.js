@@ -6,6 +6,10 @@ const Actualite = require("./Routes/Actu");
 const OffreStageEmploi = require("./Routes/OffreStageEmploi");
 const Calendrier = require("./Routes/Calendrier");
 
+const enseignantRoute = require("./Routes/Enseignant");
+const event4ctRoute = require("./Routes/Event4C");
+
+
 const database = require("./Config/database")
 
 const app = express();
@@ -23,10 +27,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/etudiant", etudiantRoute);
-app.use("/EmploiDuTemps", EmploiDuTemps);
-app.use("/Actualite", Actualite);
-app.use("/Offre", OffreStageEmploi);
-app.use("/Calendrier", Calendrier);
+app.use("/EmploiEtudiant", etudiantRoute);
+app.use('/enseignant', enseignantRoute);
+app.use('/event4c', event4ctRoute);
+
+
 
 // Error handling middleware
 app.use((err, req, res, next) => {
