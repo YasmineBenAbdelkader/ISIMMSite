@@ -1,5 +1,3 @@
-// ... (Autres importations)
-
 const Etudiant = require('../Models/Etudiant');
 
 const etudiantController = {
