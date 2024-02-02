@@ -1,6 +1,6 @@
 const { Types } = require('mongoose');
 const Enseignant = require("../Models/Enseignant"); 
-const bcrypt = require('bcrypt'); 
+const bcrypt = require('bcryptjs'); 
 
 const enseignantController = {
     AjouterEnseignant: async (req, res) => {
@@ -13,7 +13,8 @@ const enseignantController = {
                 nom: req.body.nom,
                 prenom: req.body.prenom,
                 grade: req.body.grade, 
-                email: req.body.email // Assurez-vous que req.body.email est défini avec une valeur unique
+                email: req.body.email,
+                chefDep: req.body.chefDep,// Assurez-vous que req.body.email est défini avec une valeur unique
 
             });
 
@@ -185,6 +186,62 @@ const enseignantController = {
             res.status(500).json({ message: `Une erreur est survenue lors de la récupération des enseignants enregistrés: ${error.message}` });
         }
     },*/
+
+    findByChefDepInfo: async (req, res) => {
+        try {
+            const enseignantsInfo = await Enseignant.find({ chefDep: "INFO" });
+    
+            if (enseignantsInfo.length === 0) {
+                return res.status(404).json({ message: 'Aucun enseignant avec ChefDep INFO trouvé' });
+            }
+    
+            res.status(200).json({
+                message: 'Enseignants avec ChefDep INFO récupérés avec succès',
+                enseignantsInfo: enseignantsInfo,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
+
+    findByChefDepMath: async (req, res) => {
+        try {
+            const enseignantsMath = await Enseignant.find({ chefDep: "MATH" });
+    
+            if (enseignantsMath.length === 0) {
+                return res.status(404).json({ message: 'Aucun enseignant avec ChefDep MATH trouvé' });
+            }
+    
+            res.status(200).json({
+                message: 'Enseignants avec ChefDep MATH récupérés avec succès',
+                enseignantsMath: enseignantsMath,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
+    
+    findByChefDepEL: async (req, res) => {
+        try {
+            const enseignantsEL = await Enseignant.find({ chefDep: "EL" });
+    
+            if (enseignantsEL.length === 0) {
+                return res.status(404).json({ message: 'Aucun enseignant avec ChefDep EL trouvé' });
+            }
+    
+            res.status(200).json({
+                message: 'Enseignants avec ChefDep EL récupérés avec succès',
+                enseignantsEL: enseignantsEL,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
+    
+    
     
 
 };

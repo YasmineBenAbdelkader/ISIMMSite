@@ -103,12 +103,18 @@ const EnseignantSchema = new mongoose.Schema({
     required: false,
     default: null
     
-},
+    },
 
-enregistre: {
+    enregistre: {
     type: Boolean,
     default: false
-}
+    }, 
+
+    chefDep: {
+        type: String,
+        required: false,
+        default: null
+    }
 
 
 

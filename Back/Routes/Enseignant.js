@@ -9,6 +9,10 @@ Route.delete("/:id", Enseignant.SupprimerEnseignant);
 Route.post("/Enregistrer", Enseignant.EnregistrerEnseignant);
 Route.get("/:id", Enseignant.findByIdEnseignant);
 Route.get("/findByGrade/:grade", Enseignant.findByGrade);
+Route.get("/findByChefDep/INFO", Enseignant.findByChefDepInfo); // Nouvelle route
+Route.get("/findByChefDep/MATH", Enseignant.findByChefDepMath); // Nouvelle route
+Route.get("/findByChefDep/EL", Enseignant.findByChefDepEL); // Nouvelle route
+
 //Route.get('/enregistres', Enseignant.findAllEnseignantsEnregistres);
 
 //Route.get("/findOldestEnseignant", Enseignant.findOldestEnseignant);

@@ -5,6 +5,9 @@ const EmploiDuTemps = require("./Routes/EmploiDuTemps");
 const Actualite = require("./Routes/Actu");
 const OffreStageEmploi = require("./Routes/OffreStageEmploi");
 const Calendrier = require("./Routes/Calendrier");
+const AppelOffre = require("./Routes/AppelOffre");
+const PubAppelOffre = require("./Routes/PubAppelOffre");
+const EchangeAcad = require("./Routes/EchangeAcad");
 
 const enseignantRoute = require("./Routes/Enseignant");
 const event4ctRoute = require("./Routes/Event4C");
@@ -30,6 +33,9 @@ app.use("/etudiant", etudiantRoute);
 app.use("/EmploiEtudiant", etudiantRoute);
 app.use('/enseignant', enseignantRoute);
 app.use('/event4c', event4ctRoute);
+app.use('/appelOffre', AppelOffre);
+app.use('/PubAppelOffre', PubAppelOffre);
+app.use('/echangeAcad', EchangeAcad);
 
 
 

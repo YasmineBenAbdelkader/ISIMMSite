@@ -2,7 +2,7 @@
 
 const { Types } = require('mongoose');
 const Etudiant = require("../Models/Etudiant");
-const bcrypt = require('bcrypt'); // for hashing passwords
+const bcrypt = require('bcryptjs'); // for hashing passwords
 
 
 

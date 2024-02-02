@@ -1,4 +1,5 @@
 const Actualite = require('../Models/Actu'); 
+
 exports.AjouterActualite = async (req, res) => {
     try {
         const nouvelleActualite = new Actualite({
