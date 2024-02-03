@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Crimson Text', serif;
+    --font-color: #3586ff;
+    
+}
+
+.header {
+    height: 650px;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/eras2.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+
+/*navbar*/
+nav {
+    display: flex;
+    padding: 1.2% 1%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff; 
+    box-shadow: 0 0 10px rgba(1, 1, 1, 0.1);
+
+    
+}
+
+nav img {
+    width: 120px;
+    margin-right: 10px;
+    object-fit: contain;
+    border-right:  1px solid rgb(23, 19, 19);
+}
+
+.nav-links {
+    flex: 1;
+    text-align: center;
+}
+
+.nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 15px; 
+    padding: 10px 20px;
+    position: relative;
+    font-family: 'Canela Web', 'Cairo';
+}
+
+.nav-links ul li a {
+    color: #333; 
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase; 
+}
+
+.nav-links ul li::after {
+    content: '';
+    width: 0px;
+    height: 2px;
+    display: block;
+    margin: auto;
+    
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+    
+}
+.nav-links ul li a:hover {
+    color: var(--font-color);
+}
+
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    width: 250px;
+    padding: 10px 0;
+    border-radius: 10px;
+    opacity: 0;
+    transform: scaleY(0.8);
+    transform-origin: top;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.sub-menu li {
+    padding: 12px 20px;
+    font-family: 'Canela Web', 'Cairo';
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 8px;
+}
+
+.sub-menu a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: none;
+    transition: color 0.3s;
+    display: block;
+}
+
+
+.sub-menu ul li a {
+    text-transform: lowercase; 
+}
+
+.sub-menu li:hover {
+    background-color: #f1f1f1;
+}
+
+.sub-menu li a:hover {
+    color: var(--font-color);
+}
+
+.nav-links ul li:hover .sub-menu {
+    display: block;
+    top: 100%;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/** fin NavBar**/
+
+.text-box {
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+}
+
+.text-box h1 {
+    font-size: 60px;
+    
+}
+
+.text-box p {
+    margin: 10px 0 40px;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.text-box a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 16px 34px;
+    font-size: 18px;
+    background: transparent;
+    transition: 1s;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+    
+}
+
+.text-box a:hover {
+    border: 1px solid var(--font-color);
+    background: var(--font-color);
+    transform: 1s;
+}
+
+
+/**nav slide**/
+.colored-slide {
+    background-color: #e1e1e1; /* Set your desired background color */
+    padding: 35px;
+    text-align: center;
+}
+
+.colored-slide h2 {
+    font-size: 22px;
+    color: #333; /* Set your desired text color */
+    font-weight: 200;
+}
+
+.colored-slide a {
+    font-size: 22px;
+    color: var(--font-color);
+    text-decoration: none; /* Remove underline */
+ 
+}
+
+@media (max-width: 700px) {
+    .text-box h1 {
+        font-size: 50px;
+    }
+
+    .nav-links ul li {
+        display: block;
+        margin: 10px 0; /* Add spacing between mobile navbar items */
+    }
+
+    .nav-links {
+        position: absolute;
+        background: var(--font-color);
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: 0;
+        text-align: left;
+        z-index: 2;
+    }
+}
+.content-1 {
+    
+    width:80%;
+    margin:auto;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+}
+
+.content-1 h1{
+    font-size:36px;
+    font-weight: 600;
+    border-bottom: 1px solid rgb(25, 25, 25); 
+    padding-bottom: 25px;
+    
+
+}
+
+.content-1 p {
+    padding-top: 25px;
+    font-size:20px;
+    text-align: justify;
+    padding-bottom: 15px;
+    line-height: 1.5; 
+    
+}
+.content-1 img{
+    margin-top: 20px;
+    border-radius: 10px;
+
+}
+
+.row {
+    display: flex;
+}
+
+
+
+.content-1 img:hover {
+    box-shadow: 0 0 20px 0px rgba(4, 9, 30, 0.7);
+}
+
+.image {
+    flex: 1;
+    margin: 0 10px; /* Add some margin between images */
+    flex-basis: 32%;
+    border-radius: 15px;
+    margin-bottom :0px;
+    position:relative;
+    overflow:hidden;
+    
+}
+.image img {
+    width: 90%;
+    height: 85%;
+    
+    
+
+}
+.Equipe {
+    width:80%;
+    margin:auto;
+    text-align: center;
+    padding-top: 30px;
+    
+}
+
+.content-2 {
+    padding: 50px; /* Adjust the padding as needed */
+}
+/* Existing styles remain unchanged */
+
+.news-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.news-card {
+    width: 300px;
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    background-color: #fff;
+    overflow: hidden; /* Ensure that content doesn't overflow */
+}
+
+.news-card:hover {
+    transform: scale(1.05);
+}
+
+.news-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+
+.news-card:hover img {
+    transform: scale(1.1); /* Enlarge image on hover */
+}
+
+.news-card h3 {
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.news-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.news-card a {
+    padding-left: 180px;
+}
+
+/* Existing styles remain unchanged */
+
+/* Existing styles remain unchanged */
+
+/* Existing styles remain unchanged */
+
+.read-more, .hero-btn-1 {
+    text-decoration: none;
+    color: #007BFF; /* Set text color to your preference */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+.read-more:hover, .hero-btn-1:hover {
+    color: #0056b3; /* Change color on hover */
+}
+
+
+
+
+/* Add this style to your existing CSS */
+
+h2.h2 {
+    text-align: left;
+    padding: 10px 20px; /* Add padding to all sides for better spacing */
+    font-size: 25px; /* Increased font size for better visibility */
+    color: #007BFF; /* Change color to your preferred color */
+    margin-top: 0px; /* Adjusted margin for better spacing */
+    margin-bottom: 20px;
+    background-color: #f8f9fa; /* Add a subtle background color for emphasis */
+    border-left: 5px solid #007BFF; /* Add a left border for emphasis */
+}
+
+@media (max-width: 700px) {
+    h2.h2 {
+        font-size: 24px; /* Adjusted font size for smaller screens */
+    
+    }
+}
+
+/* ... Previous CSS code ... */
+
+/* ... Previous CSS code ... */
+
+.content-2 h2 {
+    font-size: 24px; /* Adjust font size as needed */
+    color: #000; /* Set text color to your preference */
+   
+}
+
+.content-2 p {
+    font-size: 19px; /* Adjust font size as needed */
+    color: #333; /* Set text color to your preference */
+    margin-bottom: 10px; /* Adjust margin as needed */
+    text-align: justify;
+    margin-right: 20px;
+    line-height: 1.5;
+}
+
+.image-and-paragraph {
+    display: flex;
+    align-items: center; /* Center vertically */
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+
+.image-and-paragraph img {
+    width: 50%; /* Adjust image width as needed */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    margin-right: 20px; /* Adjust margin as needed */
+  
+}
+
+.fa-calendar {
+    margin-left: 10px; /* Adjust margin as needed */
+    color: #007BFF; /* Set icon color to your preference */
+}
+
+/* ... Remaining CSS code ... */
+.partenaires {
+    margin-left: 160px;
+    margin-right: 10px;
+    align-items: center;
+}
+.partenaires img{
+    width: 180px;
+    height: 130px;
+    margin-left: 10px;
+    border-radius: 5px;
+    margin-top: 30px;
+    
+    
+}

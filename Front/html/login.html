@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login & Registration Form</title>
+  <link rel="stylesheet" href ="../css/login.css">
+  <script src="../JS/inscrire.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header>Se connecter</header>
+      <form action="#">
+        <input type="text" placeholder="E-mail" required>
+        <input type="password" placeholder="Mot de passe" required>
+        <a href="#">Mot de passe oublié ?</a>
+        <input type="button" class="button" value="Se connecter">
+      </form>
+      <div class="signup">
+        <span class="signup">Vous n'avez pas du compte 
+         <label for="check">S'inscrire</label>
+        </span>
+      </div>
+    </div>
+    <div class="registration form">
+      <header>S'inscrire</header>
+      <form action="#">
+        <input type="text" placeholder="E-mail" required>
+        <input type="text" placeholder="CIN" required>
+        <input type="text" placeholder="Numero du téléphone " required>
+        <input type="password" placeholder="Mot de passe"required >
+        <input type="password" placeholder="Confirmer votre  mot de passe"required>
+        <input type="button" class="button" value="S'inscrire">
+      </form>
+      <div class="signup">
+        <span class="signup">Vous avez déja un compte ?
+         <label for="check">Se connecter</label>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
