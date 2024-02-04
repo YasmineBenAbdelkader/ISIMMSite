@@ -8,7 +8,10 @@ Route.get("/findAll", Etudiant.findAllEtudiants);
 Route.get("/findByCycleSpecialiteNiveau", Etudiant.findByCycleSpecialiteNiveau);
 Route.get("/:id", Etudiant.findByIdEtudiant);
 Route.delete("/:id", Etudiant.SupprimerEtudiant);
-Route.post("/Inscrire",Etudiant.Inscrire);
+
+
+//Route.get("/AllInscrire",Etudiant.afficherEtudiantsInscrits);
+
 
 
 

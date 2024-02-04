@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require('cors');
-const etudiantRoute = require("./Routes/Etudiant");
 const EmploiDuTemps = require("./Routes/EmploiDuTemps");
 const Actualite = require("./Routes/Actu");
 const OffreStageEmploi = require("./Routes/OffreStageEmploi");
@@ -8,9 +7,15 @@ const Calendrier = require("./Routes/Calendrier");
 const AppelOffre = require("./Routes/AppelOffre");
 const PubAppelOffre = require("./Routes/PubAppelOffre");
 const EchangeAcad = require("./Routes/EchangeAcad");
-const enseignantRoute = require("./Routes/Enseignant");
 const event4ctRoute = require("./Routes/Event4C");
 const formRoute = require("./Routes/formulaire");
+const staffRoute = require("./Routes/staff");
+const clubRoute = require("./Routes/Club");
+const etudiantRoute = require("./Routes/Etudiant");
+const enseignantRoute = require("./Routes/Enseignant");
+
+
+
 
 
 const database = require("./Config/database")
@@ -37,6 +42,11 @@ app.use('/appelOffre', AppelOffre);
 app.use('/PubAppelOffre', PubAppelOffre);
 app.use('/echangeAcad', EchangeAcad);
 app.use('/form', formRoute);
+app.use('/staff', staffRoute);
+app.use('/club', clubRoute);
+
+
+
 
 
 
