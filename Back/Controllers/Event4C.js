@@ -14,6 +14,7 @@ const eventController = {
                 lieu: req.body.lieu,
                 date: req.body.date,
                 description:req.body.description,
+                nature_event:req.body.nature_event,
                 isLatest: true // Le nouvel événement est le plus récent
             });
 
@@ -183,6 +184,24 @@ const eventController = {
             res.status(500).json({ message: 'Une erreur est survenue lors de la recherche de l\'événement le plus récent' });
         }
     },*/
+
+    AfficheEventClub: async (req, res) => {
+        try {
+            const eventClub = await Event4C.find({ eventClub: true });
+    
+            if (eventClub.length === 0) {
+                return res.status(404).json({ message: 'Pas  evenement Clubs '});
+            }
+    
+            res.status(200).json({
+                message: 'Evenments Clubs récupérés avec succès',
+                eventClub: eventClub,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
     
     
 

@@ -49,6 +49,11 @@ const CSchema = new mongoose.Schema({
         default: null
 
     },
+    nature_event: { //est ce que 4c ou bien club 
+        type: string,
+        default: false,
+    },
+
     isLatest: {
         type: Boolean,
         default: false
