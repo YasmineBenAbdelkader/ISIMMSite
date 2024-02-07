@@ -8,17 +8,10 @@ const baseOptions = {
 }
 
 const EnseignantSchema = new mongoose.Schema({
-    ID: {
-        type: String,
-        required: true,
-        unique: true
-    },
 
-    matricule: {
+    cin: {
         type: String,
-        required: true,
-        unique: true
-
+        required: true
     },
     nom: {
         type: String,
@@ -28,9 +21,34 @@ const EnseignantSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    Poste: {
+        type: String,
+        required: false,
+        unique: true
+
+    },
+    adresse_email: {
+        type: String,
+        required: false,
+        default: null
+
+    },
+    num_telephone: {
+        type: String,
+        required: false,
+        default: null
+
+    },
+    mot_de_passe: {
+        type: String,
+        required: false,
+        default: null
+        
+    },
+
     grade: {
         type: String,
-        required: true
+        required: false
 
     },
     photo: {
@@ -39,7 +57,6 @@ const EnseignantSchema = new mongoose.Schema({
         default: null
 
     },
-    
     date_naissance: {
         type: Date,
         required: false,
@@ -51,17 +68,6 @@ const EnseignantSchema = new mongoose.Schema({
         required: false,
         default: null
 
-
-    },
-    email: {
-        type: String,
-        required: false,
-        default: null
-    },
-    telephone: {
-        type: String,
-        required: false,
-        default: null
 
     },
     diplomes: [{
@@ -104,7 +110,6 @@ const EnseignantSchema = new mongoose.Schema({
     default: null
     
     },
-
     enregistre: {
     type: Boolean,
     default: false

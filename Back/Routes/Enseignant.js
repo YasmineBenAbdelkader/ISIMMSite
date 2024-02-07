@@ -4,6 +4,7 @@ const Route = express.Router();
 const Enseignant = require("../Controllers/Enseignant"); // Assurez-vous que le chemin d'accès vers votre contrôleur est correct
 
 Route.post("/create", Enseignant.AjouterEnseignant);
+Route.post("/Inscrire",Enseignant.Inscrire);
 Route.get("/findAll", Enseignant.findAllEnseignant);
 Route.delete("/:id", Enseignant.SupprimerEnseignant);
 Route.post("/Enregistrer", Enseignant.EnregistrerEnseignant);

@@ -34,18 +34,8 @@ const FormController = {
           res.status(500).json({ error: 'Erreur lors de l\'enregistrement de l\'formulaire' });
         }
       }
-      
-
-
-
-
-
-
+    
     };
-
-
-
-
 
 
 module.exports = FormController;
