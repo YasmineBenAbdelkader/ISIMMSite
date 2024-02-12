@@ -11,7 +11,7 @@ exports.AjouterOffreStageEmploi = async (req, res) => {
             description: req.body.description,
             photo: req.files['photo'] ? req.files['photo'][0].filename : null,
             files: req.files['files'] ? req.files['files'].map(files => files.filename) : null,
-            formulaire: req.body.formulaire, 
+            formulaire: req.body.formulaire,
         });
         
         const OffreStageEmploiEnregistre = await nouvelleOffreStageEmploi.save();

@@ -14,7 +14,6 @@ const Calendrier = require("./Routes/Calendrier");
 const AppelOffre = require("./Routes/AppelOffre");
 const PubAppelOffre = require("./Routes/PubAppelOffre");
 const EchangeAcad = require("./Routes/EchangeAcad");
-const enseignantRoute = require("./Routes/Enseignant");
 const event4ctRoute = require("./Routes/Event4C");
 const formRoute = require("./Routes/formulaire");
 
@@ -57,6 +56,11 @@ app.use('/appelOffre', AppelOffre);
 app.use('/PubAppelOffre', PubAppelOffre);
 app.use('/echangeAcad', EchangeAcad);
 app.use('/form', formRoute);
+app.use('/staff', staffRoute);
+app.use('/club', clubRoute);
+
+
+
 
 
 

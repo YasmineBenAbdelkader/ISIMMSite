@@ -12,6 +12,9 @@ Route.get("/:id", Etudiant.findByIdEtudiant);
 Route.delete("/:id", Etudiant.SupprimerEtudiant);
 
 
+//Route.get("/AllInscrire",Etudiant.afficherEtudiantsInscrits);
+
+
 
 
 

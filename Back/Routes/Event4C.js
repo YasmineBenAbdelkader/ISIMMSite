@@ -9,6 +9,10 @@ Route.post("/Enregistrer", Event4C.EnregistrerEvenement);
 Route.get("/:id", Event4C.findByIdEvent);
 Route.put("/:id", Event4C.ModifierDateEvent);
 Route.put("/updateLieu/:id", Event4C.ModifierLieuEvent);
+Route.get("/eventClub", Event4C.AfficheEventClub);// me temshish 
+
+
+
 //Route.get("/findClosestEvent", Event4C.findLatestEvent); // Nouvelle route
 
 

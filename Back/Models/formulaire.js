@@ -25,7 +25,6 @@ const FormSchema = new mongoose.Schema({
     num_insc :{
         type:String,
         required: false,
-        default:null
 
 
     },
@@ -33,36 +32,30 @@ const FormSchema = new mongoose.Schema({
     groupe :{
         type:String,
         required: false,
-        default:null
 
 
     },
     cin2 :{
         type:String,
         required: false,
-        default:null
 
 
     },
     cause_demande :{
         type:String,
         required: false,
-        default:null
 
 
     },
     num_tel :{
         type:String,
         required: false,
-        defaut:null
 
     },
     
     doc_admini: {
         type: String,
-        enum: ['Certificat de démarcation', 'Carte dEtudiant', 'Relevet de note', 'Certificat de fin dEtudes', 'Autres'],
         required: false ,
-        default:null
 
     },
 
@@ -70,17 +63,34 @@ const FormSchema = new mongoose.Schema({
     faute :{
         type:String,
         required: false,
-        defaut:null
 
 
     },
     annee_univ : {
         type:String,
         required: false,
-        defaut:null
 
 
     },
+    etabli2 :{
+        type:String,
+        required: false,
+    },
+    langue : {
+        type:String,
+        required: false,
+
+    },
+    etat : {
+        type:String,
+        required: false,
+        default:"non_traite"
+    },
+    type : {
+        type:String,
+        required: true,
+
+    }
 
 
 

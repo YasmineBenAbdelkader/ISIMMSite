@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Dashboard Admin</title>
+    <title>Emplois Etudiants</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -41,6 +41,8 @@
         </div>
         <!-- Spinner End -->
 
+
+   
 
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
@@ -259,287 +261,97 @@
             </nav>
             <!-- Navbar End -->
 
+            <!-- Table End -->
+            <br> <br> <br>
+            <div class="col-12">
+                <div class="bg-light rounded h-100 p-4">
+                    <h6 class="mb-4">Liste des emplois étudiants</h6>
+                    
+                    <div class="mb-3">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option value="#">Choisir</option>
+                        <option value="CPI_1_TD1">CPI_1_TD1</option>
+                        <option value="CPI_1_TD2">CPI_1_TD2</option>
+                        <option value="CPI_2_TD1">CPI_2_TD1</option>
+                        <option value="CPI_2_TD2">CPI_2_TD2</option>
+                        <option value="ING1_EL_TD1">ING1_EL_TD1</option>
+                        <option value="ING2_EL_TD1">ING2_EL_TD1</option>
+                        <option value="ING3_EL_TD1">ING3_EL_TD1</option>
+                        <option value="ING3_EL_TD2">ING3_EL_TD2</option>
+                        <option value="ING1_INFO_TD1">ING1_INFO_TD1</option>
+                        <option value="ING1_INFO_TD2">ING1_INFO_TD2</option>
+                        <option value="L1Info_TD1">L1Info_TD1</option>
+                        <option value="L1Info_TD2">L1Info_TD2</option>
+                        <option value="L1Info_TD3">L1Info_TD3</option>
+                        <option value="L1Info_Td4">L1Info_Td4</option>
+                        <option value="L1_EEA_Td1">L1_EEA_Td1</option>
+                        <option value="L1_EEA_Td2">L1_EEA_Td2</option>
+                        <option value="L1_EEA_Td3">L1_EEA_Td3</option>
+                        <option value="L1_MATH_Td1">L1_MATH_Td1</option>
+                        <option value="L2_MATH_Td1">L2_MATH_Td1</option>
+                        <option value="L2_MIM_Td1">L2_MIM_Td1</option>
+                        <option value="L1_TIC_Td1">L1_TIC_Td1</option>
+                        <option value="L1_TIC_Td2">L1_TIC_Td2</option>
+                        <option value="L1_TIC_Td3">L1_TIC_Td3</option>
+                        <option value="master">L1Info_TD7</option>
+                        <option value="ing">L2Info_TD1</option>
+                        <option value="L2Info_TD2">L2Info_TD2</option>
+                        <option value="L2Info_TD3">L2Info_TD3</option>
+                        <option value="L2Info_TD4">L2Info_TD4</option>
+                        <option value="L2Info_Td5">L2Info_Td5</option>
+                        <option value="L2_SE_Td1">L2_SE_Td1</option>
+                        <option value="L2_SE_Td2">L2_SE_Td2</option>
+                        <option value="L2_TIC_Td1">L2_TIC_Td1</option>
+                        <option value="L2_TIC_Td2">L2_TIC_Td2</option>
+                        <option value="L3Info_TD1">L3Info_TD1</option>
+                        <option value="L3Info_TD2">L3Info_TD2</option>
+                        <option value="L3Info_TD3">L3Info_TD3</option>
+                        <option value="L3Info_Td4">L3Info_Td4</option>
+                        <option value="L3Info_Td5">L3Info_Td5</option>
+                        <option value="L3_MATH_Td1">L3_MATH_Td1</option>
+                        <option value="L3_SE_Td1">L3_SE_Td1</option>
+                        <option value="L3_SE_Td2">L3_SE_Td2</option>
+                        <option value="L3_SE_Td3">L3_SE_Td3</option>
+                        <option value="L3_TIC_Td1">L3_TIC_Td1</option>
+                        <option value="L3_TIC_Td2">L3_TIC_Td2</option>
+                        <option value="MP1_GL_Td2">MP1_GL_Td2</option>
+                        <option value="MP1_III_Td2">MP1_III_Td2</option>
+                        <option value="MP1_SD_Td2">MP1_SD_Td2</option>
+                        <option value="MP2_GL_Td2">MP2_GL_Td2</option>
+                        <option value="MP2_III_Td2">MP2_III_Td2</option>
+                        <option value="MP2_SD_Td2">MP2_SD_Td2</option>
+                        <option value="MR1_EL_Td2">MR1_EL_Td2</option>
+                        <option value="MR1_GL_Td2">MR1_GL_Td2</option>
+                        <option value="MR2_EL_Td2">MR2_EL_Td2</option>
+                        <option value="MR2_GL_Td2">MR2_GL_Td2</option>
+                        
+                        </select>
+                    </div>
 
-            <!-- Sale & Revenue Start -->
+                    <button type="submit" class="btn btn-primary">Rechercher</button>
+
+                </div>
+
+                <button type="button" class="btn btn-danger m-2">Supprimer</button>
+
+            </div>
+        
+    <!-- Table End -->
+
+
+            <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
+                <div class="bg-light rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Mouna Mestiri & Yasmine Ben AbdelKader</a>, All Right Reserved. 
                         </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-area fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Sale & Revenue End -->
-
-
-            <!-- Sales Chart Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light text-center rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Worldwide Sales</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <canvas id="worldwide-sales"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light text-center rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Salse & Revenue</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <canvas id="salse-revenue"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Sales Chart End -->
-
-
-            <!-- Recent Sales Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Salse</h6>
-                        <a href="">Show All</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-dark">
-                                    <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Invoice</th>
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- Recent Sales End -->
-
-
-            <!-- Widgets Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Messages</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                    <span>Short message goes here...</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                    <span>Short message goes here...</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                    <span>Short message goes here...</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center pt-3">
-                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                    <span>Short message goes here...</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Calender</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div id="calender"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">To Do List</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <input class="form-control bg-transparent" type="text" placeholder="Enter task">
-                                <button type="button" class="btn btn-primary ms-2">Add</button>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox" checked>
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span><del>Short task goes here...</del></span>
-                                        <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center pt-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Widgets End -->
-
-
-           <!-- Footer Start -->
-           <div class="container-fluid pt-4 px-4">
-            <div class="bg-light rounded-top p-4">
-                <div class="row">
-                    <div class="col-12 col-sm-6 text-center text-sm-start">
-                        &copy; <a href="#">Mouna Mestiri & Yasmine Ben AbdelKader</a>, All Right Reserved. 
-                    </div>
-                    <div class="col-12 col-sm-6 text-center text-sm-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
+            <!-- Footer End -->
         </div>
         <!-- Content End -->
 
