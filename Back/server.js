@@ -7,23 +7,26 @@ const path = require('path');
 const session = require('express-session');
 
 const etudiantRoute = require("./Routes/Etudiant");
-const EmploiDuTemps = require("./Routes/EmploiDuTemps");
-const Actualite = require("./Routes/Actu");
-const OffreStageEmploi = require("./Routes/OffreStageEmploi");
-const Calendrier = require("./Routes/Calendrier");
-const AppelOffre = require("./Routes/AppelOffre");
-const PubAppelOffre = require("./Routes/PubAppelOffre");
-const EchangeAcad = require("./Routes/EchangeAcad");
+const EmploiDuTempsRoute = require("./Routes/EmploiDuTemps");
+const ActualiteRoute = require("./Routes/Actu");
+const OffreStageEmploiRoute = require("./Routes/OffreStageEmploi");
+const CalendrierRoute = require("./Routes/Calendrier");
+const AppelOffreRoute = require("./Routes/AppelOffre");
+const PubAppelOffreRoute = require("./Routes/PubAppelOffre");
+const EchangeAcadRoute = require("./Routes/EchangeAcad");
 const event4ctRoute = require("./Routes/Event4C");
 const formRoute = require("./Routes/formulaire");
+const staffRoute = require("./Routes/staff");
+const clubRoute = require("./Routes/Club");
+const enseignantRoute = require("./Routes/Enseignant");
 
 
 
 const app = express();
-const PORT = process.env.PORT || 5050;
+const PORT = process.env.PORT || 5501;
 
 app.use(cors({
-    origin: 'http://your-allowed-origin.com', // Adjust to your needs
+    origin: '*', // Adjust to your needs
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
@@ -49,20 +52,19 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/etudiant", etudiantRoute);
-app.use("/EmploiEtudiant", etudiantRoute);
+app.use("/EmploiDuTemps", EmploiDuTempsRoute);
 app.use('/enseignant', enseignantRoute);
 app.use('/event4c', event4ctRoute);
-app.use('/appelOffre', AppelOffre);
-app.use('/PubAppelOffre', PubAppelOffre);
-app.use('/echangeAcad', EchangeAcad);
+app.use('/appelOffre', AppelOffreRoute);
+app.use('/PubAppelOffre', PubAppelOffreRoute);
+app.use('/echangeAcad', EchangeAcadRoute);
 app.use('/form', formRoute);
 app.use('/staff', staffRoute);
 app.use('/club', clubRoute);
-
-
-
-
-
+app.use('/EmploiDuTemps', EmploiDuTempsRoute);
+app.use('/Actualite', ActualiteRoute);
+app.use('/OffreStageEmploi', OffreStageEmploiRoute);
+app.use('/Calendrier', CalendrierRoute);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -70,6 +72,20 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something went wrong!');
 });
 
+
+//routing 
+
+
+
+
+
+
+
+
+
+
+
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://172.16.50.90:${PORT}`);
 });
+

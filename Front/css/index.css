@@ -536,3 +536,7 @@ p{
     color: #999; /* Assurer la cohérence de la couleur */
     text-align: center;
 }
+
+#user {
+    padding-top: 10px;
+}

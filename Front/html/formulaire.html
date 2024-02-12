@@ -137,21 +137,21 @@
                                 <div class="user-details">
                                   <div class="input-box">
                                     <span class="details">Nom</span>
-                                    <input type="text" placeholder="Entrez Votre  Nom" required>                                  <br>
+                                    <input type="text" id="nom" placeholder="Entrez Votre  Nom" required>                                  <br>
                                   </div>
                                   <br>
                                   <div class="input-box">
                                     <span class="details">Prénom</span>
-                                    <input type="text" placeholder="Entrez Votre Prénom" required>
+                                    <input type="text" id="prenom" placeholder="Entrez Votre Prénom" required>
                                   </div>
                                   <div class="input-box">
                                     <span class="details">CIN /Passeport</span>
-                                    <input type="text" placeholder="Entrez Votre CIN/ Passeport" required>
+                                    <input type="text" id="cin" placeholder="Entrez Votre CIN/ Passeport" required>
                                   </div>
                                   
                                   <div class="input-box">
                                     <span class="details">Num Inscription </span>
-                                    <input type="text" placeholder="Entrez Votre Num d'inscription" required>
+                                    <input type="text" id="num_inscri" placeholder="Entrez Votre Num d'inscription" required>
                                   </div>
                                   <div class="input-box">
                                     <span class="details"> Groupe</span>
@@ -211,17 +211,14 @@
                                       <option value="MR1_GL_Td2">MR1_GL_Td2</option>
                                       <option value="MR2_EL_Td2">MR2_EL_Td2</option>
                                       <option value="MR2_GL_Td2">MR2_GL_Td2</option>
-                                      
                                   </select>                                  </div>
-
                                   <div class="input-box">
                                     <span class="details"> CIN Etudiant 2</span>
-                                    <input type="text" placeholder="Entrez Votre CIN" required>
+                                    <input type="text" id="cin_2" placeholder="Entrez Votre CIN" required>
                                   </div>
                                 </div>
-                                
                                 <div class="button">
-                                  <input type="submit" value="Envoyer">
+                                  <input onclick="submitForm()" type="submit" value="Envoyer">
                                 </div>
                               </form>
                             </div>
