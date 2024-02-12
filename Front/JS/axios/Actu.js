@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime';
 import axios from 'axios';
 
-const BASE_URL = 'http://172.16.50.90:5501';
+const BASE_URL = 'http://localhost:5501';
 
 export const ObtenirDernieresActualites = async () => {
     try {
