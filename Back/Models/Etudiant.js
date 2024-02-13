@@ -7,16 +7,49 @@ const baseOptions = {
 }
 
 const EtudiantSchema = new mongoose.Schema({
-    ID: {
+    
+    // Les champs d'inscription 
+    cin: {
         type: String,
-        required: true,
-        unique: true
-
+        required: true
+    },
+    nom: {
+        type: String,
+        required: false,
+    },
+    prenom: {
+        type: String,
+        required: false,
 
     },
-    num_inscription: {
+    Poste: {
+        type: String,
+        required: false,
+        unique: true
+
+    },
+    adresse_email: {
+        type: String,
+        required: false,
+        default: null
+
+    },
+    num_telephone: {
+        type: String,
+        required: false,
+        default: null
+
+    },
+    mot_de_passe: {
         type: String,
         required: true,
+        default: null
+        
+    },
+    // Fin champs inscription
+    num_inscription: {
+        type: String,
+        required: false,
         unique: true
 
     },
@@ -26,14 +59,7 @@ const EtudiantSchema = new mongoose.Schema({
         default: null
 
     },
-    nom: {
-        type: String,
-        required: true
-    },
-    prenom: {
-        type: String,
-        required: true
-    },
+    
     date_naissance: {
         type: Date,
         required: false,
@@ -98,26 +124,6 @@ const EtudiantSchema = new mongoose.Schema({
         type: String,
         required: false,
         default: null
-
-    },
-    num_telephone: {
-        type: String,
-        required: false,
-        default: null
-
-    },
-    adresse_email: {
-        type: String,
-        required: false,
-        /*validate: {
-        validator: function(value) {
-            // Utiliser une expression régulière pour vérifier si la valeur est une adresse e-mail valide
-            // L'exemple suivant utilise une expression régulière simple, vous pouvez ajuster selon vos besoins.
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-        },
-        message: 'Veuillez entrer une adresse e-mail valide'
-    }*/
-    default: null
 
     },
     profession: {
@@ -297,13 +303,6 @@ const EtudiantSchema = new mongoose.Schema({
         default: null
 
     },
-
-    mot_de_passe: {
-        type: String,
-        required: false,
-        default: null
-        
-    },
     inscri: {
         type: Boolean,
         default: false
@@ -314,6 +313,7 @@ const EtudiantSchema = new mongoose.Schema({
     timestamps: true,
     
 })
+
 
 const Etudiant = mongoose.model('Etudiant', EtudiantSchema);
 module.exports = Etudiant;

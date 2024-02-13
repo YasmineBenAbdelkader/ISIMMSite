@@ -200,6 +200,7 @@ h1{
     text-align: center;
     padding-top: 20px;
     font-size: 20px;
+    color: #666;
 }
 p{
     color: #000;
@@ -251,15 +252,19 @@ p{
     text-align: center;
     padding-top: 50 px;
 }
+#infra {
+    margin-bottom: 0px;
+}
 #InfraDesc{
     text-align: center;
     padding-top: 20px;
     font-size: 20px;
+    color: #666;
 }
 .Infra-col {
     flex-basis: 32%;
     border-radius: 15px;
-    margin-bottom :30px;
+    margin-bottom :px;
     position:relative;
     overflow:hidden;
 }
@@ -459,4 +464,79 @@ p{
     
 }
 
+/* CSS pour les actualités */
+.actualites {
+    padding: 50px 0;
+    text-align: center;
+}
 
+.actualites h1 {
+    margin-bottom: 30px;
+    font-size: 36px; /* Augmenter légèrement la taille du titre */
+    color: #333; /* Assurer la cohérence de la couleur */
+}
+
+.actualites-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.actualite {
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Augmenter légèrement l'ombre */
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    transition: transform 0.3s ease; /* Ajouter une transition fluide */
+}
+
+.actualite:hover {
+    transform: translateY(-5px); /* Ajouter un effet de levitation au survol */
+}
+
+.actualite img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px ;
+}
+
+.actualite h2 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 20px; /* Augmenter légèrement la taille du titre */
+}
+
+.actualite p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.actualite p:last-child {
+    margin-bottom: 0;
+}
+
+#actualité {
+    text-align: center; /* Centrer le texte horizontalement */
+    max-width: 80%; /* Limiter la largeur maximale du paragraphe à 80% de la largeur de son conteneur parent */
+    margin: 0 auto; /* Centrer le paragraphe horizontalement en utilisant des marges automatiques */
+    padding: 0 20px; /* Ajouter un peu d'espace sur les côtés */
+    font-size: 20px;
+    color: #666; /* Assurer la cohérence de la couleur */
+    font-weight: 400;
+}
+
+
+#DatePub {
+    font-size: 16px;
+    color: #999; /* Assurer la cohérence de la couleur */
+    text-align: center;
+}
+
+#user {
+    padding-top: 10px;
+}

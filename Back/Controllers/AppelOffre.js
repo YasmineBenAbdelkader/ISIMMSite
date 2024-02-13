@@ -3,7 +3,6 @@ const appelOffre = require('../Models/AppelOffre');
 exports.customParticipationMethod = async (req, res) => {
     try {
 
-        
 
         // Create a new instance of PubAppelOffre with form data
         const participationData = new appelOffre({
@@ -35,3 +34,22 @@ exports.customParticipationMethod = async (req, res) => {
     }
 };
 
+exports.getAppelsOffreByPublication = async (req, res) => {
+    try {
+        const pubAppelOffreId = req.params.PubAppelOffre;
+
+        // Utilisez la méthode find du modèle pour récupérer les appels d'offres par publication
+        const appelsOffre = await appelOffre.find({ PubAppelOffre: pubAppelOffreId });
+
+        res.status(200).json({
+            message: 'Appels d\'offre récupérés avec succès',
+            appelsOffre: appelsOffre,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: `Une erreur s'est produite lors de la récupération des appels d'offres : ${error.message}`,
+            error: error.stack,
+        });
+    }
+};

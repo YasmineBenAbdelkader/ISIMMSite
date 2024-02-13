@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -260,7 +261,7 @@
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Ajouter Etudiant</h6>
-                            <form>
+                            <form id="ajouterEtudiantForm">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">CIN</label>
                                     <input  class="form-control" id="exampleInputEmail1"
@@ -280,11 +281,6 @@
                                     <label for="exampleInputPassword1" class="form-label">Num inscription</label>
                                     <input  class="form-control" id="exampleInputPassword1">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Date de naissance</label>
-                                    <input class="form-control" id="exampleInputPassword1">
-                                </div>
-                                
                                 <button type="submit" class="btn btn-primary">Ajouter</button>
                             </form>
                         </div>
@@ -331,6 +327,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="Route/etudiant.js"></script>
 </body>
 
 </html>

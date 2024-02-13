@@ -1,6 +1,17 @@
 const { Types } = require('mongoose');
 const Enseignant = require("../Models/Enseignant"); 
-const bcrypt = require('bcryptjs'); 
+const bcrypt = require('bcryptjs');
+const nodemailer = require("nodemailer");
+const { generateToken } = require('../middlewares/auth');
+
+var transport = nodemailer.createTransport({
+  host: "smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "3635bf540a042a",
+    pass: "29a3bcd10fd439"
+  }
+});
 
 const enseignantController = {
     AjouterEnseignant: async (req, res) => {
@@ -31,6 +42,71 @@ const enseignantController = {
             res.status(500).json({ message: `Une erreur est survenue lors de l'ajout de l'enseignant: ${error.message}` });
         }
     },
+
+    Inscrire: async (req, res) => {
+        try {
+          const { mot_de_passe, ...rest } = req.body;
+    
+          if (!mot_de_passe) {
+            return res.status(400).json({ message: "Password is required" });
+          }
+    
+          const salt = bcrypt.genSaltSync(10)
+          const hashpassword = bcrypt.hashSync(req.body.mot_de_passe, salt)
+    
+          const nouvelenseignant = new Enseignant({
+            cin: req.body.cin,
+            Poste: req.body.Poste,
+            adresse_email: req.body.adresse_email,
+            num_telephone: req.body.num_telephone,
+            mot_de_passe: hashpassword, 
+            nom: req.body.nom,
+            prenom: req.body.prenom,
+          });
+    
+          const enseignantEnregistre = await nouvelenseignant.save();
+          const token = generateToken(enseignantEnregistre);
+    
+          transport.sendMail({
+            from: "myapp@gmail.com",
+            to: rest.adresse_email, 
+            cc: '',
+            bcc: "",
+            subject: "Welcome " + rest.nom,
+            text: "bonjour ",
+            html: `<!DOCTYPE html>
+            <html>
+            <head>
+              <meta charset="utf-8">
+              <meta http-equiv="x-ua-compatible" content="ie=edge">
+              <title>Welcome Email</title>
+            </head>
+            <body style="text-align: center;">
+              <h2>Hello ${rest.nom}! </h2>
+              <p>You have registred successfully </p>
+              <h3>Your login details are as follows:</h3>
+              <p>Username: ${rest.prenom} ${rest.nom} </p>
+              <p>Email: ${rest.adresse_email}</p>
+            </body>
+            </html>`,
+          }, function (err, info) {
+            if (err) {
+              console.log("error:", err)
+            } else {
+              console.log("Email Send successfully:", info + reponse, token)
+            }
+          });
+    
+          res.status(201).json({
+            message: 'enseignant ajouté avec succès',
+            enseignant: enseignantEnregistre,
+          });
+        } catch (error) {
+          console.error(error);
+          res.status(500).json({ message: `Une erreur est survenue lors de l'ajout de l'enseignant: ${error.message}` });
+        }
+      },
+  
 
 
     findAllEnseignant: async (req, res) => {

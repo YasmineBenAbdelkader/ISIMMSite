@@ -99,3 +99,34 @@ exports.AfficherDernieresPubs = async (req, res) => {
         });
     }
 };
+
+
+exports.AfficherTousEchangesAcad = async (req, res) => {
+    try {
+        // Récupérez tous les échanges académiques en triant par ordre décroissant d'ID (ou un autre champ de date)
+        const tousEchangesAcad = await EchangeAcad.find().sort({ _id: -1 });
+
+        // Formatez les dates au format "jj/mm/aaaa"
+        const echangesAcadFormates = tousEchangesAcad.map(echangeAcad => {
+            return {
+                _id: echangeAcad._id,
+                titre: echangeAcad.titre,
+                description: echangeAcad.description,
+                piece_jointe: echangeAcad.piece_jointe,
+                photo: echangeAcad.photo,
+                date_creation: moment(echangeAcad.date_creation).format('DD/MM/YYYY'),
+            };
+        });
+
+        res.status(200).json({
+            message: 'Tous les échanges académiques ont été récupérés avec succès',
+            echangesAcad: echangesAcadFormates,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: `Une erreur s'est produite lors de la récupération de tous les échanges académiques : ${error.message}`,
+            error: error.stack,
+        });
+    }
+};

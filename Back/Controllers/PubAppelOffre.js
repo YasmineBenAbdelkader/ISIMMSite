@@ -96,3 +96,33 @@ exports.AfficherDernieresPublications = async (req, res) => {
         });
     }
 };
+
+
+exports.AfficherToutesPublications = async (req, res) => {
+    try {
+        // Récupérez toutes les publications en triant par ordre décroissant d'ID (ou un autre champ de date)
+        const toutesPublications = await PubAppelOffre.find().sort({ _id: -1 });
+
+        // Formatez les dates au format "jj/mm/aaaa"
+        const publicationsFormatees = toutesPublications.map(publication => {
+            return {
+                _id: publication._id,
+                titre: publication.titre,
+                description: publication.description,
+                piece_jointe: publication.piece_jointe,
+                date_creation: moment(publication.date_creation).format('DD/MM/YYYY'),
+            };
+        });
+
+        res.status(200).json({
+            message: 'Toutes les publications ont été récupérées avec succès',
+            publications: publicationsFormatees,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: `Une erreur s'est produite lors de la récupération de toutes les publications : ${error.message}`,
+            error: error.stack,
+        });
+    }
+};

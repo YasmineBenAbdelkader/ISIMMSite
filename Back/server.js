@@ -1,24 +1,29 @@
 const express = require("express");
 const cors = require('cors');
-const EmploiDuTemps = require("./Routes/EmploiDuTemps");
-const Actualite = require("./Routes/Actu");
-const OffreStageEmploi = require("./Routes/OffreStageEmploi");
-const Calendrier = require("./Routes/Calendrier");
-const AppelOffre = require("./Routes/AppelOffre");
-const PubAppelOffre = require("./Routes/PubAppelOffre");
-const EchangeAcad = require("./Routes/EchangeAcad");
+const database = require("./Config/database");
+require('dotenv').config();
+const secretKey = require("./Config/Config");
+const path = require('path');
+const session = require('express-session');
+
+const etudiantRoute = require("./Routes/Etudiant");
+const EmploiDuTempsRoute = require("./Routes/EmploiDuTemps");
+const ActualiteRoute = require("./Routes/Actu");
+const OffreStageEmploiRoute = require("./Routes/OffreStageEmploi");
+const CalendrierRoute = require("./Routes/Calendrier");
+const AppelOffreRoute = require("./Routes/AppelOffre");
+const PubAppelOffreRoute = require("./Routes/PubAppelOffre");
+const EchangeAcadRoute = require("./Routes/EchangeAcad");
 const event4ctRoute = require("./Routes/Event4C");
 const formRoute = require("./Routes/formulaire");
 const staffRoute = require("./Routes/staff");
 const clubRoute = require("./Routes/Club");
-const etudiantRoute = require("./Routes/Etudiant");
 const enseignantRoute = require("./Routes/Enseignant");
 
 
 
 
 
-const database = require("./Config/database")
 
 /*const app = express();
 const PORT = process.env.PORT || 5000;
@@ -37,20 +42,19 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/etudiant", etudiantRoute);
-app.use("/EmploiEtudiant", etudiantRoute);
+app.use("/EmploiDuTemps", EmploiDuTempsRoute);
 app.use('/enseignant', enseignantRoute);
 app.use('/event4c', event4ctRoute);
-app.use('/appelOffre', AppelOffre);
-app.use('/PubAppelOffre', PubAppelOffre);
-app.use('/echangeAcad', EchangeAcad);
+app.use('/appelOffre', AppelOffreRoute);
+app.use('/PubAppelOffre', PubAppelOffreRoute);
+app.use('/echangeAcad', EchangeAcadRoute);
 app.use('/form', formRoute);
 app.use('/staff', staffRoute);
 app.use('/club', clubRoute);
-
-
-
-
-
+app.use('/EmploiDuTemps', EmploiDuTempsRoute);
+app.use('/Actualite', ActualiteRoute);
+app.use('/OffreStageEmploi', OffreStageEmploiRoute);
+app.use('/Calendrier', CalendrierRoute);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -61,3 +65,4 @@ app.use((err, req, res, next) => {
 app.listen(5000, () => {
     console.log(`Server running on http://localhost:${5000}`);
 });
+
