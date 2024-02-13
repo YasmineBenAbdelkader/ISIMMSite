@@ -20,15 +20,17 @@ const enseignantRoute = require("./Routes/Enseignant");
 
 const database = require("./Config/database")
 
-const app = express();
+/*const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-    origin: 'http://your-allowed-origin.com', // Adjust to your needs
+    origin: 'http://localhost:5000',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
-}));
+}));*/
+const app = express();
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -56,6 +58,6 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something went wrong!');
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+app.listen(5000, () => {
+    console.log(`Server running on http://localhost:${5000}`);
 });

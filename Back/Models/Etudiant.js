@@ -182,12 +182,7 @@ const EtudiantSchema = new mongoose.Schema({
         default: null
 
     },
-    section_bac: {
-        type: String,
-        required: false,
-        default: null
-
-    },
+    
     mention_bac: {
         type: String,
         required: false,
@@ -266,7 +261,7 @@ const EtudiantSchema = new mongoose.Schema({
         default: null
 
     },
-    telephone_parent: {
+    telephone_parent : {
         type: String,
         required: false,
         default: null

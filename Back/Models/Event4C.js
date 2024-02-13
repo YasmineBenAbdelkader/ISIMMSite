@@ -50,7 +50,7 @@ const CSchema = new mongoose.Schema({
 
     },
     nature_event: { //est ce que 4c ou bien club 
-        type: string,
+        type: String,
         default: false,
     },
 

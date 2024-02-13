@@ -29,9 +29,15 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="../admin/Router/listEtud.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+
 </head>
 
-<body>
+<body >
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -269,83 +275,62 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">CIN</th>
-                                    <th scope="col">NUM INSCRI</th>
-                                    <th scope="col">PHOTO</th>
-                                    <th scope="col">NOM</th>
-                                    <th scope="col">PRENOM</th>
-                                    <th scope="col">DATE NAISSANCE</th>
-                                    <th scope="col">LIEU NAISSANCE</th>
-                                    <th scope="col">NATIONALITE</th>
-                                    <th scope="col">NP JEUNE FILLE</th>
-                                    <th scope="col">NUM CNSS</th>
-                                    <th scope="col">ETAT MILITAIRE</th>
-                                    <th scope="col">ADRESSE </th>
-                                    <th scope="col">CODE POSTAL</th>
-                                    <th scope="col">NUM TELEPHONE</th>
-                                    <th scope="col">PROFESION</th>
-                                    <th scope="col">CYCLE</th>
-                                    <th scope="col">SPECIALITE</th>
-                                    <th scope="col">NIVEAU</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">num_inscription</th>
+                                    <th scope="col">photo</th>
+                                    <th scope="col">nom</th>
+                                    <th scope="col">prenom</th>
+                                    <th scope="col">date_naissance</th>
+                                    <th scope="col">lieu_naissance</th>
+                                    <th scope="col">nationalité</th>
+                                    <th scope="col">sexe</th>
+                                    <th scope="col">etat_civil</th>
+                                    <th scope="col">nom_prenom_jeune_fille</th>
+                                    <th scope="col">num_CNSS </th>
+                                    <th scope="col">etat_militaire</th>
+                                    <th scope="col">adresse</th>
+                                    <th scope="col">code_postal</th>
+                                    <th scope="col">num_telephone</th>
+                                    <th scope="col">adresse_email</th>
+                                    <th scope="col">profession</th>
+                                    <th scope="col">cycle</th>
+                                    <th scope="col">spécialité</th>
+                                    <th scope="col">niveau_etude</th>
                                     <th scope="col">TD</th>
                                     <th scope="col">TP</th>
-                                    <th scope="col">SITUATION</th>
-                                    <th scope="col">ANCIEN ETAB</th>
-                                    <th scope="col">BAC</th>
-                                    <th scope="col">SESSION BAC</th>
-                                    <th scope="col">MENTION</th>
-                                    <th scope="col">MOYENNE</th>
-                                    <th scope="col">PAYS</th>
-                                    <th scope="col">NOM PERE</th>
-                                    <th scope="col">PRENOM PERE</th>
-                                    <th scope="col">PROFESSION PERE</th>
-                                    <th scope="col">ETAB EMP PERE</th>
-                                    <th scope="col">NOM MERE</th>
-                                    <th scope="col">PRENOM MERE</th>
-                                    <th scope="col">PROFESSION MERE</th>
-                                    <th scope="col">ETAB EMP MERE</th>
-                                    <th scope="col">ADRESS PARENT</th>
-                                    <th scope="col">CODE POSTAL PARENT</th>
-                                    <th scope="col">TELE PARENT</th>
-                                    <th scope="col">NOM CONJOINT</th>
-                                    <th scope="col">PRENOM CONJOINT</th>
-                                    <th scope="col">PROFESSION CONJOINT</th>
-                                    <th scope="col">ETAB EMPL CONJOINT</th>
-                                    <th scope="col">NB ENFANTS</th>
+                                    <th scope="col">situation</th>
+                                    <th scope="col">ancien_etab</th>
+                                    <th scope="col">annee_bac</th>
+                                    <th scope="col">session_bac</th>
+                                    <th scope="col">mention_bac</th>
+                                    <th scope="col">moyenne_bac</th>
+                                    <th scope="col">pays_bac</th>
+                                    <th scope="col">nom_pére</th>
+                                    <th scope="col">prénom_pére</th>
+                                    <th scope="col">profession_pére</th>
+                                    <th scope="col">etab_employeur_pére</th>
+                                    <th scope="col">nom_mére</th>
+                                    <th scope="col">prénom_mére</th>
+                                    <th scope="col">profession_mére</th>
+                                    <th scope="col">etab_employeur_mére</th>
+                                    <th scope="col">adresse_parents</th>
+                                    <th scope="col">code_postal_parents</th>
+                                    <th scope="col">telephone_parent</th>
+                                    <th scope="col">nom_conjoint</th>
+                                    <th scope="col">prénom_conjoint</th>
+                                    <th scope="col">profession_conjoint</th>
+                                    <th scope="col">etab_employeur_conjoint</th>
+                                    <th scope="col">nb_enfant</th>
+                                    
 
 
 
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>jhon@email.com</td>
-                                    <td>USA</td>
-                                    <td>123</td>
-                                    <td>Member</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>mark@email.com</td>
-                                    <td>UK</td>
-                                    <td>456</td>
-                                    <td>Member</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>jacob@email.com</td>
-                                    <td>AU</td>
-                                    <td>789</td>
-                                    <td>Member</td>
-                                </tr>
+                            <tbody id="table-body">
+                                <!-- Les lignes statiques sont supprimées, elles seront remplies dynamiquement -->
                             </tbody>
+                            
                         </table>
 
                     </div>
@@ -380,7 +365,8 @@
     </div>
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/chart/chart.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
@@ -392,6 +378,55 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+   <!-- <script>
+        
+            axios.get('http://localhost:5000/etudiant/findAll')
+                .then(response => {
+                    // Handle successful response
+                    console.log('Response from backend:', response.data);
+                    
+                })
+                .catch(error => {
+                    // Handle error
+                    console.error('Error fetching data:', error);
+                });
+        
+    </script>-->
+    <script>
+        axios.get('http://localhost:5000/etudiant/findAll')
+            .then(response => {
+                // Handle successful response
+                console.log('Response from backend:', response.data);
+                
+                // Get the tbody element where you want to append the rows
+                const tableBody = document.getElementById('table-body');
+    
+                // Loop through each student in the response data
+                response.data.etudiants.forEach(student => {
+                    // Create a new table row
+                    const row = document.createElement('tr');
+    
+                    // Iterate over each property of the student object
+                    Object.values(student).forEach(value => {
+                        // Create a new table data cell
+                        const cell = document.createElement('td');
+                        // Set the text content of the cell to the value of the property
+                        cell.textContent = value;
+                        // Append the cell to the row
+                        row.appendChild(cell);
+                    });
+    
+                    // Append the row to the table body
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                // Handle error
+                console.error('Error fetching data:', error);
+            });
+    </script>
+    
+
 </body>
 
 </html>
