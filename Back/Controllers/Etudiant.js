@@ -257,18 +257,70 @@ const etudiantController = {
 
       findAllEtudiant: async (req, res) => {
         try {
-            // Utilisation de la méthode find() sans filtre pour récupérer tous les étudiants
-            const etudiants = await Etudiant.find();
+            // Utilisation de la méthode find() pour récupérer tous les étudiants
+            const etudiants = await Etudiant.find({}, { _id: 0 });
     
             res.status(200).json({
                 message: 'Liste de tous les étudiants récupérée avec succès',
-                etudiants: etudiants,
+                etudiants: etudiants.map(etudiant => ({
+                    cin: etudiant.cin,
+                    nom: etudiant.nom,
+                    prenom: etudiant.prenom,
+                    poste: etudiant.poste,
+                    adresse_email: etudiant.adresse_email,
+                    num_telephone: etudiant.num_telephone,
+                    num_inscription: etudiant.num_inscription,
+                    photo: etudiant.photo,
+                    date_naissance: etudiant.date_naissance,
+                    lieu_naissance: etudiant.lieu_naissance,
+                    nationalité: etudiant.nationalité,
+                    sexe: etudiant.sexe,
+                    etat_civil: etudiant.etat_civil,
+                    nom_prenom_jeune_fille: etudiant.nom_prenom_jeune_fille,
+                    num_CNSS: etudiant.num_CNSS,
+                    etat_militaire: etudiant.etat_militaire,
+                    adresse: etudiant.adresse,
+                    code_postal: etudiant.code_postal,
+                    profession: etudiant.profession,
+                    cycle: etudiant.cycle,
+                    spécialité: etudiant.spécialité,
+                    niveau_etude: etudiant.niveau_etude,
+                    TD: etudiant.TD,
+                    TP: etudiant.TP,
+                    situation: etudiant.situation,
+                    ancien_etab: etudiant.ancien_etab,
+                    annee_bac: etudiant.annee_bac,
+                    session_bac: etudiant.session_bac,
+                    mention_bac: etudiant.mention_bac,
+                    moyenne_bac: etudiant.moyenne_bac,
+                    pays_bac: etudiant.pays_bac,
+                    nom_pére: etudiant.nom_pére,
+                    prénom_pére: etudiant.prénom_pére,
+                    profession_pére: etudiant.profession_pére,
+                    etab_employeur_pére: etudiant.etab_employeur_pére,
+                    nom_mére: etudiant.nom_mére,
+                    prénom_mére: etudiant.prénom_mére,
+                    profession_mére: etudiant.profession_mére,
+                    etab_employeur_mére: etudiant.etab_employeur_mére,
+                    adresse_parents: etudiant.adresse_parents,
+                    code_postal_parents: etudiant.code_postal_parents,
+                    telephone_parent: etudiant.telephone_parent,
+                    nom_conjoint: etudiant.nom_conjoint,
+                    prénom_conjoint: etudiant.prénom_conjoint,
+                    profession_conjoint: etudiant.profession_conjoint,
+                    etab_employeur_conjoint: etudiant.etab_employeur_conjoint,
+                    nb_enfant: etudiant.nb_enfant,
+                    inscri: etudiant.inscri
+                }))
             });
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
         }
     },
+    
+    
+    
     
 
 
