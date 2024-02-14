@@ -11,7 +11,7 @@ const EtudiantSchema = new mongoose.Schema({
     // Les champs d'inscription 
     cin: {
         type: String,
-        required: true
+        required: false
     },
     nom: {
         type: String,
@@ -42,7 +42,7 @@ const EtudiantSchema = new mongoose.Schema({
     },
     mot_de_passe: {
         type: String,
-        required: true,
+        required: false,
         default: null
         
     },

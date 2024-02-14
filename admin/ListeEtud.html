@@ -275,11 +275,13 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">num_inscription</th>
-                                    <th scope="col">photo</th>
+                                    <th scope="col">CIN</th>
                                     <th scope="col">nom</th>
                                     <th scope="col">prenom</th>
+                                    <th scope="col">adresse_email</th>
+                                    <th scope="col">num_telephone</th>
+                                    <th scope="col">num_inscription</th>
+                                    <th scope="col">photo</th>
                                     <th scope="col">date_naissance</th>
                                     <th scope="col">lieu_naissance</th>
                                     <th scope="col">nationalité</th>
@@ -290,8 +292,6 @@
                                     <th scope="col">etat_militaire</th>
                                     <th scope="col">adresse</th>
                                     <th scope="col">code_postal</th>
-                                    <th scope="col">num_telephone</th>
-                                    <th scope="col">adresse_email</th>
                                     <th scope="col">profession</th>
                                     <th scope="col">cycle</th>
                                     <th scope="col">spécialité</th>
@@ -321,6 +321,8 @@
                                     <th scope="col">profession_conjoint</th>
                                     <th scope="col">etab_employeur_conjoint</th>
                                     <th scope="col">nb_enfant</th>
+                                    <th scope="col">inscri</th>
+
                                     
 
 
@@ -335,7 +337,6 @@
 
                     </div>
                 </div>
-                <button type="button" class="btn btn-danger m-2">Supprimer</button>
                 
 
             </div>
@@ -376,54 +377,71 @@
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
-   <!-- <script>
-        
-            axios.get('http://localhost:5000/etudiant/findAll')
-                .then(response => {
-                    // Handle successful response
-                    console.log('Response from backend:', response.data);
-                    
-                })
-                .catch(error => {
-                    // Handle error
-                    console.error('Error fetching data:', error);
-                });
-        
-    </script>-->
     <script>
         axios.get('http://localhost:5000/etudiant/findAll')
-            .then(response => {
-                // Handle successful response
-                console.log('Response from backend:', response.data);
-                
-                // Get the tbody element where you want to append the rows
-                const tableBody = document.getElementById('table-body');
-    
-                // Loop through each student in the response data
-                response.data.etudiants.forEach(student => {
-                    // Create a new table row
-                    const row = document.createElement('tr');
-    
-                    // Iterate over each property of the student object
-                    Object.values(student).forEach(value => {
-                        // Create a new table data cell
-                        const cell = document.createElement('td');
-                        // Set the text content of the cell to the value of the property
-                        cell.textContent = value;
-                        // Append the cell to the row
-                        row.appendChild(cell);
-                    });
-    
-                    // Append the row to the table body
-                    tableBody.appendChild(row);
-                });
-            })
-            .catch(error => {
-                // Handle error
-                console.error('Error fetching data:', error);
+    .then(response => {
+        // Handle successful response
+        console.log('Response from backend:', response.data);
+        
+        // Get the tbody element where you want to append the rows
+        const tableBody = document.getElementById('table-body');
+
+        // Loop through each student in the response data
+        response.data.etudiants.forEach(student => {
+            // Create a new table row
+            const row = document.createElement('tr');
+
+            // Iterate over each property of the student object
+            Object.values(student).forEach(value => {
+                // Create a new table data cell
+                const cell = document.createElement('td');
+                // Set the text content of the cell to the value of the property
+                cell.textContent = value;
+                // Append the cell to the row
+                row.appendChild(cell);
             });
+
+            row.setAttribute('data-id', student.cin);
+
+            // Append the row to the table body
+            tableBody.appendChild(row);
+
+            // Ajoutez un bouton de suppression à chaque ligne du tableau
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Supprimer';
+            deleteButton.classList.add('btn', 'btn-danger', 'supprimer-etudiant');
+            deleteButton.setAttribute('data-id', student.cin); // Assurez-vous de stocker l'ID de l'étudiant dans l'attribut data-id
+            row.appendChild(deleteButton);
+        });
+
+        // Sélectionnez tous les boutons de suppression une fois qu'ils ont été ajoutés
+        const boutonsSupprimer = document.querySelectorAll('.supprimer-etudiant');
+
+        // Ajoutez un gestionnaire d'événements de clic à chaque bouton de suppression
+        boutonsSupprimer.forEach(bouton => {
+            bouton.addEventListener('click', () => {
+                const idEtudiant = bouton.dataset.cin;
+                if (confirm('Êtes-vous sûr de vouloir supprimer cet étudiant ?')) {
+                    axios.delete(`http://localhost:5000/etudiant/${idEtudiant}`)
+                        .then(response => {
+                            console.log(response.data); // Afficher le message de succès ou d'erreur
+                            // Actualiser la liste des étudiants après la suppression si nécessaire
+                        })
+                        .catch(error => {
+                            console.error('Erreur lors de la suppression de l\'étudiant:', error);
+                            // Gérer les erreurs
+                        });
+                }
+            });
+        });
+    })
+    .catch(error => {
+        // Handle error
+        console.error('Error fetching data:', error);
+    });
+
+    
     </script>
     
 

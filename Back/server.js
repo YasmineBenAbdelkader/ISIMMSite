@@ -5,7 +5,6 @@ require('dotenv').config();
 const secretKey = require("./Config/Config");
 const path = require('path');
 const session = require('express-session');
-
 const etudiantRoute = require("./Routes/Etudiant");
 const EmploiDuTempsRoute = require("./Routes/EmploiDuTemps");
 const ActualiteRoute = require("./Routes/Actu");
