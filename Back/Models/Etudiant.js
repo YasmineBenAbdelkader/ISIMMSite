@@ -42,7 +42,7 @@ const EtudiantSchema = new mongoose.Schema({
     },
     mot_de_passe: {
         type: String,
-        required: true,
+        required: false,
         default: null
         
     },

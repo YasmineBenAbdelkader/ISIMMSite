@@ -98,7 +98,7 @@ exports.ObtenirDernieresActualites = async (req, res) => {
         // Utilisez la méthode find de Mongoose pour obtenir les 6 dernières actualités
         const dernieresActualites = await Actualite.find({})
             .sort({ date: -1 }) // Triez par ordre décroissant selon la date
-            .limit(6); // Limitez le résultat à 6 actualités
+            .limit(4); // Limitez le résultat à 6 actualités
 
         res.status(200).json({
             message: 'Les 6 dernières actualités ont été récupérées avec succès',
