@@ -18,10 +18,37 @@ const CSchema = new mongoose.Schema({
         required:true
     },
     date: {
-        type: Date,
+        type: String,
         required:true,
         default:null
     },
+    jour: {
+        type: Number,
+        required:false,
+        default:null
+    },
+    mois: {
+        type: String,
+        required:false,
+        default:null
+    },
+    
+    heure: {
+            type: Number,
+            required: false,
+            default: null
+    },
+    minute: {
+            type: Number,
+            required: false,
+            default: null
+    },
+    periode: {
+            type: String,
+            required: false,
+            default: null
+    },
+
     description: {
         type: String,
         required:true
@@ -54,10 +81,7 @@ const CSchema = new mongoose.Schema({
         default: false,
     },
 
-    isLatest: {
-        type: Boolean,
-        default: false
-    }
+
 
 
 

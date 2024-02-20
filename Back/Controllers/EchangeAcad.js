@@ -10,8 +10,8 @@ exports.AjouterEchangeAcad = async (req, res) => {
         const nouvelleEchangeAcad = new EchangeAcad({
             titre: req.body.titre,
             description: req.body.description,
-            piece_jointe: req.file ? req.file.filename : null,
-            photo: req.file ? req.file.filename : null,
+            piece_jointe: req.files['piece_jointe'] ? req.files['piece_jointe'][0].filename : null,
+            photo: req.files['photo'] ? req.files['photo'][0].filename : null,
         });
 
         const EchangeAcadEnregistre = await nouvelleEchangeAcad.save();
@@ -82,7 +82,7 @@ exports.AfficherDernieresPubs = async (req, res) => {
                 titre: publication.titre,
                 description: publication.description,
                 piece_jointe: publication.piece_jointe,
-                photo: publication.piece_jointe,
+                photo: publication.photo,
                 date_creation: moment(publication.date_creation).format('DD/MM/YYYY'),
             };
         });

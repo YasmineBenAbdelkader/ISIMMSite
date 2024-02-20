@@ -9,7 +9,7 @@
 .header{
     height: 650px;
     width:100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7),rgba(4, 9, 30, 0.7)),url(../images/14.jpeg);
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7),rgba(4, 9, 30, 0.7)),url(../images/22.jpeg);
     background-position: center;
     background-size:cover;
     position: relative;
@@ -35,9 +35,21 @@ nav img {
     border-right:  1px solid rgb(23, 19, 19);
 }
 
+.nav-links ul,
+#image {
+    display: flex;
+    align-items: center;
+}
+
+#image img {
+    width: 40px;
+    border-right:  0px solid rgb(253, 253, 253);
+}
+
 .nav-links {
     flex: 1;
     text-align: center;
+   
 }
 
 .nav-links ul {
@@ -219,7 +231,7 @@ p{
 }
 .dep-col{
     flex-basis: 31%;
-    background: rgb(128, 193, 217);
+    background:#7fb9f7;
 
     opacity:2 ;
     border-radius: 10px;
@@ -470,55 +482,55 @@ p{
     text-align: center;
 }
 
-.actualites h1 {
-    margin-bottom: 30px;
-    font-size: 36px; /* Augmenter légèrement la taille du titre */
-    color: #333; /* Assurer la cohérence de la couleur */
+.actualite h2 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 24px; /* Taille du titre */
+    font-weight: bold; /* Gras */
+    text-transform: uppercase; /* Mettre en majuscules */
+    letter-spacing: 1px; /* Espacement entre les lettres */
 }
 
+/* Contenu des actualités */
+.actualite p {
+    color: #666;
+    margin-bottom: 10px; /* Espacement inférieur */
+    font-size: 16px; /* Taille du texte */
+    line-height: 1.6; /* Espacement des lignes */
+}
+
+/* Conteneur des actualités */
 .actualites-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+/* Effet de survol des actualités */
 .actualite {
     width: 300px;
     background-color: #fff;
     border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Augmenter légèrement l'ombre */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px;
     padding: 20px;
     border-radius: 20px;
-    transition: transform 0.3s ease; /* Ajouter une transition fluide */
+    transition: transform 0.3s ease;
 }
 
 .actualite:hover {
-    transform: translateY(-5px); /* Ajouter un effet de levitation au survol */
+    transform: translateY(-5px);
 }
 
+/* Image des actualités */
 .actualite img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 20px ;
+    border-radius: 20px;
 }
 
-.actualite h2 {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    color: #333;
-    font-size: 20px; /* Augmenter légèrement la taille du titre */
-}
-
-.actualite p {
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.actualite p:last-child {
-    margin-bottom: 0;
-}
 
 #actualité {
     text-align: center; /* Centrer le texte horizontalement */
@@ -539,4 +551,44 @@ p{
 
 #user {
     padding-top: 10px;
+}
+
+#dernieres-actualites h1 {
+    padding-bottom: 10px;
+}
+
+#dernieres-actualites p {
+    padding-bottom: 45px;
+}
+/* Style for the PDF button */
+.pdf-button, .form-button {
+    padding: 8px 16px;
+    background-color: #3998fd;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.pdf-button:hover, .form-button:hover {
+    background-color: #0056b3;
+}
+
+/* Style pour le conteneur des boutons */
+.button-container {
+    margin-top: 10px; /* Ajout de marge en haut pour l'espacement */
+}
+
+/* Style pour que les boutons soient sur la même ligne */
+.button-container button {
+    display: inline-block;
+}
+
+
+
+iframe {
+    width: 100%;
+    height: 450px; /* Vous pouvez ajuster la hauteur selon vos besoins */
 }

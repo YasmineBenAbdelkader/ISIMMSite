@@ -11,6 +11,7 @@ exports.AjouterappelOffre = async (req, res) => {
             titre: req.body.titre,
             description: req.body.description,
             piece_jointe: req.file ? req.file.filename : null,
+            date: getDateFormatted(),
         });
 
         const pubAppelOffreEnregistre = await nouvellePubAppelOffre.save();
@@ -29,6 +30,14 @@ exports.AjouterappelOffre = async (req, res) => {
         });
     }
 };
+
+function getDateFormatted() {
+    const currentDate = new Date();
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1; // Les mois commencent à 0, donc ajoutez 1
+    const year = currentDate.getFullYear();
+    return `${day}/${month}/${year}`;
+}
 
 // Suppression par admin
 exports.SupprimerappelOffre = async (req, res) => {

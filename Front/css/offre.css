@@ -342,63 +342,49 @@ nav img {
     margin-bottom: 20px;
 }
 .event-card {
-    border: 1px solid #fcf1d9;
-    align-items: center;
-    border-radius: 0px; /* Réduction du rayon de bordure */
-    margin: 0px; /* Réduction de la marge */
-    padding: 10px; /* Réduction de l'espacement intérieur */
-    width: 77%; /* Réduction de la largeur des cartes */
+    border-radius: 10px;
+    margin: 30px;
+    margin-right: 270px;
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    background-color: #fff;
+    transition: box-shadow 0.3s, transform 0.3s; /* Ajout de transition pour l'ombre et l'échelle */
+}
+
+.event-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+    transform: translateY(-5px); /* Légère translation vers le haut au survol */
+}
+
+.event-details {
+    text-align: left;
+}
+
+.event-buttons {
     display: flex;
-    flex-direction: row; /* Utilisation d'une disposition en ligne pour les nouvelles cartes */
+    justify-content: center;
+    margin-top: 15px;
 }
 
-.event-date {
-    flex: 0 0 15%; /* Réduction de la largeur de la colonne date */
-    
-}
-
-.month-day {
-    background-color: var(--font-color);
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    border-radius: 30px;
-    font-size: 55px;
-    width: 100%; 
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0px;
-
-   
-}
-
-.event-card-content {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    padding-left: 30px;
-}
-.event-card-content button {
-    display: inline-block;
-    background-color: var(--font-color);
-    color: #ffffff;
+.event-buttons button {
+    margin: 0 5px;
     padding: 10px 20px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-left: 585px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Ajout de transition pour l'effet au survol */
 }
 
-.event-card-content button:hover {
-    background-color: #2980b9;
+.event-buttons button:hover {
+    background-color: #3586ff;
+    color: #fff;
+    transform: scale(1.05); /* Légère agrandissement au survol */
 }
+
+.event-buttons button i {
+    margin-right: 5px; /* Espacement entre l'icône et le texte */
+}
+
 
 img {
     width: 160px; 
@@ -527,3 +513,19 @@ img {
 }
 
 /*fin boutton ajout*/
+
+.event-details .event-buttons {
+    display: flex; /* Utilisation de flexbox pour aligner les boutons sur la même ligne */
+    justify-content: space-between; /* Espace uniformément les boutons sur la ligne */
+    align-items: center; /* Centre verticalement les boutons */
+}
+
+.event-details .event-buttons button {
+    flex: 1; /* Les boutons occupent une part égale de l'espace disponible */
+    margin: 0 5px; /* Ajoute une marge entre les boutons */
+}
+
+.event-card-content .event-details .event-buttons {
+    display: flex; /* Utilisation de flexbox pour aligner les boutons au centre */
+    justify-content: center; /* Centre les boutons horizontalement */
+}

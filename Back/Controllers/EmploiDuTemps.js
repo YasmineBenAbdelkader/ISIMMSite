@@ -6,10 +6,7 @@ exports.AjouterEmploi = async (req, res) => {
 
         // Vérifier si un emploi similaire existe déjà
         const emploiExistant = await EmploiDuTemps.findOne({
-            Cycle_etude: req.body.Cycle_etude,
-            specialite: req.body.specialite,
-            niveau_etude: req.body.niveau_etude,
-            Td: req.body.Td,
+            level: req.body.level,
             enseignant: req.body.enseignant,
         });
 
@@ -21,10 +18,7 @@ exports.AjouterEmploi = async (req, res) => {
         // Si l'emploi n'existe pas, créer un nouvel emploi
         const nouvelEmploi = new EmploiDuTemps({
             emploi: req.file ? req.file.filename : null,
-            Cycle_etude: req.body.Cycle_etude,
-            specialite: req.body.specialite,
-            niveau_etude: req.body.niveau_etude,
-            Td: req.body.Td,
+            level: req.body.level,
             enseignant: req.body.enseignant,
         });
 
@@ -58,6 +52,36 @@ exports.getEmploiByEnseignant = async (req, res) => {
 
         // Perform a case-insensitive partial match
         const emploiList = await EmploiDuTemps.find({ enseignant: { $regex: new RegExp(trimmedEnseignant, 'i') } });
+
+        // Logging for debugging
+        console.log('EmploiList:', emploiList);
+
+        res.status(200).json({
+            message: 'Emploi records retrieved successfully',
+            emploiList,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `An error occurred while retrieving Emploi records: ${error.message}`, error: error.stack });
+    }
+};
+
+
+exports.getEmploiByLevel = async (req, res) => {
+    try {
+        const { level } = req.params;
+
+        // Logging for debugging
+        console.log('Input level:', level);
+
+        // Trim leading and trailing spaces
+        const trimmedlevel = level.trim();
+
+        // Logging for debugging
+        console.log('Trimmed level:', trimmedlevel);
+
+        // Perform a case-insensitive partial match
+        const emploiList = await EmploiDuTemps.find({ level: { $regex: new RegExp(trimmedlevel, 'i') } });
 
         // Logging for debugging
         console.log('EmploiList:', emploiList);

@@ -1,5 +1,3 @@
-// ... (Autres importations)
-
 const { Types } = require('mongoose');
 const Event4C = require("../Models/Event4C");
 
@@ -7,23 +5,30 @@ const eventController = {
     AjouterEvent: async (req, res) => {
         try {
             console.log("Données reçues :", req.body);
-
+    
             const nouvelEvent = new Event4C({
                 ID: req.body.ID,
                 titre: req.body.titre,
                 lieu: req.body.lieu,
+                photo: req.file ? req.file.filename : null,
+                //date ajoutée par calendrier
                 date: req.body.date,
-                description:req.body.description,
-                nature_event:req.body.nature_event,
-                isLatest: true // Le nouvel événement est le plus récent
+                jour: req.body.jour,
+                mois: req.body.mois,
+                description: req.body.description,
+                nature_event: req.body.nature_event,
+                facebook: req.body.facebook,
+                insta: req.body.insta,
+                linkedin: req.body.linkedin,
+                heure: req.body.heure,
+                minute: req.body.minute,
+                periode: req.body.periode,
             });
-
-            await Event4C.updateMany({ _id: { $ne: newEvent._id } }, { $set: { isLatest: false } });
-
+    
             const eventEnregistre = await nouvelEvent.save();
-
+    
             console.log("Evenement ajouté :", eventEnregistre);
-
+    
             res.status(201).json({
                 message: 'Evenement ajouté avec succès',
                 evenement: eventEnregistre,
@@ -33,7 +38,7 @@ const eventController = {
             res.status(500).json({ message: `Une erreur est survenue lors de l'ajout de l'évenement: ${error.message}` });
         }
     },
-
+    
 
     findAllEvents: async (req, res) => {
         try {
@@ -202,14 +207,26 @@ const eventController = {
             res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
         }
     },
+
+    findLatestEvents: async (req, res) => {
+        try {
+            const latestEvents = await Event4C.find().sort({ date: -1 }).limit(6);
+            if (!latestEvents || latestEvents.length === 0) {
+                return res.status(404).json({ message: 'Aucun événement trouvé' });
+            }
+            res.status(200).json({
+                message: 'Les 6 derniers événements récupérés avec succès',
+                events: latestEvents,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue lors de la recherche des 6 derniers événements: ${error.message}` });
+        }
+    },
+
     
     
 
 };
-
-
-    
-    
-
 
 module.exports = eventController;

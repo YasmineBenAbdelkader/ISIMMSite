@@ -20,8 +20,8 @@ const PubAppelOffreSchema = new mongoose.Schema(
             required: false,
         },
         date: {
-            type: Date,
-            default: Date.now,
+            type: String,
+          
         },
         
     },

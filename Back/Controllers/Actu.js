@@ -8,6 +8,7 @@ exports.AjouterActualite = async (req, res) => {
             photo: req.files['photo'] ? req.files['photo'][0].filename : null,
             files: req.files['files'] ? req.files['files'].map(files => files.filename) : null,
             formulaire: req.body.formulaire, 
+            date: getDateFormatted(), // Utilisation de la fonction pour obtenir la date formatée
         });
         
         const actualiteEnregistre = await nouvelleActualite.save();
@@ -28,6 +29,13 @@ exports.AjouterActualite = async (req, res) => {
     }
 };
 
+function getDateFormatted() {
+    const currentDate = new Date();
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1; // Les mois commencent à 0, donc ajoutez 1
+    const year = currentDate.getFullYear();
+    return `${day}/${month}/${year}`;
+}
 
 
 exports.SupprimerActualite = async (req, res) => {

@@ -54,6 +54,7 @@ app.use('/EmploiDuTemps', EmploiDuTempsRoute);
 app.use('/Actualite', ActualiteRoute);
 app.use('/OffreStageEmploi', OffreStageEmploiRoute);
 app.use('/Calendrier', CalendrierRoute);
+app.use('/storage', express.static(path.join(__dirname, 'storage')));
 
 // Error handling middleware
 app.use((err, req, res, next) => {

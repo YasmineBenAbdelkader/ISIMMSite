@@ -36,9 +36,21 @@ nav img {
     border-right:  1px solid rgb(23, 19, 19);
 }
 
+.nav-links ul,
+#image {
+    display: flex;
+    align-items: center;
+}
+
+#image img {
+    width: 40px;
+    border-right:  0px solid rgb(253, 253, 253);
+}
+
 .nav-links {
     flex: 1;
     text-align: center;
+   
 }
 
 .nav-links ul {
@@ -135,6 +147,7 @@ nav img {
 }
 
 /** fin NavBar**/
+
 
 /** hero-slide**/
 .text-box {
@@ -349,6 +362,7 @@ nav img {
     flex-direction: row; /* Utilisation d'une disposition en ligne pour les nouvelles cartes */
 }
 
+
 .event-date {
     flex: 0 0 15%; /* Réduction de la largeur de la colonne date */
 }
@@ -439,4 +453,106 @@ img {
 .event-card {
     flex: 0 0 49%; /* Adjust width of event cards within a pair */
     /* Other styles for event cards */
+}
+
+
+/* Style de l'icône d'horloge */
+.time i {
+    margin-right: 5px; /* Espacement entre l'icône et les chiffres de l'heure */
+    color: #555; /* Couleur de l'icône */
+    font-size: 18px; /* Taille de l'icône */
+}
+
+/* Style pour l'heure, les minutes et les périodes */
+.time .hour,
+.time .minute,
+.time .period {
+    font-size: 16px;
+    color: #555; /* Couleur de texte plus sombre */
+    margin-top: 5px; /* Espacement supplémentaire par rapport à la date */
+
+}
+
+.time .hour,
+.time .minute {
+    font-weight: bold; /* Texte en gras pour les heures et les minutes */
+}
+
+/* Augmentation de l'espace entre l'heure et la description */
+.event-details .time {
+    margin-bottom: 10px; /* Ajoutez la marge en bas */
+}
+
+
+.event-card {
+    border: 1px solid #ddd; /* Ajoutez une bordure subtile */
+    border-radius: 10px; /* Ajouter des coins arrondis */
+    margin: 20px; /* Ajouter de l'espace entre les cartes d'événement */
+    padding: 20px; /* Ajouter un rembourrage interne */
+    width: 440px; /* Définir une largeur fixe */
+    height: 590px; /* Définir une hauteur fixe */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre subtile */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff; /* Définir la couleur de fond */
+    display: inline-block; /* Afficher en tant que inline-block pour les disposer en ligne */
+    vertical-align: top; /* Aligner en haut */
+}
+
+
+.event-card:hover {
+    transform: translateY(-5px); /* Add a slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.event-details {
+    padding: 20px 0; /* Add padding to the event details */
+}
+
+.event-details h3 {
+    font-size: 20px; /* Adjust heading font size */
+    margin-bottom: 10px; /* Add spacing below heading */
+    color: #333; /* Set heading color */
+}
+
+.event-details p {
+    font-size: 16px; /* Set paragraph font size */
+    line-height: 1.5; /* Set line height for better readability */
+    color: #666; /* Set paragraph color */
+}
+
+.event-date {
+    background-color: #f2f2f2; /* Set date background color */
+    border-radius: 10px; /* Add rounded corners */
+    text-align: center; /* Center date text */
+    padding: 10px; /* Add padding */
+    margin-bottom: 10px; /* Add spacing */
+}
+
+.month-day {
+    font-size: 18px; /* Set date font size */
+    color: #fff; /* Set date color */
+}
+
+/* Ajoutez ces styles CSS à votre fichier CSS existant */
+
+.social-icons {
+    margin-top: 480px; /* Ajouter un espace au-dessus des icônes sociales */
+    text-align: center; /* Centrer les icônes sociales */
+}
+
+.social-icons i {
+    font-size: 24px; /* Taille de la police des icônes sociales */
+    margin: 1px 5px; /* Ajouter un espace horizontal entre les icônes */
+    color: #666; /* Couleur des icônes sociales */
+    transition: color 0.3s; /* Ajouter une transition de couleur pour les icônes sociales */
+}
+
+.social-icons i:hover {
+    color: #3498db; /* Couleur des icônes sociales au survol */
+}
+.event-card img {
+     /* Faire en sorte que l'image occupe toute la largeur de la carte */
+    height: 460px; /* Conserver le rapport hauteur/largeur de l'image */
+    border-radius: 10px; /* Ajouter des coins arrondis à l'image */
+    margin-bottom: 15px; /* Ajouter de l'espace en bas de l'image si nécessaire */
 }

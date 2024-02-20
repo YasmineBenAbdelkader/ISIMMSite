@@ -270,3 +270,65 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error("Bibliothèque link not found.");
     }
 });
+
+
+
+/*
+
+document.addEventListener('DOMContentLoaded', function () {
+    console.log("Script loaded.");
+
+    // Function to load or hide the direction content
+    function toggleDirectionContent() {
+        console.log("Toggling direction content.");
+        const baseUrl = "http://localhost:5000";
+        axios.get(baseUrl + '/staff/direction') // Utiliser la variable baseUrl pour la requête
+            .then(response => {
+                // Handle successful response
+                console.log('Response from backend:', response.data);
+
+                // Get the container where you want to append the actualites
+                const staffContainer = document.getElementById('direc');
+                if (staffContainer) {
+                    staffContainer.innerHTML = ''; // Clear existing content
+                    response.data.staff.forEach(staff => { // Utiliser response.data.staff au lieu de response.data.staffs
+                        const staffDiv = document.createElement('div');
+                        staffDiv.classList.add('container');
+                        staffDiv.innerHTML = `
+                            <div class="container">
+                                <div class="profil-box">
+                                    <div class="position"></div>
+                                    <img src="${baseUrl}/${staff.photo}" alt="profile-image"> <!-- Utiliser l'URL de base pour les images -->
+                                    <h3>${staff.poste}</h3>
+                                    <p>${staff.nom} ${staff.prenom}</p>
+                                    <p>Email: <br><a href="mailto:${staff.email}">${staff.email}</a></p>
+                                </div>
+                            </div>
+                        `;
+                        staffContainer.appendChild(staffDiv);
+                    });
+                } else {
+                    console.error("Events container not found.");
+                }
+            })
+            .catch(error => {
+                // Handle error
+                console.error('Error fetching data:', error);
+            });
+    }
+
+    // Add an event listener to the direction link
+    var lienDirection = document.getElementById('lienDirection');
+    if (lienDirection) {
+        lienDirection.addEventListener('click', function (event) { // Renommer le paramètre staff en event
+            event.preventDefault(); // Prevent the link from triggering a redirection
+
+            // Toggle the direction content
+            toggleDirectionContent();
+            console.log("Click event on the direction link.");
+        });
+    } else {
+        console.error("Direction link not found.");
+    }
+});
+*/

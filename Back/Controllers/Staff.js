@@ -15,8 +15,10 @@ const staffController = {
                 nom: req.body.nom,
                 prenom: req.body.prenom,
                 poste: req.body.poste,
+                grade: req.body.grade,
                 email: req.body.email,
                 keyArea: req.body.keyArea,
+                photo: req.file ? req.file.filename : null,
             });
     
             const staffEnregistre = await nouveauStaff.save();
@@ -33,7 +35,20 @@ const staffController = {
         }
     },
 
-
+    findByPosteDirection: async (req, res) => {
+        try {
+            const staffDirection = await Staff.find({ poste: "Direction" });
+    
+            res.status(200).json({
+                message: 'Liste des membres du staff ayant le poste "Direction"',
+                staff: staffDirection,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
+    
     findAllStaffAdministratif : async (req, res) => {
         try {
             const staff = await Staff.find();
@@ -143,10 +158,64 @@ const staffController = {
         }
     },
 
+    
+    
+    findByPosteSco: async (req, res) => {
+        try {
+            const staffDirection = await Staff.find({ poste: "Scolarité" });
+    
+            res.status(200).json({
+                message: 'Liste des membres du staff ayant le poste "Scolarité"',
+                staff: staffDirection,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
 
+    findByPosteGuichet: async (req, res) => {
+        try {
+            const staffDirection = await Staff.find({ poste: "Guichet" });
+    
+            res.status(200).json({
+                message: 'Liste des membres du staff ayant le poste "Guichet"',
+                staff: staffDirection,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
 
-
-
+    findByPosteBiblio: async (req, res) => {
+        try {
+            const staffDirection = await Staff.find({ poste: "Biblio" });
+    
+            res.status(200).json({
+                message: 'Liste des membres du staff ayant le poste "Biblio"',
+                staff: staffDirection,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
+    
+    findByPosteFinance: async (req, res) => {
+        try {
+            const staffDirection = await Staff.find({ poste: "Finance" });
+    
+            res.status(200).json({
+                message: 'Liste des membres du staff ayant le poste "Finance"',
+                staff: staffDirection,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
+    
 
 };
 

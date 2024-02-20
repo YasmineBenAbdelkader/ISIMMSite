@@ -11,12 +11,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href ="../css/emploi.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     </head>
 
 
 
-<body>
+ <body>
         <section class="header">
             <nav>
                 <a href="index.html"><img src="../images/logo.png" width="80" height="80"></a>
@@ -163,118 +164,51 @@
             <button onclick="printImage()">Imprimer</button>
         </section>
         <footer><script src="../JS/footer.js"></script></footer>
-         
-</body>
-</html>
+        <script>
+            function showTimetable() {
+                var levelSelector = document.getElementById("levelSelector");
+                var selectedLevel = levelSelector.value;
+                const baseUrl = "http://localhost:5000";
+        
+                switch (selectedLevel) {
+                    case "L1Info_TD1":
+                        axios.get('http://localhost:5000/EmploiDuTemps/etudiant/L1Info_TD1')
+                        .then(response => {
+                            // Handle successful response
+                            console.log('Response from backend:', response.data);
+        
+                            // Get the container where you want to append the actualites
+                            const imageContainer = document.getElementById("imageContainer");
+        
+                            response.data.emploiList.forEach(emploi => {
+                                const emploiListDiv = document.createElement('div');
+                                emploiListDiv.classList.add('emploi-list');
+                                emploiListDiv.innerHTML = `
+                                    <h1>Emploi de temps pour L1Info_TD1</h1>
+                                    <img src="${baseUrl}/storage/${emploi.emploi}" alt='Ingénieur Group Image'>
+                                `;
+        
+                                imageContainer.appendChild(emploiListDiv);
+                            });
+                        })
+                        .catch(error => {
+                            // Handle error
+                            console.error('Error fetching data:', error);
+                        });
+                        break;
+        
+                    // Add cases for other options as needed
+        
+                    default:
+                        imageContainer.innerHTML = "<p>Selection invalide</p>";
+                }
+            }
+        
+            function goBack() {
+                var imageContainer = document.getElementById("imageContainer");
+                imageContainer.innerHTML = ""; // Clear the content of the imageContainer to revert to initial state
+            }
+        </script>
+ </body>
+ </html>
 
-<script>
-    function showTimetable() {
-        var levelSelector = document.getElementById("levelSelector");
-        var selectedLevel = levelSelector.value;
-
-        var imageContainer = document.getElementById("imageContainer");
-
-        switch (selectedLevel) {
-            case "ING1_INFO_TD1":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "CPI_1_TD1":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;  
-            case "CPI_1_TD2":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "CPI_2_TD1":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "CPI_2_TD2":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "ING1_EL_TD1":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break; 
-            case "ING2_EL_TD1":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break; 
-            case "ING3_EL_TD1":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "ING3_EL_TD2":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "ING1_INFO_TD1":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "ING1_INFO_TD2":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Master</h1><img src='path/to/master_image.jpg' alt='Master Group Image'>";
-                break;
-            case "L1Info_TD1":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "L1Info_TD2":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "L1Info_TD3":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "ING1_INFO_TD1":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "ING1_INFO_TD1":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "ING1_INFO_TD1":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            case "ING1_INFO_TD1":
-                imageContainer.innerHTML = "<h1>Emploi de temps pour Cycle Ingénieur</h1><img src='../images/emploi.png' alt='Ingénieur Group Image'>";
-                break;
-            default:
-                imageContainer.innerHTML = "<p>selection invalide</p>";
-        }
-    }
-
-    function goBack() {
-        var imageContainer = document.getElementById("imageContainer");
-        imageContainer.innerHTML = ""; // Efface le contenu de l'imageContainer pour revenir à l'état initial
-    }
-
-    function printImage() {
-    var levelSelector = document.getElementById("levelSelector");
-    var selectedLevel = levelSelector.value;
-
-    var imageSource;
-    var imageAlt;
-
-    switch (selectedLevel) {
-        case "ING1_INFO_TD1":
-            imageSource = '../images/emploi.png';
-            imageAlt = 'Ingénieur Group Image';
-            break;
-        case "master":
-            imageSource = 'path/to/master_image.jpg';
-            imageAlt = 'Master Group Image';
-            break;
-        default:
-            alert("Sélection invalide");
-            return;
-    }
-
-    var printWindow = window.open('', '_blank');
-    printWindow.document.write('<html><head><title>Image à imprimer</title></head><body>');
-    printWindow.document.write('<h1>Emploi de temps</h1>');
-    printWindow.document.write('<img src="' + imageSource + '" alt="' + imageAlt + '">');
-    printWindow.document.write('</body></html>');
-    
-    printWindow.document.close(); // Ferme le flux d'écriture
-
-    printWindow.onload = function() {
-        printWindow.print();
-        printWindow.onafterprint = function() {
-            printWindow.close();
-        };
-    };
-}
-
-
-</script>

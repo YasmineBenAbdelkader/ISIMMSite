@@ -28,13 +28,22 @@ const StaffSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    grade: {
+        type: String,
+        required: true,
+    },
     email: {
         type: String,
         required: true,
     },
-    keyArea: {
+    photo: {
         type: String,
         required: true,
+    },
+    /** C'est quoi key area  */
+    keyArea: {
+        type: String,
+        required: false,
     },
     
 },baseOptions, 
