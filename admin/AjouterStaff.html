@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -40,7 +42,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>ISIMMSITE</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -162,6 +164,9 @@
 
 
 
+        
+
+
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
@@ -184,9 +189,9 @@
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/ya.jpg" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <h6 class="fw-normal mb-0">Yasmine send you a message</h6>
                                         <small>15 minutes ago</small>
                                     </div>
                                 </div>
@@ -194,9 +199,9 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/hh.webp" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <h6 class="fw-normal mb-0">Sami send you a message</h6>
                                         <small>15 minutes ago</small>
                                     </div>
                                 </div>
@@ -204,9 +209,9 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/testimonial-2.jpg" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <h6 class="fw-normal mb-0">louay send you a message</h6>
                                         <small>15 minutes ago</small>
                                     </div>
                                 </div>
@@ -228,12 +233,12 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <h6 class="fw-normal mb-0">New user added</h6>
-                                <small>15 minutes ago</small>
+                                <small>30 minutes ago</small>
                             </a>
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <h6 class="fw-normal mb-0">Password changed</h6>
-                                <small>15 minutes ago</small>
+                                <small>20 minutes ago</small>
                             </a>
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
@@ -241,8 +246,8 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <img class="rounded-circle me-lg-2" src="img/me.jpeg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Mouna Mestiri</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
@@ -260,36 +265,56 @@
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Ajouter Staff</h6>
-                            <form>
+                            <form  id="ajouterStaffForm" >
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">CIN : </label>
-                                    <input  class="form-control" id="exampleInputEmail1"
+                                    <input  class="form-control" id="cin"
                                         aria-describedby="emailHelp">
                                     
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Nom :</label>
-                                    <input  class="form-control" id="exampleInputPassword1">
+                                    <input  class="form-control" id="nom">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Prénom :</label>
-                                    <input  class="form-control" id="exampleInputPassword1">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Poste :  </label>
-                                    <input  class="form-control" id="exampleInputPassword1">
+                                    <input  class="form-control" id="prenom">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Email :</label>
-                                    <input  class="form-control" id="exampleInputPassword1">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Secteur :</label>
-                                    <input  class="form-control" id="exampleInputPassword1">
+                                    <input  class="form-control" id="email">
                                 </div>
                                 
+                                <div class="mb-3">
+                                    <label for="exampleFormControlSelect1" class="form-label">Departement :</label>
+                                    <select class="form-control" id="keyArea">
+                                        <option value="Direction">Direction</option>
+                                        <option value="Scolarité">Scolarité</option>
+                                        <option value="Guichet">Guichet</option>
+                                        <option value="Finance">Finance</option>
+                                        <option value="Bibliothéque">Bibliothéque</option>
+
+                                    </select>
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label for="exampleFormControlSelect1" class="form-label">Poste :</label>
+                                    <select class="form-control" id="poste">
+                                        <option value="Directeur">Directeur</option>
+                                        <option value="Sécretaire general">Sécretaire general</option>
+                                        <option value="Responsable des emplois">Responsable des emplois</option>
+                                        <option value="Scolarité 3éme cycle">Scolarité 3éme cycle</option>
+                                        <option value="Responsable des stages">Responsable des stages</option>
+                                        <option value="Responsable guichets">Responsable guichets</option>
+                                        <option value="Responsable finance">Responsable finance</option>
+                                        <option value="Bibliothéquaire">Bibliothéquaire</option>
+                                        <option value="Conservateur Bibliothéque">Conservateur Bibliothéque</option>
+                                    </select>
+                                </div>
+
+
                                 
                             
                                 <button type="submit" class="btn btn-primary">Ajouter</button>
@@ -338,8 +363,46 @@
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script>
+        document.getElementById('ajouterStaffForm').addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent the form from submitting normally
+    
+        // Retrieve form input values
+        const cin = document.getElementById('cin').value;
+        const nom = document.getElementById('nom').value;
+        const prenom = document.getElementById('prenom').value;
+        const email = document.getElementById('email').value;
+        const poste = document.getElementById('poste').options[document.getElementById('poste').selectedIndex].value;
+        const keyArea = document.getElementById('keyArea').options[document.getElementById('keyArea').selectedIndex].value;
+
+    
+        // Construct JSON object with form data
+        const formData = {
+            cin,
+            nom,
+            prenom,
+            email,
+            poste,
+            keyArea
+            
+        };
+    
+        try {
+            const response = await axios.post('http://localhost:5000/staff/create', formData);
+            console.log(response.data.message); // Display the server message
+    
+            // Reset the form after successful addition
+            document.getElementById('ajouterStaffForm').reset();
+        } catch (error) {
+            console.error('Error adding staff:', error);
+        }
+    });
+
+   
+        </script>
+
 </body>
 
 </html>

@@ -11,7 +11,7 @@ const EnseignantSchema = new mongoose.Schema({
 
     cin: {
         type: String,
-        required: true
+        required: false
     },
     nom: {
         type: String,
@@ -24,7 +24,8 @@ const EnseignantSchema = new mongoose.Schema({
     Poste: {
         type: String,
         required: false,
-        unique: true
+        default: null
+
 
     },
     adresse_email: {
@@ -119,8 +120,13 @@ const EnseignantSchema = new mongoose.Schema({
         type: String,
         required: false,
         default: null
-    }
+    },
 
+    
+    event : {
+        type: String,
+        required: false,
+    }
 
 
 

@@ -5,6 +5,7 @@ require('dotenv').config();
 const secretKey = require("./Config/Config");
 const path = require('path');
 const session = require('express-session');
+
 const etudiantRoute = require("./Routes/Etudiant");
 const EmploiDuTempsRoute = require("./Routes/EmploiDuTemps");
 const ActualiteRoute = require("./Routes/Actu");
@@ -39,6 +40,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // Routes
 app.use("/etudiant", etudiantRoute);
 app.use("/EmploiDuTemps", EmploiDuTempsRoute);
@@ -62,7 +65,7 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something went wrong!');
 });
 
-app.listen(5000, () => {
-    console.log(`Server running on http://localhost:${5000}`);
+app.listen(5001, () => {
+    console.log(`Server running on http://localhost:${5001}`);
 });
 

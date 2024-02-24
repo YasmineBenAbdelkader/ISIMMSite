@@ -8,10 +8,13 @@ exports.AjouterEchangeAcad = async (req, res) => {
 
         // Create a new instance of EchangeAcad with form data and the reference to EchangeAcad
         const nouvelleEchangeAcad = new EchangeAcad({
+            ID:req.body.ID,
             titre: req.body.titre,
             description: req.body.description,
-            piece_jointe: req.files['piece_jointe'] ? req.files['piece_jointe'][0].filename : null,
-            photo: req.files['photo'] ? req.files['photo'][0].filename : null,
+            piece_jointe: req.files['piece_jointe'] ? req.files['piece_jointe'][0].originalname : '', // Utilisez originalname pour obtenir le nom d'origine du fichier
+            photo: req.files['photo'] ? req.files['photo'][0].originalname : '', // Utilisez originalname pour obtenir le nom d'origine du fichier
+            /*piece_jointe:req.body.piece_jointe,
+            photo:req.body.photo*/
         });
 
         const EchangeAcadEnregistre = await nouvelleEchangeAcad.save();
@@ -35,7 +38,7 @@ exports.AjouterEchangeAcad = async (req, res) => {
 // Suppression par admin
 exports.SupprimerEchangeAcad = async (req, res) => {
     try {
-        const EchangeAcadId = req.params.EchangeAcadId;
+        const EchangeAcadId = req.params.ID;
 
         // Vérifiez si l'ID de la publication est fourni
         if (!EchangeAcadId) {
@@ -45,7 +48,7 @@ exports.SupprimerEchangeAcad = async (req, res) => {
         }
 
         // Recherchez la publication d'appel d'offres par ID et supprimez-la
-        const EchangeAcadSupprimee = await EchangeAcad.findByIdAndDelete(EchangeAcadId);
+        const EchangeAcadSupprimee = await EchangeAcad.findOneAndDelete({ ID: EchangeAcadId });
 
         // Vérifiez si la publication a été trouvée et supprimée
         if (!EchangeAcadSupprimee) {
@@ -109,12 +112,12 @@ exports.AfficherTousEchangesAcad = async (req, res) => {
         // Formatez les dates au format "jj/mm/aaaa"
         const echangesAcadFormates = tousEchangesAcad.map(echangeAcad => {
             return {
-                _id: echangeAcad._id,
+                ID: echangeAcad.ID,
                 titre: echangeAcad.titre,
                 description: echangeAcad.description,
                 piece_jointe: echangeAcad.piece_jointe,
                 photo: echangeAcad.photo,
-                date_creation: moment(echangeAcad.date_creation).format('DD/MM/YYYY'),
+                /*date_creation: moment(echangeAcad.date_creation).format('DD/MM/YYYY'),*/
             };
         });
 

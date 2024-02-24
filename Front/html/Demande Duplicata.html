@@ -136,22 +136,15 @@
                               <form action="#">
                                 <div class="user-details">
                                   <div class="input-box">
-                                    <span class="details">Document administratifs</span>
-                                    <label for="arabe">
-                                        <input type="radio" id="arabe" name="langue" value="arabe" class="radio-input"> Certificat de démarcation </label><br>
-                                    
-                                    <label for="francais">
-                                        <input type="radio" id="francais" name="langue" value="francais" class="radio-input"> Carte d'étudiant</label>
-                                                                      <br>
-                                    <label for="francais">
-                                        <input type="radio" id="francais" name="langue" value="francais" class="radio-input">Relevet de note</label><br>
-                                    <label for="francais">
-                                          <input type="radio" id="francais" name="langue" value="francais" class="radio-input"> Certificat de fin d'études</label>
-                                    <label for="francais"><br>
-                                            <input type="radio" id="francais" name="langue" value="francais" class="radio-input"> Autres </label>
-                                                                          <br>
-                                                                                                                                       
-                                  </div>
+                                    <div class="input-box">
+                                      <span class="details">Documents Administratifs</span>
+                                      <select id="levelSelector">
+                                        <option value="#">Choisir</option>
+                                        <option value="Certificat de démarcation Carte d'étudiant">Certificat de démarcation Carte d'étudiant</option>
+                                        <option value="Relevé de notes">Relevé de notes</option>
+                                        <option value="Certificat de fin d'études">Certificat de fin d'études</option>
+                                        <option value="Autres">Autres</option>
+                                    </select>      
                                   <br>
                                   <div class="input-box">
                                     <span class="details">Nom</span>

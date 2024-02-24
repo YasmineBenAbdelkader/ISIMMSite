@@ -11,13 +11,13 @@ const staffController = {
             console.log("Données reçues :", req.body);
     
             const nouveauStaff = new Staff({
-                ID: req.body.ID,
+                cin: req.body.cin,
                 nom: req.body.nom,
                 prenom: req.body.prenom,
-                poste: req.body.poste,
                 grade: req.body.grade,
                 email: req.body.email,
-                keyArea: req.body.keyArea,
+                keyArea:req.body.keyArea,
+                poste: req.body.poste,
                 photo: req.file ? req.file.filename : null,
             });
     
@@ -51,17 +51,25 @@ const staffController = {
     
     findAllStaffAdministratif : async (req, res) => {
         try {
-            const staff = await Staff.find();
+            const staff = await Staff.find({}, { _id: 0 });
     
             res.status(200).json({
-                message: 'Liste des membres du staff administratif récupérée avec succès',
-                staff: staff,
+                message: 'Liste de tout le personnel administratif récupérée avec succès',
+                staff: staff.map(personnel => ({
+                    cin: personnel.cin,
+                    nom: personnel.nom,
+                    prenom: personnel.prenom,
+                    poste: personnel.poste,
+                    email: personnel.email,
+                    keyArea: personnel.keyArea
+                }))
             });
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
         }
     },
+    
 
 
 
@@ -114,8 +122,8 @@ const staffController = {
 
      supprimerMembreStaffAdministratif : async (req, res) => {
         try {
-            const staffID = req.params.id;
-            const staffSupprime = await Staff.findOneAndDelete({ _id: staffID });
+            const staffID = req.params.cin;
+            const staffSupprime = await Staff.findOneAndDelete({ cin: staffID });
     
             if (!staffSupprime) {
                 return res.status(404).json({ message: 'Aucun membre du staff trouvé avec cet ID' });

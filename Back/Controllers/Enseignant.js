@@ -19,13 +19,13 @@ const enseignantController = {
             console.log("Données reçues :", req.body);
 
             const nouvelEnseignant = new Enseignant({
-                ID: req.body.ID,
-                matricule: req.body.matricule,
+                cin: req.body.cin,
                 nom: req.body.nom,
                 prenom: req.body.prenom,
                 grade: req.body.grade, 
                 email: req.body.email,
-                chefDep: req.body.chefDep,// Assurez-vous que req.body.email est défini avec une valeur unique
+                //chefDep: req.body.chefDep,// Assurez-vous que req.body.email est défini avec une valeur unique
+                matricule: req.body.matricule,
 
             });
 
@@ -56,7 +56,6 @@ const enseignantController = {
     
           const nouvelenseignant = new Enseignant({
             cin: req.body.cin,
-            Poste: req.body.Poste,
             adresse_email: req.body.adresse_email,
             num_telephone: req.body.num_telephone,
             mot_de_passe: hashpassword, 
@@ -109,20 +108,75 @@ const enseignantController = {
   
 
 
-    findAllEnseignant: async (req, res) => {
+    findAllEnseignant : async (req, res) => {
         try {
-            const enseignants = await Enseignant.find();
-            res.status(200).json({ enseignants });
+            const enseignants = await Enseignant.find({}, { _id: 0 });
+    
+            res.status(200).json({
+                message: 'Liste de tous les enseignants récupérée avec succès',
+                enseignants: enseignants.map(enseignant => ({
+                    cin: enseignant.cin,
+                    nom: enseignant.nom,
+                    prenom: enseignant.prenom,
+                    adresse_email: enseignant.adresse_email,
+                    num_telephone: enseignant.num_telephone,
+                    grade: enseignant.grade,
+                    photo: enseignant.photo,
+                    date_naissance: enseignant.date_naissance,
+                    adresse: enseignant.adresse,
+                    diplomes: enseignant.diplomes,
+                    specialite: enseignant.specialite,
+                    date_embauche: enseignant.date_embauche,
+                    cours: enseignant.cours,
+                    enregistre: enseignant.enregistre,
+                    chefDep: enseignant.chefDep
+                }))
+            });
         } catch (error) {
             console.error(error);
-            res.status(500).json({ message: `Une erreur est survenue lors de la récupération des enseignants: ${error.message}` });
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
         }
     },
 
+
+
+    find4Enseignant : async (req, res) => {
+        try {
+            const enseignants = await Enseignant.find({}, { _id: 0 });
+    
+            res.status(200).json({
+                message: 'Liste de tous les enseignants récupérée avec succès',
+                enseignants: enseignants.map(enseignant => ({
+                    cin: enseignant.cin,
+                    nom: enseignant.nom,
+                    prenom: enseignant.prenom,
+                    //adresse_email: enseignant.adresse_email,
+                    //num_telephone: enseignant.num_telephone,
+                    grade: enseignant.grade,
+                    //photo: enseignant.photo,
+                    //date_naissance: enseignant.date_naissance,
+                    //adresse: enseignant.adresse,
+                    //diplomes: enseignant.diplomes,
+                    //specialite: enseignant.specialite,
+                   // date_embauche: enseignant.date_embauche,
+                    //cours: enseignant.cours,
+                    //enregistre: enseignant.enregistre,
+                    chefDep: enseignant.chefDep
+                }))
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
+
+
+   
+
     SupprimerEnseignant: async (req, res) => {
         try {
-          const enseignantID = req.params.id;
-          const enseignantSupprime = await Enseignant.findOneAndDelete({ _id: enseignantID });
+          const enseignantID = req.params.cin;
+          const enseignantSupprime = await Enseignant.findOneAndDelete({ cin: enseignantID });
       
           if (!enseignantSupprime) {
             return res.status(404).json({ message: 'Aucun enseignant trouvé avec cet ID' });
@@ -139,12 +193,12 @@ const enseignantController = {
       },
    
 
-      EnregistrerEnseignant: async (req, res) => {
+    EnregistrerEnseignant: async (req, res) => {
         try {
             console.log("Données reçues :", req.body);
 
             const nouvelEnseignant = new Enseignant({
-                ID: req.body.ID,
+                cin: req.body.cin,
                 matricule: req.body.matricule,
                 nom: req.body.nom,
                 prenom: req.body.prenom,

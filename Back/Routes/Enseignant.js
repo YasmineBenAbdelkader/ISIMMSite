@@ -6,7 +6,9 @@ const Enseignant = require("../Controllers/Enseignant"); // Assurez-vous que le 
 Route.post("/create", Enseignant.AjouterEnseignant);
 Route.post("/Inscrire",Enseignant.Inscrire);
 Route.get("/findAll", Enseignant.findAllEnseignant);
-Route.delete("/:id", Enseignant.SupprimerEnseignant);
+Route.get("/find4All", Enseignant.find4Enseignant);
+
+Route.delete("/:cin", Enseignant.SupprimerEnseignant);
 Route.post("/Enregistrer", Enseignant.EnregistrerEnseignant);
 Route.get("/:id", Enseignant.findByIdEnseignant);
 Route.get("/findByGrade/:grade", Enseignant.findByGrade);

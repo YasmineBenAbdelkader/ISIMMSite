@@ -7,7 +7,8 @@ const baseOptions = {
 const CSchema = new mongoose.Schema({
     ID: {
         type:String,
-        required:true
+        required:true,
+
     },
     titre: {
         type: String,
@@ -19,7 +20,7 @@ const CSchema = new mongoose.Schema({
     },
     date: {
         type: String,
-        required:true,
+        required:false,
         default:null
     },
     jour: {
@@ -56,7 +57,6 @@ const CSchema = new mongoose.Schema({
     photo: {
         type: String,
         required:false,
-        default: null
     },
     facebook: {
         type: String,
@@ -76,10 +76,20 @@ const CSchema = new mongoose.Schema({
         default: null
 
     },
-    nature_event: { //est ce que 4c ou bien club 
+    nature_event: {
         type: String,
-        default: false,
+        required:false
+
     },
+    club : {
+        type: Boolean,
+        required: false,
+    },
+    centre: {
+        type: Boolean,
+        required: false,
+    },
+
 
 
 
