@@ -6,10 +6,7 @@ exports.AjouterCalendrier = async (req, res) => {
 
         // Vérifier si un Calendrier similaire existe déjà
         const CalendrierExistant = await calendrier.findOne({
-            Cycle_etude: req.body.Cycle_etude,
-            specialite: req.body.specialite,
-            niveau_etude: req.body.niveau_etude,
-            Td: req.body.Td,
+            level: req.body.level,
             enseignant: req.body.enseignant,
         });
 
@@ -21,10 +18,7 @@ exports.AjouterCalendrier = async (req, res) => {
         // Si l'Calendrier n'existe pas, créer un nouvel Calendrier
         const nouvelCalendrier = new calendrier({
             Calendrier: req.file ? req.file.filename : null,
-            Cycle_etude: req.body.Cycle_etude,
-            specialite: req.body.specialite,
-            niveau_etude: req.body.niveau_etude,
-            Td: req.body.Td,
+            level: req.body.level,
             enseignant: req.body.enseignant,
         });
 
@@ -72,6 +66,34 @@ exports.getCalendrierByEnseignant = async (req, res) => {
     }
 };
 
+exports.getCalendrierByLevel = async (req, res) => {
+    try {
+        const { level } = req.params;
+
+        // Logging for debugging
+        console.log('Input level:', level);
+
+        // Trim leading and trailing spaces
+        const trimmedlevel = level.trim();
+
+        // Logging for debugging
+        console.log('Trimmed level:', trimmedlevel);
+
+        // Perform a case-insensitive partial match
+        const CalendrierList = await calendrier.find({ level: { $regex: new RegExp(trimmedlevel, 'i') } });
+
+        // Logging for debugging
+        console.log('CalendrierList:', CalendrierList);
+
+        res.status(200).json({
+            message: 'Calendrier records retrieved successfully',
+            CalendrierList,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `An error occurred while retrieving Calendrier records: ${error.message}`, error: error.stack });
+    }
+};
 
 exports.getCalendrierByParams = async (req, res) => {
     try {

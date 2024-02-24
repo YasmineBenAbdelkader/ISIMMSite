@@ -34,9 +34,21 @@ nav img {
     border-right:  1px solid rgb(23, 19, 19);
 }
 
+.nav-links ul,
+#image {
+    display: flex;
+    align-items: center;
+}
+
+#image img {
+    width: 40px;
+    border-right:  0px solid rgb(253, 253, 253);
+}
+
 .nav-links {
     flex: 1;
     text-align: center;
+   
 }
 
 .nav-links ul {
@@ -76,7 +88,7 @@ nav img {
     
 }
 .nav-links ul li a:hover {
-    color: #3586ff;
+    color: var(--font-color);
 }
 
 
@@ -122,7 +134,7 @@ nav img {
 }
 
 .sub-menu li a:hover {
-    color: #3586ff;
+    color: var(--font-color);
 }
 
 .nav-links ul li:hover .sub-menu {
@@ -133,6 +145,7 @@ nav img {
 }
 
 /** fin NavBar**/
+
 
 /**nav slide**/
 .colored-slide {

@@ -18,9 +18,11 @@ const formRoute = require("./Routes/formulaire");
 const staffRoute = require("./Routes/staff");
 const clubRoute = require("./Routes/Club");
 const enseignantRoute = require("./Routes/Enseignant");
-
-
-
+const classesRoute = require("./Routes/Classes");
+const biblioRoute = require("./Routes/Biblio");
+const EntrepriseRoute = require("./Routes/Entreprise");
+const RattrapageRoute = require("./Routes/Rattrapage");
+const CalendrierSurvRoute = require("./Routes/CalendrierSurv");
 
 
 
@@ -40,6 +42,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
+
 app.use("/etudiant", etudiantRoute);
 app.use("/EmploiDuTemps", EmploiDuTempsRoute);
 app.use('/enseignant', enseignantRoute);
@@ -54,6 +57,11 @@ app.use('/EmploiDuTemps', EmploiDuTempsRoute);
 app.use('/Actualite', ActualiteRoute);
 app.use('/OffreStageEmploi', OffreStageEmploiRoute);
 app.use('/Calendrier', CalendrierRoute);
+app.use('/Classes', classesRoute);
+app.use('/Biblio', biblioRoute);
+app.use('/Entreprise', EntrepriseRoute);
+app.use('/Rattrapage', RattrapageRoute);
+app.use('/CalSurv', CalendrierSurvRoute);
 app.use('/storage', express.static(path.join(__dirname, 'storage')));
 
 // Error handling middleware

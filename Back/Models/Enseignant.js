@@ -9,6 +9,8 @@ const baseOptions = {
 
 const EnseignantSchema = new mongoose.Schema({
 
+
+    // Ajout par admin
     cin: {
         type: String,
         required: true
@@ -21,11 +23,27 @@ const EnseignantSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    num_inscription: {
+        type: String,
+        required: true
+    },
+    grade: {
+        type: String,
+        required: false
+
+    },
+    chefDep: {
+        type: String,
+        required: false,
+        default: null
+    },
+
+    //inscription
+    // poste = enseignant
+
     Poste: {
         type: String,
         required: false,
-        unique: true
-
     },
     adresse_email: {
         type: String,
@@ -45,12 +63,13 @@ const EnseignantSchema = new mongoose.Schema({
         default: null
         
     },
-
-    grade: {
-        type: String,
-        required: false
+    inscri: {
+        type: Boolean,
+        efault: false
 
     },
+
+    // complete account 
     photo: {
         type: String,
         required: false,
@@ -58,7 +77,31 @@ const EnseignantSchema = new mongoose.Schema({
 
     },
     date_naissance: {
-        type: Date,
+        type: String,
+        required: false,
+        default: null
+
+    },
+    lieu_naissance: {
+        type: String,
+        required: false,
+        default: null
+
+    },
+    nationalité: {
+        type: String,
+        required: false,
+        default: null
+
+    },
+    sexe: {
+        type: String,
+        required: false,
+        default: null
+
+    },
+    etat_civil: {
+        type: String,
         required: false,
         default: null
 
@@ -68,62 +111,39 @@ const EnseignantSchema = new mongoose.Schema({
         required: false,
         default: null
 
-
     },
-    diplomes: [{
+    code_postal: {
         type: String,
         required: false,
         default: null
 
-    }],
+    },
+    cv: {
+        type: String,
+        required: false,
+        default: null
+
+
+    },
     specialite: {
         type: String,
         required: false,
         default: null
 
     },
-    
     date_embauche: {
-        type: Date,
-        required: false,
-        default: null
-
-    },
-
-    cours: [{
-        nom: {
-            type: String,
-            required: false,  
-             default: null
-
-        },
-        niveau: {
-            type: String,
-            required: false,
-            default: null
-
-        }
-    }],
-    mot_de_passe: {
-    type: String,
-    required: false,
-    default: null
-    
-    },
-    enregistre: {
-    type: Boolean,
-    default: false
-    }, 
-
-    chefDep: {
         type: String,
         required: false,
         default: null
-    }
 
-
-
-
+    },
+    cours: [{
+            type: String,
+            required: false,  
+             default: null
+    }],
+  
+  
 
 },baseOptions, 
 {

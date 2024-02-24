@@ -89,6 +89,7 @@ exports.AfficherDernieresPublications = async (req, res) => {
                 titre: publication.titre,
                 description: publication.description,
                 piece_jointe: publication.piece_jointe,
+                form: publication.form,
                 date_creation: moment(publication.date_creation).format('DD/MM/YYYY'),
             };
         });
@@ -119,6 +120,7 @@ exports.AfficherToutesPublications = async (req, res) => {
                 titre: publication.titre,
                 description: publication.description,
                 piece_jointe: publication.piece_jointe,
+                form: publication.form,
                 date_creation: moment(publication.date_creation).format('DD/MM/YYYY'),
             };
         });

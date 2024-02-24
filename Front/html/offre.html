@@ -131,9 +131,21 @@ axios.get(baseUrl + '/PubAppelOffre/dernieresPublications')
                 consulterButton.classList.add('consulter');
                 consulterButton.textContent = 'Consulter';
 
+                // Ajoutez un gestionnaire d'événements de clic au bouton "Consulter"
+                consulterButton.addEventListener('click', () => {
+                // Rediriger l'utilisateur vers l'URL de la pièce jointe PDF
+                window.location.href = publication.piece_jointe;
+                });
+
+
                 const participerButton = document.createElement('button');
                 participerButton.classList.add('participer');
                 participerButton.textContent = 'Participer';
+
+                participerButton.addEventListener('click', () => {
+                // Rediriger l'utilisateur vers l'URL de la pièce jointe PDF
+                window.location.href = publication.form;
+                });
 
                 buttonDetails.appendChild(consulterButton);
                 buttonDetails.appendChild(participerButton);

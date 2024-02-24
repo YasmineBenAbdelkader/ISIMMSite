@@ -14,59 +14,65 @@ var transport = nodemailer.createTransport({
 });
 
 const enseignantController = {
+    //Ajout par admin 
     AjouterEnseignant: async (req, res) => {
         try {
             console.log("Données reçues :", req.body);
 
             const nouvelEnseignant = new Enseignant({
-                ID: req.body.ID,
-                matricule: req.body.matricule,
+                cin: req.body.cin,
+                num_inscription: req.body.num_inscription,
                 nom: req.body.nom,
                 prenom: req.body.prenom,
-                grade: req.body.grade, 
-                email: req.body.email,
-                chefDep: req.body.chefDep,// Assurez-vous que req.body.email est défini avec une valeur unique
-
+                grade: req.body.grade,
+                chefDep: req.body.chefDep,
+           
             });
 
-            const enseignantEnregistre = await nouvelEnseignant.save();
+            const EnseignantEnregistre = await nouvelEnseignant.save();
 
-            console.log("Enseignant ajouté :", enseignantEnregistre);
+            console.log("Enseignant ajouté :", EnseignantEnregistre);
 
             res.status(201).json({
                 message: 'Enseignant ajouté avec succès',
-                enseignant: enseignantEnregistre,
+                Enseignant: EnseignantEnregistre,
             });
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: `Une erreur est survenue lors de l'ajout de l'enseignant: ${error.message}` });
         }
     },
-
+    // Inscription enseignant
     Inscrire: async (req, res) => {
         try {
-          const { mot_de_passe, ...rest } = req.body;
-    
+          const { mot_de_passe, cin, ...rest } = req.body;
+      
           if (!mot_de_passe) {
             return res.status(400).json({ message: "Password is required" });
           }
-    
+      
           const salt = bcrypt.genSaltSync(10)
           const hashpassword = bcrypt.hashSync(req.body.mot_de_passe, salt)
-    
-          const nouvelenseignant = new Enseignant({
-            cin: req.body.cin,
-            Poste: req.body.Poste,
-            adresse_email: req.body.adresse_email,
-            num_telephone: req.body.num_telephone,
-            mot_de_passe: hashpassword, 
-            nom: req.body.nom,
-            prenom: req.body.prenom,
-          });
-    
-          const enseignantEnregistre = await nouvelenseignant.save();
-          const token = generateToken(enseignantEnregistre);
-    
+      
+          // Chercher un étudiant avec le même cin
+          const existingEnseignant = await Enseignant.findOneAndUpdate(
+            { cin: cin },
+            {
+              Poste: req.body.Poste,
+              adresse_email: req.body.adresse_email,
+              num_telephone: req.body.num_telephone,
+              mot_de_passe: hashpassword, 
+              inscri: true
+            },
+            { new: true, upsert: false }
+          );
+      
+          if (!existingEnseignant) {
+            return res.status(400).json({ message: "Inscription impossible, le numéro d'identification n'existe pas" });
+          }
+      
+          const token = generateToken(existingEnseignant);
+      
           transport.sendMail({
             from: "myapp@gmail.com",
             to: rest.adresse_email, 
@@ -96,28 +102,59 @@ const enseignantController = {
               console.log("Email Send successfully:", info + reponse, token)
             }
           });
-    
-          res.status(201).json({
-            message: 'enseignant ajouté avec succès',
-            enseignant: enseignantEnregistre,
+      
+          res.status(200).json({
+            message: 'Informations de l\'enseignant mises à jour avec succès',
+            enseignant: existingEnseignant,
           });
         } catch (error) {
           console.error(error);
-          res.status(500).json({ message: `Une erreur est survenue lors de l'ajout de l'enseignant: ${error.message}` });
-        }
-      },
-  
-
-
-    findAllEnseignant: async (req, res) => {
-        try {
-            const enseignants = await Enseignant.find();
-            res.status(200).json({ enseignants });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ message: `Une erreur est survenue lors de la récupération des enseignants: ${error.message}` });
+          res.status(500).json({ message: `Une erreur est survenue lors de la mise à jour des informations de l'enseignant: ${error.message}` });
         }
     },
+
+    // Enregistrement Fiche renseignement enseignant
+    CompleterProfil: async (req, res) => {
+        try {
+            const enseignantId = req.params.id;
+             // Supposons que l'identifiant de l'étudiant soit passé en tant que paramètre dans l'URL
+  
+            // Rechercher l'étudiant dans la base de données
+            const enseignant = await Enseignant.findById(enseignantId);
+  
+            if (!enseignant) {
+                return res.status(404).json({ message: "enseignant non trouvé" });
+            }
+  
+            // Mettre à jour les champs du profil
+            enseignant.photo = req.file ? req.file.filename : null || enseignant.photo;
+            enseignant.date_naissance = req.body.date_naissance || enseignant.date_naissance;
+            enseignant.lieu_naissance = req.body.lieu_naissance || enseignant.lieu_naissance;
+            enseignant.nationalité = req.body.nationalité || enseignant.nationalité;
+            enseignant.sexe = req.body.sexe || enseignant.sexe;
+            enseignant.etat_civil = req.body.etat_civil || enseignant.etat_civil;
+            enseignant.num_CNSS = req.body.num_CNSS || enseignant.num_CNSS;
+            enseignant.adresse = req.body.adresse || enseignant.adresse;
+            enseignant.code_postal = req.body.code_postal || enseignant.code_postal;
+            enseignant.cv = req.file ? req.file.filename : null || enseignant.cv;
+            enseignant.specialite = req.body.specialite || enseignant.specialite;
+            enseignant.date_embauche = req.body.date_embauche || enseignant.date_embauche;
+            enseignant.cours = req.files['cours'] ? req.files['cours'].map(cours => cours.filename) : null || enseignant.cours;
+           
+
+            // Sauvegarder les modifications dans la base de données
+            const enseignantMisAJour = await enseignant.save();
+  
+            res.status(200).json({
+                message: 'Profil de l\'étudiant complété avec succès',
+                enseignant: enseignantMisAJour,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue lors de la complétion du profil de l'étudiant: ${error.message}` });
+        }
+    },
+  
 
     SupprimerEnseignant: async (req, res) => {
         try {
@@ -137,53 +174,14 @@ const enseignantController = {
           res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
         }
       },
-   
 
-      EnregistrerEnseignant: async (req, res) => {
-        try {
-            console.log("Données reçues :", req.body);
-
-            const nouvelEnseignant = new Enseignant({
-                ID: req.body.ID,
-                matricule: req.body.matricule,
-                nom: req.body.nom,
-                prenom: req.body.prenom,
-                grade: req.body.grade,
-                photo: req.body.photo,
-                date_naissance: req.body.date_naissance,
-                adresse: req.body.adresse,
-                email: req.body.email,
-                telephone: req.body.telephone,
-                diplomes: req.body.diplomes,
-                specialite: req.body.specialite,
-                date_embauche: req.body.date_embauche,
-                cours: req.body.cours,
-                mot_de_passe: req.body.mot_de_passe,
-            });
-
-            const enseignantEnregistre = await nouvelEnseignant.save();
-
-            console.log("Enseignant ajouté :", enseignantEnregistre);
-
-            res.status(201).json({
-                message: 'Enseignant ajouté avec succès',
-                enseignant: enseignantEnregistre,
-            });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ message: `Une erreur est survenue lors de l'ajout de l'enseignant: ${error.message}` });
-        }
-    },
-
+    // Récupérer un enseignant par son ID
     findByIdEnseignant: async (req, res) => {
         try {
-            let enseignantID = req.params.id;
+            const enseignantId = req.params.id; // Supposons que l'ID de l'enseignant soit passé en tant que paramètre dans l'URL
 
-            // Remove leading/trailing whitespaces and newline characters
-            enseignantID = enseignantID.trim();
-
-            // Recherche de l'enseignant par son ID en utilisant findById de Mongoose
-            const enseignant = await Enseignant.findById(enseignantID);
+            // Rechercher l'enseignant dans la base de données par son ID en utilisant findById de Mongoose
+            const enseignant = await Enseignant.findById(enseignantId);
 
             if (!enseignant) {
                 return res.status(404).json({ message: 'Aucun enseignant trouvé avec cet ID' });
@@ -198,7 +196,6 @@ const enseignantController = {
             res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
         }
     },
-
 
     findByGrade: async (req, res) => {
         try {
@@ -223,45 +220,6 @@ const enseignantController = {
             res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
         }
     },
-
-
-
-    /*findOldestEnseignant: async (req, res) => {
-        try {
-            const oldestEnseignant = await Enseignant.findOne().sort({ date_embauche: 1 });
-
-            if (!oldestEnseignant) {
-                return res.status(404).json({ message: 'Aucun enseignant trouvé' });
-            }
-
-            res.status(200).json({
-                message: 'Enseignant le plus ancien récupéré avec succès',
-                enseignant: oldestEnseignant,
-            });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
-        }
-    },*/
-
-
-    /*findAllEnseignantsEnregistres : async (req, res) => {
-        try {
-            const enseignants = await Enseignant.find({ enregistre: true });
-    
-            if (enseignants.length === 0) {
-                return res.status(404).json({ message: 'Aucun enseignant enregistré trouvé' });
-            }
-    
-            res.status(200).json({
-                message: 'Enseignants enregistrés récupérés avec succès',
-                enseignants: enseignants,
-            });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ message: `Une erreur est survenue lors de la récupération des enseignants enregistrés: ${error.message}` });
-        }
-    },*/
 
     findByChefDepInfo: async (req, res) => {
         try {
@@ -316,13 +274,87 @@ const enseignantController = {
             res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
         }
     },
+
+
+    getAllEnseignants: async (req, res) => {
+        try {
+            // Utiliser la méthode find de Mongoose sans critères de recherche
+            const enseignants = await Enseignant.find();
     
+            if (enseignants.length === 0) {
+                return res.status(404).json({ message: 'Aucun enseignant trouvé' });
+            }
     
+            res.status(200).json({
+                message: 'Tous les enseignants récupérés avec succès',
+                enseignants: enseignants,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
+
+    findByGrade: async (req, res) => {
+        try {
+            const grade = req.params.grade;
     
+            // Recherche des enseignants par leur grade en utilisant find de Mongoose
+            const enseignants = await Enseignant.find({ grade: grade });
+    
+            if (enseignants.length === 0) {
+                return res.status(404).json({ message: 'Aucun enseignant trouvé avec ce grade' });
+            }
+    
+            res.status(200).json({
+                message: 'Enseignants récupérés avec succès',
+                enseignants: enseignants,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
+    
+
+    /*findOldestEnseignant: async (req, res) => {
+        try {
+            const oldestEnseignant = await Enseignant.findOne().sort({ date_embauche: 1 });
+
+            if (!oldestEnseignant) {
+                return res.status(404).json({ message: 'Aucun enseignant trouvé' });
+            }
+
+            res.status(200).json({
+                message: 'Enseignant le plus ancien récupéré avec succès',
+                enseignant: oldestEnseignant,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },*/
+
+
+    /*findAllEnseignantsEnregistres : async (req, res) => {
+        try {
+            const enseignants = await Enseignant.find({ enregistre: true });
+    
+            if (enseignants.length === 0) {
+                return res.status(404).json({ message: 'Aucun enseignant enregistré trouvé' });
+            }
+    
+            res.status(200).json({
+                message: 'Enseignants enregistrés récupérés avec succès',
+                enseignants: enseignants,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue lors de la récupération des enseignants enregistrés: ${error.message}` });
+        }
+    },*/
+
 
 };
-
-
-
 
 module.exports = enseignantController;

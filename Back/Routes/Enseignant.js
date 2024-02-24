@@ -1,22 +1,26 @@
 const express = require("express");
 const Route = express.Router();
-
 const Enseignant = require("../Controllers/Enseignant"); // Assurez-vous que le chemin d'accès vers votre contrôleur est correct
+const uploadFile = require('../middlewares/uploadFile');
+
 
 Route.post("/create", Enseignant.AjouterEnseignant);
-Route.post("/Inscrire",Enseignant.Inscrire);
-Route.get("/findAll", Enseignant.findAllEnseignant);
+Route.put("/Inscrire",Enseignant.Inscrire);
+Route.put("/Enregistrer/:id",uploadFile.fields([{ name: 'photo', maxCount: 1 },{ name: 'cv', maxCount: 1 }, { name: 'cours', maxCount: 10 }]), Enseignant.CompleterProfil);
 Route.delete("/:id", Enseignant.SupprimerEnseignant);
-Route.post("/Enregistrer", Enseignant.EnregistrerEnseignant);
 Route.get("/:id", Enseignant.findByIdEnseignant);
 Route.get("/findByGrade/:grade", Enseignant.findByGrade);
+Route.get("/", Enseignant.getAllEnseignants);
+Route.get("/findByGrade/:grade", Enseignant.findByGrade);
 
+
+//Route.get("/NameLastName", Enseignant.getAllNamesAndLastNames);
 //Route.put("/updategrade/:id", Enseignant.updateGrade);
 //Route.put("/updateadd/:id", Enseignant.updateAdresse);
 //Route.put("/updattel/:id", Enseignant.updateTelephone);
-Route.get("/findByChefDepMath", Enseignant.findByChefDepMath);
-Route.get("/findByChefDepInf", Enseignant.findByChefDepInfo);
-Route.get("/findByChefDepElec", Enseignant.findByChefDepEL);
+Route.get("/findByChefDep/MATH", Enseignant.findByChefDepMath);
+Route.get("/findByChefDep/INFO", Enseignant.findByChefDepInfo);
+Route.get("/findByChefDep/EL", Enseignant.findByChefDepEL);
 
 
 

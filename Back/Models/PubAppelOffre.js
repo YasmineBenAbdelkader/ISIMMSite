@@ -23,6 +23,10 @@ const PubAppelOffreSchema = new mongoose.Schema(
             type: String,
           
         },
+        form : {
+            type: String,
+            required: false,
+        },
         
     },
     baseOptions,

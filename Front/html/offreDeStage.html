@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ISIMM - Offres de stage </title>
+        <link rel="stylesheet" href ="../css/offreDeStage.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-...." crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <section class="header">
+            <nav>
+                <a href="index.html"><img src="../images/logo.png" width="80" height="80"></a>
+                <a href="index.html"><img src="../images/flag.png" width="80" height="80"></a>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Institut &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="isimm.html">ISIMM</a></li><br>
+                                <li><a href="vieassociative.html">Vie Associative</a></li><br>
+                                <li><a href="serviceUniversitaire.html">Vie Étudiante</a></li><br>
+                                <li><a href="partenriatInternational.html">Internationale-Coopérations</a></li><br>
+                                <li><a href="equipe.html">Equipe</a></li><br>
+                                <li><a href="offre.html">Offre et consultation</a></li><br>
+        
+                            </ul>
+                        </li>
+                        <li><a href="formation.html">Etudiant &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="emploiEtudiant.html">Emploi de temps</a></li><br>
+                                <li><a href="master.html">Calendrier des examens</a></li><br>
+                                <li><a href="prepa.html">Offres de stage</a></li><br>
+                                <li><a href="prepa.html">Offres d'emploi</a></li><br>
+                                <li><a href="prepa.html">Echange académique</a></li><br>
+                                <li><a href="prepa.html">Rattrapages des groupes</a></li><br>
+                            </ul>
+                        </li>
+                        <li><a href="formation.html">Enseignant &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="ing.html">Staff Académique</a></li><br>
+                                <li><a href="master.html">Conventions</a></li><br>
+                                <li><a href="prepa.html">Emploi de temps</a></li><br>
+                                <li><a href="prepa.html">Calendrier des surveillances</a></li><br>
+                                <li><a href="prepa.html">Echange académique</a></li><br>
+                                <li><a href="master.html">Calendrier des examens</a></li><br>
+        
+                            </ul>
+                        </li>
+                        <li><a href="formation.html">Formation &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="ing.html">Cycle Ingénieur</a></li><br>
+                                <li><a href="master.html">Master</a></li><br>
+                                <li><a href="prepa.html">Cycle préparatoire</a></li><br>
+                                <li><a href="licence.html">licence</a></li><br>
+                            </ul>
+                        </li>
+                        <li><a href="">Recherche &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Laboratoires</a></li><br>
+                                <li><a href="#">Unité de recherche</a></li><br>
+                                <li><a href="#">Projets de recherche</a></li><br>
+                            </ul></li>
+                        <li><a href="">Entreprise &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Etudiant</a></li><br>
+                                <li><a href="#">Entreprises</a></li><br>
+                                <li><a href="#">Entreprises partenaires</a></li><br>
+                                <li><a href="#">Offres de stage</a></li><br>
+                            </ul>
+                        </li>
+                        <li id="image"><a href="account.html"><img src="../images/menu-2.png" alt="Account" width="40" height="40"></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="text-box">
+                <h1>Offres de stage</h1>
+                <p>Découvrez les offres de stage disponibles</p>
+                <a href="emploiEtudiant.html" class="hero-btn-2"> Emplois du temps</a>
+                <a href="CalExamen.html" class="hero-btn-1"> Calendriers des examens </a>
+                <a href="" class="hero-btn-2">Offre d'emploi</a>
+                <a href="" class="hero-btn-2"> Rattrapages des groups</a>
+                
+            </div>
+            
+            
+        </section>
+        <section>
+            <div class="colored-slide">
+                <h2><a href="index.html" class="hero-btn-1">accueil</a>  /  Offres de stage</h2>
+            </div>
+        </section>
+        <section class="content-1" id="sec1">
+            <div class="Histo">
+                <h1>Offres de stage</h1>
+                <p>Explorez les opportunités de stage offertes par l'ISIMM. Découvrez des stages passionnants dans divers domaines, offerts par nos partenaires locaux et internationaux. Trouvez l'opportunité de stage qui correspond à vos intérêts et à votre parcours académique pour enrichir votre expérience professionnelle et académique.</p>
+                <div class="card-container" id="actualites-container">
+                    <!-- Les offres de stage seront ajoutées ici -->
+                </div>                
+            </div>
+        </section>  
+        <footer><script src="../JS/footer.js"></script></footer>      
+    </body>
+    <script>
+        // Définir la base de l'URL de votre backend
+        const baseUrl = "http://localhost:5000";
+    
+        // Utiliser axios pour récupérer les données depuis le backend
+        axios.get(`${baseUrl}/OffreStageEmploi/offres-stage`)
+        .then(response => {
+            // Gérer la réponse réussie
+            console.log('Réponse du backend:', response.data);
+            
+            // Obtenir le conteneur où vous souhaitez ajouter les offres de stage
+            const actualitesContainer = document.getElementById('actualites-container');
+            
+            // Parcourir chaque offre de stage dans les données de réponse
+            response.data.offresStage.forEach(offre => {
+                // Créer un div pour l'offre de stage
+                const offreDiv = document.createElement('div');
+                offreDiv.classList.add('offre');
+                offreDiv.innerHTML = `
+                <div class="card">
+                    <img src="${baseUrl}/storage/${offre.photo}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">${offre.titre}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">${offre.entreprise}</h6>
+                            <p class="card-text" id="desc">${offre.description}</p>
+                            <p class="card-text" id="date">Date de publication : ${new Date(offre.date).toLocaleDateString()}</p>
+                            <div class="button-container">
+                            <a href="${baseUrl}/storage/${offre.files[0]}" class="btn btn-primary" target="_blank">Fichiers</a>
+                            <a href="${offre.formulaire}" class="btn btn-primary" target="_blank">Formulaire</a>
+                        </div>
+                    </div>
+                </div>
+
+                `;
+                
+                // Ajouter le div d'offre de stage au conteneur
+                actualitesContainer.appendChild(offreDiv);
+            });
+        })
+        .catch(error => {
+            // Gérer l'erreur
+            console.error('Erreur lors de la récupération des données:', error);
+        });
+    </script>
+    
+    
+</html>

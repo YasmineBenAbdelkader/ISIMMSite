@@ -570,6 +570,7 @@ p{
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-right: 10px;
+    
 }
 
 .pdf-button:hover, .form-button:hover {
@@ -584,6 +585,7 @@ p{
 /* Style pour que les boutons soient sur la même ligne */
 .button-container button {
     display: inline-block;
+
 }
 
 

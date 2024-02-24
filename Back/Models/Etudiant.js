@@ -102,12 +102,7 @@ const EtudiantSchema = new mongoose.Schema({
         default: null
 
     },
-    etat_militaire: {
-        type: String,
-        required: false,
-        default: null
-
-    },
+   
     etat_militaire: {
         type: String,
         required: false,

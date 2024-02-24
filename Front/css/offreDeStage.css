@@ -1,0 +1,382 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Crimson Text', serif;
+    --font-color: #3586ff;
+    
+    
+}
+
+.header {
+    height: 650px;
+    width: 100%;
+    background-image: linear-gradient(rgba(51, 35, 35, 0.7), rgba(43, 44, 45, 0.7)), url(../images/internship.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    flex: 1;
+}
+
+/*navbar*/
+nav {
+    display: flex;
+    padding: 1.2% 1%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff; 
+    box-shadow: 0 0 10px rgba(1, 1, 1, 0.1);
+
+    
+}
+
+nav img {
+    width: 120px;
+    margin-right: 10px;
+    object-fit: contain;
+    border-right:  1px solid rgb(23, 19, 19);
+}
+
+.nav-links ul,
+#image {
+    display: flex;
+    align-items: center;
+}
+
+#image img {
+    width: 40px;
+    border-right:  0px solid rgb(253, 253, 253);
+}
+
+.nav-links {
+    flex: 1;
+    text-align: center;
+   
+}
+
+.nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 15px; 
+    padding: 10px 20px;
+    position: relative;
+    font-family: 'Canela Web', 'Cairo';
+}
+
+.nav-links ul li a {
+    color: #333; 
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase; 
+}
+
+.nav-links ul li::after {
+    content: '';
+    width: 0px;
+    height: 2px;
+    display: block;
+    margin: auto;
+    
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+    
+}
+.nav-links ul li a:hover {
+    color: var(--font-color);
+}
+
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    width: 250px;
+    padding: 10px 0;
+    border-radius: 10px;
+    opacity: 0;
+    transform: scaleY(0.8);
+    transform-origin: top;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.sub-menu li {
+    padding: 12px 20px;
+    font-family: 'Canela Web', 'Cairo';
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 8px;
+}
+
+.sub-menu a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: none;
+    transition: color 0.3s;
+    display: block;
+}
+
+
+.sub-menu ul li a {
+    text-transform: lowercase; 
+}
+
+.sub-menu li:hover {
+    background-color: #f1f1f1;
+}
+
+.sub-menu li a:hover {
+    color: var(--font-color);
+}
+
+.nav-links ul li:hover .sub-menu {
+    display: block;
+    top: 100%;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/** fin NavBar**/
+
+/** hero-slide**/
+.text-box {
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    
+}
+
+.text-box h1 {
+    font-size: 60px;
+    
+}
+
+.text-box p {
+    margin: 10px 0 40px;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 15px;
+    
+}
+
+.text-box a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 16px 34px;
+    font-size: 18px;
+    background: transparent;
+    transition: 1s;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+    
+}
+
+.text-box a:hover {
+    border: 1px solid var(--font-color);
+    background: var(--font-color);
+    transform: 1s;
+}
+
+/* Add subtle box-shadow for depth */
+.text-box a.hero-btn-1,
+.text-box a.hero-btn-2 {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/**nav slide**/
+.colored-slide {
+    background-color: #e1e1e1; /* Set your desired background color */
+    padding: 35px;
+    text-align: center;
+}
+
+.colored-slide h2 {
+    font-size: 22px;
+    color: #333; /* Set your desired text color */
+    font-weight: 200;
+}
+
+.colored-slide a {
+    font-size: 22px;
+    color: var(--font-color);
+    text-decoration: none; /* Remove underline */
+ 
+}
+
+/**fin hero-slide**/
+
+
+
+.content-1 {
+    width:80%;
+    margin:auto;
+    text-align: center;
+    padding-top: 30px;
+    
+}
+.content-1 h1{
+    font-size:36px;
+    font-weight: 600;
+    border-bottom: 1px solid rgb(25, 25, 25); 
+    padding-bottom: 25px;
+   
+
+}
+
+.content-1 p {
+    font-size: 20px;
+    line-height: 1.5; /* Ajuste ce chiffre pour augmenter l'espace entre les lignes */
+    text-align: justify;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.content-1 a {
+    color: #3586ff;
+    transition: color 0.3s ease; 
+    text-decoration: none;
+}
+
+.content-1 a:hover {
+    color: #5e7aa3; /* Couleur au survol de la souris */
+    transform: translateY(-5px); /* Translation de 5 pixels vers le haut */
+}
+
+/* Ajoutez ce CSS à votre fichier CSS existant ou créez-en un nouveau */
+
+/* Ajoutez ce CSS à votre fichier CSS existant ou créez-en un nouveau */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.offre {
+    width: calc(33.33% - 20px); /* Pour afficher trois cartes par ligne */
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 16px; /* Taille de la police */
+    border-top: 2px solid #3586ff; /* Bordure supérieure bleue */
+    padding-top: 10px; /* Espacement au-dessus du texte */
+}
+
+
+#desc {
+    font-size: 19px;
+    
+}
+
+#date {
+    font-size: 19px;
+    text-align: center;
+    margin-bottom: 17px;
+
+}
+
+#sec1 {
+    margin-bottom: 50px;
+}
+
+@media (max-width: 992px) {
+    .offre {
+        width: calc(50% - 20px); /* Pour afficher deux cartes par ligne sur les écrans moyens */
+    }
+}
+
+@media (max-width: 768px) {
+    .offre {
+        width: calc(100% - 20px); /* Pour afficher une carte par ligne sur les petits écrans */
+    }
+}
+
+
+/* Ajoutez ce CSS à votre fichier CSS existant ou créez-en un nouveau */
+
+/* Ajoutez ce CSS à votre fichier CSS existant ou créez-en un nouveau */
+
+/* Boutons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    background-color: #3586ff;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #1e5eff;
+    transform: translateY(-2px);
+}
+
+/* Boutons de type primaire */
+.btn-primary {
+    background-color: #76bff7;
+}
+
+.btn-primary:hover {
+    background-color: #c1dcfa;
+}

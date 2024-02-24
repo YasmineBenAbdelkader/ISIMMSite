@@ -10,24 +10,9 @@ const CalendrierExamensSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        Cycle_etude: {
+        level :{
             type: String,
             required: false,
-        },
-        specialite: {
-            type: String,
-            required: false,
-    
-        },
-        niveau_etude: {
-            type: Number,
-            required: false,
-
-        }, 
-        Td: {
-            type: Number,
-            required: false,
-
         }, 
         enseignant :{
             type: String,

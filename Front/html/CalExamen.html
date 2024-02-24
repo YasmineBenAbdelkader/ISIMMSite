@@ -2,286 +2,189 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calendriers des examens</title>
-        <link rel="stylesheet" href ="../css/vieassociative.css">
-        <link rel="stylesheet" href ="../css/CalExamen.css">
-        <link rel="stylesheet" href ="../css/emploi.css">
+        <title>ISIMM - Calendriers des examens </title>
+        <!-- Add this to the head of your HTML document -->
 
-        
-        <style >
-            .header {
-                height: 650px;
-                width: 100%;
-                background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/37.jpg);
-                background-position: center;
-                background-size: cover;
-                position: relative;
-                flex: 1;
-                }
-        </style>
+        <!-- Add this before the closing body tag -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-...." crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href ="../css/calendrier.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     </head>
 
 
-    <body>
+
+ <body>
         <section class="header">
-            <object type="text/html" data="Navbar.html" width="100%" height="auto"></object>
-            <div class="text-box">
-                <h1>Calendriers des examens</h1><br>
-                <p>Nous vous invitons à choisir votre groupe de travaux dirigés pour accéder au calendrier des examens correspondant</p>
-            </div>
-        </section>
-
-        <section>
-          <div class="colored-slide">
-              <h2><a href="index.html" class="hero-btn-1">accueil</a>  /  étudiant / calendriers des examens </h2>
-          </div>
-      </section>
-      <section>
-        <div class="wrapper">
-
-            <div class="top_navbar">
-                <div class="logo">
-                    <a href="#">Calendriers des examens</a>
-                </div>
-                
-            </div>
+            <nav>
+                <a href="index.html"><img src="../images/logo.png" width="80" height="80"></a>
+                <a href="index.html"><img src="../images/flag.png" width="80" height="80"></a>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Institut &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="isimm.html">ISIMM</a></li><br>
+                                <li><a href="vieassociative.html">Vie Associative</a></li><br>
+                                <li><a href="serviceUniversitaire.html">Vie Étudiante</a></li><br>
+                                <li><a href="partenriatInternational.html">Internationale-Coopérations</a></li><br>
+                                <li><a href="equipe.html">Equipe</a></li><br>
+                                <li><a href="offre.html">Offre et consultation</a></li><br>
         
-            <div class="main_body">
-                
-                
-                <div class="sidebar_menu">
-                    
-                    <div class="inner__sidebar_menu">
-                        
-                        
-                      <ul>
-                        <li>
-                          <a href="#" class="active">
-                            <span class="icon">
-                                <i class="fas fa-address-card"></i></span>
-                            <span class="list">CPI_1</span>
-                          </a>
+                            </ul>
                         </li>
-                        <li>
-                          <a href="#" >
-                            <span class="icon"><i class="fas fa-address-card"></i></span>
-                            <span class="list">CPI_2</span>
-                          </a>
+                        <li><a href="formation.html">Etudiant &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="emploiEtudiant.html">Emploi de temps</a></li><br>
+                                <li><a href="CalExamen.html">Calendrier des examens</a></li><br>
+                                <li><a href="prepa.html">Offres de stage</a></li><br>
+                                <li><a href="prepa.html">Offres d'emploi</a></li><br>
+                                <li><a href="prepa.html">Echange académique</a></li><br>
+                                <li><a href="prepa.html">Rattrapages des groupes</a></li><br>
+                            </ul>
                         </li>
-                        <li>
-                          <a href="#">
-                            <span class="icon"><i class="fas fa-address-card"></i></span>
-                            <span class="list">ING1_EL</span>
-                          </a>
+                        <li><a href="formation.html">Enseignant &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="ing.html">Staff Académique</a></li><br>
+                                <li><a href="master.html">Conventions</a></li><br>
+                                <li><a href="prepa.html">Emploi de temps</a></li><br>
+                                <li><a href="prepa.html">Calendrier des surveillances</a></li><br>
+                                <li><a href="prepa.html">Echange académique</a></li><br>
+                                <li><a href="master.html">Calendrier des examens</a></li><br>
+        
+                            </ul>
                         </li>
-                        <li>
-                          <a href="#">
-                            <span class="icon"><i class="fas fa-address-card"></i></span>
-                            <span class="list">ING2_EL</span>
-                          </a>
+                        <li><a href="formation.html">Formation &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="ing.html">Cycle Ingénieur</a></li><br>
+                                <li><a href="master.html">Master</a></li><br>
+                                <li><a href="prepa.html">Cycle préparatoire</a></li><br>
+                                <li><a href="licence.html">licence</a></li><br>
+                            </ul>
                         </li>
-                        <li>
-                          <a href="#">
-                            <span class="icon"><i class="fas fa-address-card"></i></span>
-                            <span class="list">ING3_EL</span>
-                          </a>
+                        <li><a href="">Recherche &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Laboratoires</a></li><br>
+                                <li><a href="#">Unité de recherche</a></li><br>
+                                <li><a href="#">Projets de recherche</a></li><br>
+                            </ul></li>
+                        <li><a href="">Entreprise &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Etudiant</a></li><br>
+                                <li><a href="#">Entreprises</a></li><br>
+                                <li><a href="#">Entreprises partenaires</a></li><br>
+                                <li><a href="#">Offres de stage</a></li><br>
+                            </ul>
                         </li>
-                        <li>
-                          <a href="#">
-                            <span class="icon"><i class="fas fa-address-card"></i></span>
-                            <span class="list">ING1_INFO</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <span class="icon"><i class="fas fa-address-card"></i></span>
-                            <span class="list">ING2_INFO</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <span class="icon"><i class="fas fa-address-card"></i></span>
-                            <span class="list">L1Info</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <span class="icon"><i class="fas fa-address-card"></i></span>
-                            <span class="list">L1_EEA</span>
-                          </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">L1_MATH</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">L1_TIC</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">L2_MATH</span>
-                            </a>
-                          </li>
-                         
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">L2_MIM</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">L2Info</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">L2_SE</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">L2_TIC</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">L3Info</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">L3_MATH</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">L3_SE</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">L3_TIC</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">MP1_GL</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">MP1_III</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">MP1_SD</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">MP2_GL</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">MP2_III</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">MP2_SD</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">MR1_EL</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">MR1_GL</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">MR2_EL</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="icon"><i class="fas fa-address-card"></i></span>
-                              <span class="list">MR2_GL</span>
-                            </a>
-                          </li>
-                      </ul>
-                    </div>
+                        <li id="image"><a href="account.html"><img src="../images/menu-2.png" alt="Account" width="40" height="40"></a></li>
+                    </ul>
                 </div>
-                <div class="container">
-                    <div class="title">Calendrier des examens</div>
-                        <div class="content"></div>
-                    </div>
-                </div>	
+            </nav> 
+            <div class="text-box">
+                <h1>Calendriers </h1>
+                <p></p>
+                <a href="emploiEtudiant.html" class="hero-btn-1">emplois du temps</a>
+                <a href="autreclub.html" class="hero-btn-1">Rattrapages des groupes</a>
             </div>
         </section>
-    </body>
-</html>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var levelSelector = document.getElementById("levelSelector");
-        var contentDiv = document.querySelector(".content");
+        <section>
+            <div class="colored-slide">
+                <h2><a href="index.html" class="hero-btn-1">accueil</a>  / <a href="index.html" class="hero-btn-1">etudiant</a> / calendriers des examens     </h2>
+            </div>
+        </section>
+        <section class="content-1" id ="sectionAutresClubs">
+            <h1>Calendriers des examens </h1>
+            <p>Nous vous invitons à choisir votre groupe de travaux dirigés pour accéder au calendrier des examens correspondant
+            </p>
+            <select id="levelSelector">
+                <!-- options de la liste -->
+            </select>
+            <div id="imageContainer"></div>
+            <button class="back-button" onclick="goBack()">Retirer</button>
+            <button onclick="showTimetable()">Choisir</button>
+        </section>
+        <footer><script src="../JS/footer.js"></script></footer>
 
-        levelSelector.addEventListener('change', function () {
+        <script>
+            window.onload = function() {
+            axios.get('http://localhost:5000/Classes/all')
+            .then(response => {
+            const classes = response.data;
+            const select = document.getElementById('levelSelector');
+
+            // Ajouter une option par défaut "Choisir"
+            const defaultOption = document.createElement('option');
+            defaultOption.text = 'Choisir';
+            defaultOption.disabled = true;
+            defaultOption.selected = true;
+            select.appendChild(defaultOption);
+
+            // Parcourir les classes récupérées
+            classes.forEach(classe => {
+                const option = document.createElement('option');
+                option.value = classe.titre;
+                option.text = classe.titre;
+                select.appendChild(option);
+            });
+            })
+                .catch(error => {
+                console.error('Error fetching classes:', error);
+            });
+          };
+
+            // Afficher les Calendrieres 
+            function showTimetable() {
+            var levelSelector = document.getElementById("levelSelector");
             var selectedLevel = levelSelector.value;
-            showTimetable(selectedLevel, contentDiv);
-        });
-    });
+            const baseUrl = "http://localhost:5000";
+            const apiUrl = `${baseUrl}/Calendrier/etudiant/${selectedLevel}`;
 
-    function showTimetable(selectedLevel, contentDiv) {
-        switch (selectedLevel) {
-            case "CPI_1":
-            case "CPI_2":
-            case "ING1_EL":
-            case "ING2_EL":
-            // Add more cases for other levels...
-                contentDiv.style.backgroundImage = 'url(path/to/corresponding_calendar_image.jpg)';
-                contentDiv.innerHTML = '';
-                break;
-            default:
-                contentDiv.style.backgroundImage = 'none';
-                contentDiv.innerHTML = 'Sélection invalide';
-                break;
+            // Clear previous timetable content
+            var imageContainer = document.getElementById("imageContainer");
+            imageContainer.innerHTML = "";
+
+            axios.get(apiUrl)
+                .then(response => {
+                // Handle successful response
+                console.log('Response from backend:', response.data);
+
+                // Check if response data is empty or not
+                if (response.data && response.data.CalendrierList && response.data.CalendrierList.length > 0) {
+                // Get the container where you want to append the actualites
+                const imageContainer = document.getElementById("imageContainer");
+
+                response.data.CalendrierList.forEach(Calendrier => {
+                    const CalendrierListDiv = document.createElement('div');
+                    CalendrierListDiv.classList.add('Calendrier-list');
+                    CalendrierListDiv.innerHTML = `
+                        <h1>Calendrier de temps pour ${selectedLevel}</h1>
+                        <a href="${baseUrl}/storage/${Calendrier.Calendrier}" target="_blank">Voir l'Calendrier du temps (PDF)</a>
+                    `;
+
+                    imageContainer.appendChild(CalendrierListDiv);
+                });
+            } else {
+                // Display a message if no timetable data is available
+                const noDataMessage = document.createElement('p');
+                noDataMessage.textContent = 'Aucun calendrier disponible pour ce niveau.';
+                imageContainer.appendChild(noDataMessage);
+            }
+        })
+        .catch(error => {
+            // Handle error
+            console.error('Error fetching data:', error);
+        });
         }
-    }
-</script>
+
+
+        function goBack() {
+                var imageContainer = document.getElementById("imageContainer");
+                imageContainer.innerHTML = ""; // Clear the content of the imageContainer to revert to initial state
+        }
+        </script>
+
+ </body>
+ </html>
+

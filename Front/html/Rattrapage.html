@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ISIMM - Rattrapages </title>
+        <link rel="stylesheet" href ="../css/emploi.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-...." crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <section class="header">
+            <nav>
+                <a href="index.html"><img src="../images/logo.png" width="80" height="80"></a>
+                <a href="index.html"><img src="../images/flag.png" width="80" height="80"></a>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Institut &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="isimm.html">ISIMM</a></li><br>
+                                <li><a href="vieassociative.html">Vie Associative</a></li><br>
+                                <li><a href="serviceUniversitaire.html">Vie Étudiante</a></li><br>
+                                <li><a href="partenriatInternational.html">Internationale-Coopérations</a></li><br>
+                                <li><a href="equipe.html">Equipe</a></li><br>
+                                <li><a href="offre.html">Offre et consultation</a></li><br>
+        
+                            </ul>
+                        </li>
+                        <li><a href="formation.html">Etudiant &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="emploiEtudiant.html">Emploi de temps</a></li><br>
+                                <li><a href="master.html">Calendrier des examens</a></li><br>
+                                <li><a href="prepa.html">Offres de stage</a></li><br>
+                                <li><a href="prepa.html">Offres d'emploi</a></li><br>
+                                <li><a href="prepa.html">Echange académique</a></li><br>
+                                <li><a href="prepa.html">Rattrapages des groupes</a></li><br>
+                            </ul>
+                        </li>
+                        <li><a href="formation.html">Enseignant &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="ing.html">Staff Académique</a></li><br>
+                                <li><a href="master.html">Conventions</a></li><br>
+                                <li><a href="prepa.html">Emploi de temps</a></li><br>
+                                <li><a href="prepa.html">Calendrier des surveillances</a></li><br>
+                                <li><a href="prepa.html">Echange académique</a></li><br>
+                                <li><a href="master.html">Calendrier des examens</a></li><br>
+        
+                            </ul>
+                        </li>
+                        <li><a href="formation.html">Formation &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="ing.html">Cycle Ingénieur</a></li><br>
+                                <li><a href="master.html">Master</a></li><br>
+                                <li><a href="prepa.html">Cycle préparatoire</a></li><br>
+                                <li><a href="licence.html">licence</a></li><br>
+                            </ul>
+                        </li>
+                        <li><a href="">Recherche &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Laboratoires</a></li><br>
+                                <li><a href="#">Unité de recherche</a></li><br>
+                                <li><a href="#">Projets de recherche</a></li><br>
+                            </ul></li>
+                        <li><a href="">Entreprise &#x25BE;</a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Etudiant</a></li><br>
+                                <li><a href="#">Entreprises</a></li><br>
+                                <li><a href="#">Entreprises partenaires</a></li><br>
+                                <li><a href="#">Offres de stage</a></li><br>
+                            </ul>
+                        </li>
+                        <li id="image"><a href="account.html"><img src="../images/menu-2.png" alt="Account" width="40" height="40"></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="text-box">
+                <h1>Rattrapages des groupes</h1>
+                <p></p>
+                <a href="emploiEtudiant.html" class="hero-btn-2"> Emplois du temps</a>
+                <a href="CalExamen.html" class="hero-btn-1"> Calendriers des examens </a>
+                <a href="" class="hero-btn-2">Offre d'emploi</a>
+                <a href="" class="hero-btn-2"> Rattrapages des groups</a>
+                
+            </div>
+            
+            
+        </section>
+        <section>
+            <div class="colored-slide">
+                <h2><a href="index.html" class="hero-btn-1">accueil</a>  / rattrapages des groupes</h2>
+            </div>
+        </section>
+        <section class="content-1" id ="sectionAutresClubs">
+            <h1>Rattrapages des groupes</h1>
+            <p>Nous vous invitons à choisir votre groupe de travaux dirigés pour accéder au rattrapages correspondant
+            </p>
+            <select id="levelSelector">
+                <!-- options de la liste -->
+            </select>
+            <div id="imageContainer"></div>
+            <button class="back-button" onclick="goBack()">Retirer</button>
+            <button onclick="showTimetable()">Choisir</button>
+        </section>
+        <footer><script src="../JS/footer.js"></script></footer>   
+        <script>
+            window.onload = function() {
+            axios.get('http://localhost:5000/Classes/all')
+            .then(response => {
+            const classes = response.data;
+            const select = document.getElementById('levelSelector');
+
+            // Ajouter une option par défaut "Choisir"
+            const defaultOption = document.createElement('option');
+            defaultOption.text = 'Choisir';
+            defaultOption.disabled = true;
+            defaultOption.selected = true;
+            select.appendChild(defaultOption);
+
+            // Parcourir les classes récupérées
+            classes.forEach(classe => {
+                const option = document.createElement('option');
+                option.value = classe.titre;
+                option.text = classe.titre;
+                select.appendChild(option);
+            });
+            })
+                .catch(error => {
+                console.error('Error fetching classes:', error);
+            });
+            };
+
+            // Afficher les emploies 
+            function showTimetable() {
+            var levelSelector = document.getElementById("levelSelector");
+            var selectedLevel = levelSelector.value;
+            const baseUrl = "http://localhost:5000";
+            const apiUrl = `${baseUrl}/Rattrapage/rattrapages/${selectedLevel}`;
+
+            // Clear previous timetable content
+            var imageContainer = document.getElementById("imageContainer");
+            imageContainer.innerHTML = "";
+
+            axios.get(apiUrl)
+                .then(response => {
+                // Handle successful response
+                console.log('Response from backend:', response.data);
+
+                // Check if response data is empty or not
+                if (response.data && response.data.rattrapages && response.data.rattrapages.length > 0) {
+                // Get the container where you want to append the actualites
+                const imageContainer = document.getElementById("imageContainer");
+
+                response.data.rattrapages.forEach(rattrapage => {
+                    const rattrapagesListDiv = document.createElement('div');
+                    rattrapagesListDiv.classList.add('rattrapage-list');
+                    rattrapagesListDiv.innerHTML = `
+                        <h1>Rattrapage de ${selectedLevel}</h1>
+                        <a href="${baseUrl}/storage/${rattrapage.photo}" target="_blank">Voir le rattrapage de groupe (PDF)</a>
+                    `;
+
+                    imageContainer.appendChild(rattrapagesListDiv);
+                });
+            } else {
+                // Display a message if no timetable data is available
+                const noDataMessage = document.createElement('p');
+                noDataMessage.textContent = 'Aucun emploi du temps disponible pour ce niveau.';
+                imageContainer.appendChild(noDataMessage);
+            }
+        })
+        .catch(error => {
+            // Handle error
+            console.error('Error fetching data:', error);
+        });
+        }
+
+
+        function goBack() {
+                var imageContainer = document.getElementById("imageContainer");
+                imageContainer.innerHTML = ""; // Clear the content of the imageContainer to revert to initial state
+        }
+        </script>   
+    </body>
+</html>
