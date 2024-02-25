@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const config = require('../Config/Config');
 
-const authenticateUser = (req, res, next) => {
+const authenticateEtudiant = (req, res, next) => {
   const token = req.headers.authorization;
   if (!token || !token.startsWith('Bearer ')) {
     return res.status(401).json({ error: 'Unauthorized-a' });
@@ -14,13 +14,13 @@ const authenticateUser = (req, res, next) => {
     const decoded = jwt.verify(tokenString, 'ARTY');
     console.log ("decode = ", decoded);
 
-    // Access user information from the decoded payload
-    const user = decoded.user;
-    console.log ("user = ", user);
+    // Access Etudiant information from the decoded payload
+    const Etudiant = decoded.Etudiant;
+    console.log ("Etudiant = ", Etudiant);
 
-    // Store the user object in the request for further processing
-    req.user = user;
-    console.log ("req.user =", req.user);
+    // Store the Etudiant object in the request for further processing
+    req.Etudiant = Etudiant;
+    console.log ("req.Etudiant =", req.Etudiant);
 
     next();
   } catch (error) {
@@ -30,11 +30,11 @@ const authenticateUser = (req, res, next) => {
 };
 
 
-const generateToken = (user) => {
+const generateToken = (Etudiant) => {
   const payload = {
-    user: {
-      id: user.id,
-      mailAddress: user.mailAddress,
+    Etudiant: {
+      id: Etudiant.id,
+      adresse_email: Etudiant.adresse_email,
     },
   };
   return jwt.sign(payload, config.secretKey, { expiresIn: '1h' });
@@ -42,4 +42,4 @@ const generateToken = (user) => {
 
 
 
-module.exports = { authenticateUser, generateToken };
+module.exports = { authenticateEtudiant, generateToken };

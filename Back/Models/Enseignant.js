@@ -144,14 +144,6 @@ const EnseignantSchema = new mongoose.Schema({
             type: String,
             required: false,  
              default: null
-
-        },
-        niveau: {
-            type: String,
-            required: false,
-            default: null
-
-        }
     }],
     mot_de_passe: {
     type: String,
@@ -176,11 +168,6 @@ const EnseignantSchema = new mongoose.Schema({
         required: false,
     }
 
-
-
-    }],
-  
-  
 
 },baseOptions, 
 {

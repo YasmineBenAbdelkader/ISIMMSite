@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <nav>
       <a href="index.html"><img src="../images/logo.png" width="80" height="80"></a>
       <a href="index.html"><img src="../images/flag.png" width="80" height="80"></a>
       <div class="nav-links">
           <ul>
-              <li><a href="index.html">Institut &#x25BE;</a>
+            <li><a id="institut-link" href="index.html">Institut &#x25BE;</a>
                   <ul class="sub-menu">
                       <li><a href="isimm.html">ISIMM</a></li><br>
                       <li><a href="vieassociative.html">Vie Associative</a></li><br>
@@ -20,21 +21,17 @@
               <li><a href="formation.html">Etudiant &#x25BE;</a>
                   <ul class="sub-menu">
                       <li><a href="emploiEtudiant.html">Emploi de temps</a></li><br>
-                      <li><a href="master.html">Calendrier des examens</a></li><br>
-                      <li><a href="prepa.html">Offres de stage</a></li><br>
-                      <li><a href="prepa.html">Offres d'emploi</a></li><br>
-                      <li><a href="prepa.html">Echange académique</a></li><br>
-                      <li><a href="prepa.html">Rattrapages des groupes</a></li><br>
+                      <li><a href="CalExamen.html">Calendrier des examens</a></li><br>
+                      <li><a href="Rattrapage.html">Rattrapages des groupes</a></li><br>
                   </ul>
               </li>
               <li><a href="formation.html">Enseignant &#x25BE;</a>
                   <ul class="sub-menu">
-                      <li><a href="ing.html">Staff Académique</a></li><br>
-                      <li><a href="master.html">Conventions</a></li><br>
-                      <li><a href="prepa.html">Emploi de temps</a></li><br>
-                      <li><a href="prepa.html">Calendrier des surveillances</a></li><br>
-                      <li><a href="prepa.html">Echange académique</a></li><br>
-                      <li><a href="master.html">Calendrier des examens</a></li><br>
+                      <li><a href="StaffAcadémique.html">Staff Académique</a></li><br>
+                      <li><a href="emploiEnseignant.html">Emploi de temps</a></li><br>
+                      <li><a href="CalSurv.html">Calendrier des surveillances</a></li><br>
+                      <li><a href="CalExamen.html">Calendrier des examens</a></li><br>
+                      <li><a href="#">Conventions</a></li><br>
 
                   </ul>
               </li>
@@ -48,20 +45,18 @@
               </li>
               <li><a href="">Recherche &#x25BE;</a>
                   <ul class="sub-menu">
-                      <li><a href="#">Laboratoires</a></li><br>
-                      <li><a href="#">Unité de recherche</a></li><br>
-                      <li><a href="#">Projets de recherche</a></li><br>
+                      <li><a href="LaboRecherche.html">Laboratoires</a></li><br>
+                      <li><a href="uniteRecherche.html">Unité de recherche</a></li><br>
+                      <li><a href="ProjetRecherche.html">Projets de recherche</a></li><br>
                   </ul></li>
               <li><a href="">Entreprise &#x25BE;</a>
                   <ul class="sub-menu">
-                      <li><a href="#">Etudiant</a></li><br>
-                      <li><a href="#">Entreprises</a></li><br>
-                      <li><a href="#">Entreprises partenaires</a></li><br>
-                      <li><a href="#">Offres de stage</a></li><br>
+                      <li><a href="Entreprises.html">Entreprises partenaires</a></li><br>
+                      <li><a href="offreDeStage.html">Offres de stage</a></li><br>
+                      <li><a href="offreEmploi.html">Offres d'emploi</a></li><br>
                   </ul>
               </li>
-              <i id="user" style='font-size:30px' class='far'>&#xf2bd;</i>
-
+              <li id="image"><a href="login.html"><img src="../images/menu-2.png" alt="Account" width="40" height="40"></a></li>
           </ul>
       </div>
   </nav>
@@ -105,11 +100,12 @@
               </a>
             </div>
           </form>
-          <form action="#" class="sign-up-form">
+          <div id="messagecontainer" class="success-message"></div>
+          <form action="#" class="sign-up-form" id="Inscrire">
             <h2 class="title">S'inscrire</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <select id="role" name="role" required>
+              <select id="role" name="Poste" required>
                   <option value="" disabled selected>Vous êtes un</option>
                   <option value="etudiant">Étudiant</option>
                   <option value="enseignant">Enseignant</option>
@@ -118,19 +114,19 @@
             
           <div class="input-field">
             <i class="fas fa-id-card"></i>
-            <input type="text" placeholder="CIN" required />
+            <input type="text" id="cin" placeholder="CIN" required />
         </div>           
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" required />
+              <input type="email" id="email" placeholder="Email" required />
             </div>
             <div class="input-field">
               <i class="fas fa-phone"></i>
-              <input type="text" placeholder="Téléphone" required />
+              <input type="text" id="phone" placeholder="Téléphone" required />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="mot de passe" required/>
+              <input type="password" id="MP" placeholder="mot de passe" required/>
             </div>
             <input type="submit" class="btn" value="Sign up" />
             <p class="social-text">Visiter sur les réseaux sociaux </p>
@@ -179,5 +175,56 @@
       </div>
     </div>
     <script src="../JS/login.js"></script>
+    <script>
+      document.getElementById("Inscrire").addEventListener("submit", function(event) {
+          event.preventDefault(); // Empêcher le comportement par défaut du formulaire
+  
+          // Récupérer les valeurs des champs du formulaire
+          const poste = document.getElementById("role").value;
+          const cin = document.getElementById("cin").value;
+          const email = document.getElementById("email").value;
+          const phone = document.getElementById("phone").value;
+          const password = document.getElementById("MP").value;
+  
+          // Faire la requête POST avec Axios
+          axios.put("http://localhost:5000/etudiant/Inscrire", {
+              Poste: poste,
+              cin: cin,
+              adresse_email: email,
+              num_telephone: phone,
+              mot_de_passe: password
+          })
+          .then(function (response) {
+              // Gérer la réponse si la requête est réussie
+              console.log(response.data);
+              // Après une inscription réussie
+              document.getElementById('messagecontainer').classList.add('show'); // Ajouter la classe 'show' pour afficher le message
+              document.getElementById('messagecontainer').innerHTML = "Inscription réussie !";
+              // Vider les champs du formulaire
+              document.getElementById("role").value = "";
+              document.getElementById("cin").value = "";
+              document.getElementById("email").value = "";
+              document.getElementById("phone").value = "";
+              document.getElementById("MP").value = "";
+
+  
+              // Rediriger l'utilisateur vers une autre page ou effectuer une action supplémentaire si nécessaire
+          })
+          .catch(function (error) {
+              // Gérer les erreurs si la requête échoue
+              console.error(error);
+              if (error.response && error.response.status === 400 && error.response.data.message === "Inscription impossible, le numéro d'identification n'existe pas") {
+                  // Afficher un message spécifique si le numéro d'identification n'existe pas
+                  document.getElementById('messagecontainer').classList.add('show'); // Ajouter la classe 'show' pour afficher le message
+                  document.getElementById('messagecontainer').innerHTML = "Votre N°CIN n'est pas enregistré dans notre base de données";
+              } else {
+                  // Gérer d'autres erreurs
+                  document.getElementById('messagecontainer').classList.add('show'); // Ajouter la classe 'show' pour afficher le message
+                  document.getElementById('messagecontainer').innerHTML = "Une erreur est survenue lors de l'inscription.";
+              }
+          });
+      });
+  </script>
+        
   </body>
 </html>

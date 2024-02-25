@@ -21,13 +21,12 @@ const enseignantController = {
 
             const nouvelEnseignant = new Enseignant({
                 cin: req.body.cin,
-                cin: req.body.cin,
                 num_inscription: req.body.num_inscription,
                 nom: req.body.nom,
                 prenom: req.body.prenom,
                 grade: req.body.grade,
                 //chefDep: req.body.chefDep,
-                           matricule: req.body.matricule,
+                matricule: req.body.matricule,
 
             });
 
@@ -60,7 +59,7 @@ const enseignantController = {
           const existingEnseignant = await Enseignant.findOneAndUpdate(
             { cin: cin },
             {
-                adresse_email: req.body.adresse_email,
+              adresse_email: req.body.adresse_email,
               num_telephone: req.body.num_telephone,
               mot_de_passe: hashpassword, 
               inscri: true

@@ -5,6 +5,14 @@ require('dotenv').config();
 const secretKey = require("./Config/Config");
 const path = require('path');
 const session = require('express-session');
+const app = express();
+
+
+app.use(session({
+    secret: 'ISIMM', // Une chaîne aléatoire pour signer la session, vous pouvez utiliser n'importe quelle valeur sécurisée
+    resave: false,
+    saveUninitialized: false
+  }));
 
 const etudiantRoute = require("./Routes/Etudiant");
 const EmploiDuTempsRoute = require("./Routes/EmploiDuTemps");
@@ -24,6 +32,7 @@ const biblioRoute = require("./Routes/Biblio");
 const EntrepriseRoute = require("./Routes/Entreprise");
 const RattrapageRoute = require("./Routes/Rattrapage");
 const CalendrierSurvRoute = require("./Routes/CalendrierSurv");
+const auth_route = require ("./Routes/auth")
 
 
 
@@ -36,7 +45,7 @@ app.use(cors({
     credentials: true,
     optionsSuccessStatus: 204,
 }));*/
-const app = express();
+
 app.use(cors());
 
 app.use(express.json());
@@ -45,7 +54,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
-
+app.use("/auth", auth_route)
 app.use("/etudiant", etudiantRoute);
 app.use("/EmploiDuTemps", EmploiDuTempsRoute);
 app.use('/enseignant', enseignantRoute);
@@ -73,7 +82,7 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something went wrong!');
 });
 
-app.listen(5001, () => {
-    console.log(`Server running on http://localhost:${5001}`);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
-

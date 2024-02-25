@@ -31,7 +31,8 @@ const EtudiantSchema = new mongoose.Schema({
     adresse_email: {
         type: String,
         required: false,
-        default: null
+        default: null,
+        unique: true
 
     },
     num_telephone: {

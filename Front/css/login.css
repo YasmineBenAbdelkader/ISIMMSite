@@ -8,7 +8,7 @@
 
 body,
 input {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Crimson Text', serif;
 }
 
 .container {
@@ -413,7 +413,7 @@ form.sign-in-form {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Crimson Text', serif;
   font-size: 1rem;
   font-weight: 500;
   color: #333;
@@ -508,9 +508,21 @@ nav img {
   border-right:  1px solid rgb(23, 19, 19);
 }
 
+.nav-links ul,
+#image {
+  display: flex;
+  align-items: center;
+}
+
+#image img {
+  width: 40px;
+  border-right:  0px solid rgb(253, 253, 253);
+}
+
 .nav-links {
   flex: 1;
   text-align: center;
+ 
 }
 
 .nav-links ul {
@@ -525,7 +537,7 @@ nav img {
   margin: 0 15px; 
   padding: 10px 20px;
   position: relative;
-  font-family: 'Canela Web', 'Cairo';
+  font-family: 'Crimson Text', serif;
 }
 
 .nav-links ul li a {
@@ -559,7 +571,7 @@ nav img {
   position: absolute;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1;
+  z-index: 1000; /* Augmenter le z-index */
   width: 250px;
   padding: 10px 0;
   border-radius: 10px;
@@ -568,10 +580,45 @@ nav img {
   transform-origin: top;
   transition: opacity 0.3s, transform 0.3s;
 }
+/* Styles pour le lien "Institut" */
+.nav-links ul li:nth-child(1) a {
+  color: #5995fd; /* Couleur du texte */
+  position: relative; /* Position relative pour animer le texte */
+}
+
+/* Animation pour le lien "Institut" */
+.nav-links ul li:nth-child(1) a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #5995fd; /* Couleur de l'animation */
+  bottom: -5px; /* Positionnement de l'animation */
+  left: 0;
+  transform: scaleX(0); /* Réduction de la largeur à 0 pour commencer */
+  transition: transform 0.3s ease; /* Transition pour l'effet d'apparition */
+}
+
+/* Animation lors du survol du lien "Institut" */
+.nav-links ul li:nth-child(1):hover a::after {
+  transform: scaleX(1); /* Augmentation de la largeur pour montrer l'animation */
+}
+/* Animation pour attirer l'attention sur le lien "Institut" */
+@keyframes attention {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Appliquer l'animation au lien "Institut" */
+#institut-link {
+  animation: attention 2s infinite alternate; /* Animation pendant 2 secondes en boucle en alternant */
+}
+
 
 .sub-menu li {
   padding: 12px 20px;
-  font-family: 'Canela Web', 'Cairo';
+  font-family: 'Crimson Text', serif;
   transition: background-color 0.3s, transform 0.3s;
   border-radius: 8px;
 }
@@ -607,3 +654,26 @@ nav img {
 }
 
 /** fin NavBar**/
+#messagecontainer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.5s ease-out forwards; /* Animation */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
