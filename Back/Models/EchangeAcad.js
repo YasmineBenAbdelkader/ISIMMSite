@@ -7,6 +7,11 @@ const baseOptions = {
 
 const EchangeAcadSchema = new mongoose.Schema(
     {
+
+        ID: {
+            type: String,
+            required: true,
+        },
         titre: {
             type: String,
             required: true,

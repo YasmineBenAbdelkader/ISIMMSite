@@ -17,7 +17,8 @@ const ClubSchema = new mongoose.Schema({
     },
     nom_pres :{
         type:String,
-        required: true
+        required: false
+
 
     },
     domaine :{

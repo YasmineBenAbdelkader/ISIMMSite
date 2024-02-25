@@ -14,7 +14,7 @@ Route.get("/finance", Staff.findByPosteFinance);
 Route.get("/:id", Staff.findByIdStaffAdministratif);
 
 
-Route.delete("/:id", Staff.supprimerMembreStaffAdministratif);
+Route.delete("/:cin", Staff.supprimerMembreStaffAdministratif);
 Route.put("/updatepost/:id", Staff.updatePoste);
 Route.get("/findByKeyarea/:keyArea", Staff.findByKeyArea); // me temshih 
 

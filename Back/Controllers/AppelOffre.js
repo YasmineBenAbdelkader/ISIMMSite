@@ -48,7 +48,7 @@ exports.getAppelsOffreByPublication = async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            message: `Une erreur s'est produite lors de la récupération des appels d'offres : ${error.message}`,
+            message: `Une erreur s'est  produite lors de la récupération des appels d'offres : ${error.message}`,
             error: error.stack,
         });
     }

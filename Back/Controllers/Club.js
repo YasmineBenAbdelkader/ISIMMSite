@@ -12,7 +12,6 @@ const ClubController = {
             const nouveauClub = new Club({
                 ID: req.body.ID,
                 nom_club: req.body.nom_club,
-                nom_pres: req.body.nom_pres,
                 domaine: req.body.domaine,
                 
             });
@@ -71,8 +70,8 @@ const ClubController = {
 
     SupprimerClub: async (req, res) => {
         try {
-          const clubID = req.params.id;
-          const clubSupprime = await Club.findOneAndDelete({ _id: clubID });
+          const clubID = req.params.ID;
+          const clubSupprime = await Club.findOneAndDelete({ ID: clubID });
       
           if (!clubSupprime) {
             return res.status(404).json({ message: 'Aucun club trouvé avec cet ID' });
@@ -88,19 +87,36 @@ const ClubController = {
         }
       },
 
-      findAllClubs: async (req, res) => {
+      findAllClubs : async (req, res) => {
         try {
-          const clubs = await Club.find();
+            const clubs = await Club.find({}, { _id: 0 });
     
-          res.status(200).json({
-            message: 'Liste des clubs récupérée avec succès',
-            clubs: clubs,
-          });
+            res.status(200).json({
+                message: 'Liste de tous les clubs récupérée avec succès',
+                clubs: clubs.map(club => ({
+                    ID: club.ID,
+                    nom_club: club.nom_club,
+                    nom_pres: club.nom_pres,
+                    domaine: club.domaine,
+                    logo: club.logo,
+                    membre1: club.membre1,
+                    membre2: club.membre2,
+                    membre3: club.membre3,
+                    membre4: club.membre4,
+                    site: club.site,
+                    linkedIn: club.linkedIn,
+                    facebook: club.facebook,
+                    desc: club.desc,
+                    nbr_membre: club.nbr_membre,
+                    encadrant: club.encadrant,
+                    annee_univ: club.annee_univ
+                }))
+            });
         } catch (error) {
-          console.error(error);
-          res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
         }
-      },
+    },
 
 
       findByIdClub: async (req, res) => {

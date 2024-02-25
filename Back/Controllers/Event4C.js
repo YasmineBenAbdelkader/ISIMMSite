@@ -3,6 +3,14 @@ const Event4C = require("../Models/Event4C");
 
 const eventController = {
     AjouterEvent: async (req, res) => {
+
+        let club = false;
+        let centre = false;
+        if (req.body.nature === "Evenement centre 4C") {
+            centre = true;
+        } else if (req.body.nature === "Evenement Club") {
+            club = true;
+        }
         try {
             console.log("Données reçues :", req.body);
     
@@ -10,8 +18,7 @@ const eventController = {
                 ID: req.body.ID,
                 titre: req.body.titre,
                 lieu: req.body.lieu,
-                photo: req.file ? req.file.filename : null,
-                //date ajoutée par calendrier
+                photo: req.file ? req.file.originalname :'' ,
                 date: req.body.date,
                 jour: req.body.jour,
                 mois: req.body.mois,
@@ -23,6 +30,8 @@ const eventController = {
                 heure: req.body.heure,
                 minute: req.body.minute,
                 periode: req.body.periode,
+                club : club,
+                centre: centre,
             });
     
             const eventEnregistre = await nouvelEvent.save();
@@ -40,21 +49,42 @@ const eventController = {
     },
     
 
-    findAllEvents: async (req, res) => {
+    findAllEvenements: async (req, res) => {
         try {
-            const events = await Event4C.find();
-            res.status(200).json({ events });
+            const evenements = await Event4C.find({}, { _id: 0 });
+            res.status(200).json({
+                message: 'Liste de tous les événements récupérée avec succès',
+                evenements: evenements.map(event => ({
+                    ID: event.ID,
+                    titre: event.titre,
+                    lieu: event.lieu,
+                    photo: event.photo,
+                    date: event.date,
+                    jour: event.jour,
+                    mois: event.mois,
+                    heure: event.heure,
+                    minute: event.minute,
+                    periode: event.periode,
+                    description: event.description,
+                    facebook: event.facebook,
+                    insta: event.insta,
+                    linkedin: event.linkedin,
+                    nature_event: event.nature_event,
+                    // Vous pouvez ajouter d'autres champs ici selon votre besoin
+                }))
+            });
         } catch (error) {
             console.error(error);
-            res.status(500).json({ message: `Une erreur est survenue lors de la récupération des événements: ${error.message}` });
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
         }
     },
+    
 
 
     SupprimerEvent: async (req, res) => {
         try {
-            const eventID = req.params.id;
-            const eventSupprime = await Event4C.findOneAndDelete({ _id: eventID });
+            const eventID = req.params.ID;
+            const eventSupprime = await Event4C.findOneAndDelete({ ID: eventID });
         
             if (!eventSupprime) {
                 return res.status(404).json({ message: 'Aucun événement trouvé avec cet ID' });
@@ -190,23 +220,7 @@ const eventController = {
         }
     },*/
 
-    AfficheEventClub: async (req, res) => {
-        try {
-            const eventClub = await Event4C.find({ eventClub: true });
     
-            if (eventClub.length === 0) {
-                return res.status(404).json({ message: 'Pas  evenement Clubs '});
-            }
-    
-            res.status(200).json({
-                message: 'Evenments Clubs récupérés avec succès',
-                eventClub: eventClub,
-            });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
-        }
-    },
 
     findLatestEvents: async (req, res) => {
         try {
@@ -227,6 +241,52 @@ const eventController = {
     
     
 
+
+    
+    findByNatureEvent: async (req, res) => {
+    try {
+        
+        const events = await Event4C.find({ nature_event: "Evenement Club" });
+        
+        // Vérifier s'il y a des événements correspondants
+        if (events.length === 0) {
+            return res.status(404).json({ message: `Aucun événement trouvé pour la nature ${natureEvent}` });
+        }
+        
+        // Retourner les événements trouvés
+        res.status(200).json({
+            message: `Événements de la nature ${natureEvent} récupérés avec succès`,
+            events: events,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+    }
+},
+
+
+    
+    
+ObtenirClub : async (req, res) => {
+    try {
+        // Utilisez la méthode find de Mongoose pour obtenir les offres de stage où stage est true
+        const offresEmploi = await Event4C.find({ club: true })    
+            //.select('-_id ID titre entreprise nature description photo files formulaire');
+
+
+        res.status(200).json({
+            message: 'Les evenements clubs ont été récupérées avec succès',
+            offresEmploi: offresEmploi,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: `Une erreur s'est produite lors de la récupération des evenements clubs : ${error.message}`,
+            error: error.stack,
+        });
+    }
+}
 };
+
 
 module.exports = eventController;

@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -40,7 +42,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>ISIMMSITE</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -162,6 +164,9 @@
 
 
 
+        
+
+
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
@@ -184,9 +189,9 @@
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/ya.jpg" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <h6 class="fw-normal mb-0">Yasmine send you a message</h6>
                                         <small>15 minutes ago</small>
                                     </div>
                                 </div>
@@ -194,9 +199,9 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/hh.webp" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <h6 class="fw-normal mb-0">Sami send you a message</h6>
                                         <small>15 minutes ago</small>
                                     </div>
                                 </div>
@@ -204,9 +209,9 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/testimonial-2.jpg" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <h6 class="fw-normal mb-0">louay send you a message</h6>
                                         <small>15 minutes ago</small>
                                     </div>
                                 </div>
@@ -228,12 +233,12 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <h6 class="fw-normal mb-0">New user added</h6>
-                                <small>15 minutes ago</small>
+                                <small>30 minutes ago</small>
                             </a>
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <h6 class="fw-normal mb-0">Password changed</h6>
-                                <small>15 minutes ago</small>
+                                <small>20 minutes ago</small>
                             </a>
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
@@ -241,8 +246,8 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <img class="rounded-circle me-lg-2" src="img/me.jpeg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Mouna Mestiri</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
@@ -260,43 +265,51 @@
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Ajouter Emploi Etudiant</h6>
-                            <form>
+                            <form id="ajouterEmploiForm">
                                 <div class="mb-3">
-                                    <label for="exampleFormControlSelect1" class="form-label">Branche :</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option value="branche1">License</option>
-                                        <option value="branche2">Cycle</option>
-                                        <option value="branche3">Master</option>
+                                    <label for="exampleFormControlSelect1" class="form-label">Cycle d'étude :</label>
+                                    <select class="form-control" id="Cycle_etude">
+                                        <option value="License">License</option>
+                                        <option value="Cycle">Cycle</option>
+                                        <option value="Master">Master</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlSelect1" class="form-label">Spécialité :</label>
+                                    <select class="form-control" id="specialite">
+                                        <option value="Informatique">Informatique</option>
+                                        <option value="Electronique">Electronique</option>
+                                        <option value="Mathématique">Mathématique</option>
                                     </select>
                                 </div>
                                 
                                 <div class="mb-3">
                                     <label for="exampleFormControlSelect1" class="form-label">Niveau :</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option value="branche1">1</option>
-                                        <option value="branche2">2</option>
-                                        <option value="branche3">3</option>
+                                    <select class="form-control" id="niveau_etude">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
                                     </select>
                                 </div>
                                 
                                 <div class="mb-3">
                                     <label for="exampleFormControlSelect1" class="form-label">TD :</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option value="branche1"> 1</option>
-                                        <option value="branche2"> 2</option>
-                                        <option value="branche3"> 3</option>
-                                        <option value="branche3"> 4</option>
-                                        <option value="branche3"> 5</option>
-                                        <option value="branche3"> 6</option>
-                                        <option value="branche3"> 7</option>
-                                        <option value="branche3"> 8</option>
+                                    <select class="form-control" id="Td">
+                                        <option value="1"> 1</option>
+                                        <option value="2"> 2</option>
+                                        <option value="3"> 3</option>
+                                        <option value="4"> 4</option>
+                                        <option value="5"> 5</option>
+                                        <option value="6"> 6</option>
+                                        <option value="7"> 7</option>
+                                        <option value="8"> 8</option>
 
                                     </select>
                                 </div>
                                 
                                 <div class="mb-3">
-                                    <label for="exampleInputFile" class="form-label">Pièce jointe :</label>
-                                    <input type="file" class="form-control" id="exampleInputFile">
+                                    <label for="exampleInputFile" class="form-label">Emploi:</label>
+                                    <input type="file" class="form-control" id="emploi">
                                 </div>
                             
                                 <button type="submit" class="btn btn-primary">Ajouter</button>
@@ -347,6 +360,42 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+<script>
+    document.getElementById('ajouterEmploiForm').addEventListener('submit', async (event) => {
+        event.preventDefault(); // Empêche le formulaire de se soumettre normalement
+    
+        // Récupérer les valeurs des champs de formulaire
+        const Cycle_etude = document.getElementById('Cycle_etude').value;
+        const specialite = document.getElementById('specialite').value;
+        const niveau_etude = document.getElementById('niveau_etude').value;
+        const Td = document.getElementById('Td').value;
+        const emploi = document.getElementById('emploi').files[0]; // Pour les fichiers, utilisez files[0]
+    console.log(Cycle_etude);
+    console.log(specialite);
+    console.log(niveau_etude);
+    console.log(Td);
+    console.log(emploi);
+
+        // Créer un objet FormData pour envoyer les données du formulaire avec les fichiers
+        const formData = new FormData();
+        formData.append('Cycle_etude', Cycle_etude);
+        formData.append('specialite', specialite);
+        formData.append('niveau_etude', niveau_etude);
+        formData.append('Td', Td);
+        formData.append('emploi', emploi);
+    
+        // Envoyer les données du formulaire au backend
+        try {
+            const response = await axios.post('http://localhost:5000/EmploiDuTemps/add-emploi', formData);
+            console.log(response.data.message); // Affichez le message renvoyé par le serveur
+    
+            // Réinitialiser le formulaire après l'ajout réussi
+            document.getElementById('ajouterEmploiForm').reset();
+        } catch (error) {
+            console.error('Erreur lors de l\'ajout de l\'emploi:', error);
+        }
+    });
+</script>
 </body>
 
 </html>

@@ -184,11 +184,11 @@ const etudiantController = {
   
   SupprimerEtudiant: async (req, res) => {
     try {
-      const etudiantID = req.params.id;
-      const etudiantSupprime = await Etudiant.findOneAndDelete({ _id: etudiantID });
+      const etudiantID = req.params.cin;
+      const etudiantSupprime = await Etudiant.findOneAndDelete({ cin: etudiantID });
   
       if (!etudiantSupprime) {
-        return res.status(404).json({ message: 'Aucun étudiant trouvé avec cet ID' });
+        return res.status(404).json({ message: 'Aucun étudiant trouvé avec cet CIN' });
       }
   
       res.status(200).json({
@@ -256,10 +256,11 @@ const etudiantController = {
       },
 
       findAllEtudiant: async (req, res) => {
-        try {
-            // Utilisation de la méthode find() pour récupérer tous les étudiants
-            const etudiants = await Etudiant.find({}, { _id: 0 });
-    
+       try {
+          const etudiants = await Etudiant.find({}, { _id: 0 });
+
+             //Utilisation de la méthode find() pour récupérer tous les étudiants
+  
             res.status(200).json({
                 message: 'Liste de tous les étudiants récupérée avec succès',
                 etudiants: etudiants.map(etudiant => ({
@@ -319,6 +320,41 @@ const etudiantController = {
         }
     },
     
+
+    find4Etudiant: async (req, res) => {
+      try {
+         const etudiants = await Etudiant.find({}, { _id: 0 });
+
+            //Utilisation de la méthode find() pour récupérer tous les étudiants
+ 
+           res.status(200).json({
+               message: 'Liste de tous les étudiants récupérée avec succès',
+               etudiants: etudiants.map(etudiant => ({
+                   cin: etudiant.cin,
+                   nom: etudiant.nom,
+                   prenom: etudiant.prenom,
+                   num_inscription: etudiant.num_inscription,
+                   //adresse_email: etudiant.adresse_email,
+                   //num_telephone: etudiant.num_telephone,
+                  
+               }))
+           });
+       } catch (error) {
+           console.error(error);
+           res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+       }
+   },
+   
+    /*findAllEtudiant: async (req, res) => {
+      try {
+          const etudiants = await Etudiant.find();
+          res.status(200).json({ etudiants });
+      } catch (error) {
+          console.error(error);
+          res.status(500).json({ message: `Une erreur est survenue lors de la récupération des etudiants: ${error.message}` });
+      }
+  },*/
+
     
     
     

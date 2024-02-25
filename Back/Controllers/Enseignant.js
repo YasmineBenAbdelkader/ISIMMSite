@@ -21,12 +21,14 @@ const enseignantController = {
 
             const nouvelEnseignant = new Enseignant({
                 cin: req.body.cin,
+                cin: req.body.cin,
                 num_inscription: req.body.num_inscription,
                 nom: req.body.nom,
                 prenom: req.body.prenom,
                 grade: req.body.grade,
-                chefDep: req.body.chefDep,
-           
+                //chefDep: req.body.chefDep,
+                           matricule: req.body.matricule,
+
             });
 
             const EnseignantEnregistre = await nouvelEnseignant.save();
@@ -58,8 +60,7 @@ const enseignantController = {
           const existingEnseignant = await Enseignant.findOneAndUpdate(
             { cin: cin },
             {
-              Poste: req.body.Poste,
-              adresse_email: req.body.adresse_email,
+                adresse_email: req.body.adresse_email,
               num_telephone: req.body.num_telephone,
               mot_de_passe: hashpassword, 
               inscri: true
@@ -114,7 +115,7 @@ const enseignantController = {
     },
 
     // Enregistrement Fiche renseignement enseignant
-    CompleterProfil: async (req, res) => {
+    CompleterProfil : async (req, res) => {
         try {
             const enseignantId = req.params.id;
              // Supposons que l'identifiant de l'étudiant soit passé en tant que paramètre dans l'URL
@@ -149,17 +150,72 @@ const enseignantController = {
                 message: 'Profil de l\'étudiant complété avec succès',
                 enseignant: enseignantMisAJour,
             });
+            const enseignants = await Enseignant.find({}, { _id: 0 });
+    
+            res.status(200).json({
+                message: 'Liste de tous les enseignants récupérée avec succès',
+                enseignants: enseignants.map(enseignant => ({
+                    cin: enseignant.cin,
+                    nom: enseignant.nom,
+                    prenom: enseignant.prenom,
+                    adresse_email: enseignant.adresse_email,
+                    num_telephone: enseignant.num_telephone,
+                    grade: enseignant.grade,
+                    photo: enseignant.photo,
+                    date_naissance: enseignant.date_naissance,
+                    adresse: enseignant.adresse,
+                    diplomes: enseignant.diplomes,
+                    specialite: enseignant.specialite,
+                    date_embauche: enseignant.date_embauche,
+                    cours: enseignant.cours,
+                    enregistre: enseignant.enregistre,
+                    chefDep: enseignant.chefDep
+                }))
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
+        }
+    },
+
+
+
+    find4Enseignant : async (req, res) => {
+        try {
+            const enseignants = await Enseignant.find({}, { _id: 0 });
+    
+            res.status(200).json({
+                message: 'Liste de tous les enseignants récupérée avec succès',
+                enseignants: enseignants.map(enseignant => ({
+                    cin: enseignant.cin,
+                    nom: enseignant.nom,
+                    prenom: enseignant.prenom,
+                    //adresse_email: enseignant.adresse_email,
+                    //num_telephone: enseignant.num_telephone,
+                    grade: enseignant.grade,
+                    //photo: enseignant.photo,
+                    //date_naissance: enseignant.date_naissance,
+                    //adresse: enseignant.adresse,
+                    //diplomes: enseignant.diplomes,
+                    //specialite: enseignant.specialite,
+                   // date_embauche: enseignant.date_embauche,
+                    //cours: enseignant.cours,
+                    //enregistre: enseignant.enregistre,
+                    chefDep: enseignant.chefDep
+                }))
+            });
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: `Une erreur est survenue lors de la complétion du profil de l'étudiant: ${error.message}` });
+            res.status(500).json({ message: `Une erreur est survenue: ${error.message}` });
         }
     },
   
 
     SupprimerEnseignant: async (req, res) => {
         try {
-          const enseignantID = req.params.id;
-          const enseignantSupprime = await Enseignant.findOneAndDelete({ _id: enseignantID });
+          const enseignantID = req.params.cin;
+          const enseignantSupprime = await Enseignant.findOneAndDelete({ cin: enseignantID });
       
           if (!enseignantSupprime) {
             return res.status(404).json({ message: 'Aucun enseignant trouvé avec cet ID' });
@@ -176,6 +232,44 @@ const enseignantController = {
       },
 
     // Récupérer un enseignant par son ID
+   
+
+    EnregistrerEnseignant: async (req, res) => {
+        try {
+            console.log("Données reçues :", req.body);
+
+            const nouvelEnseignant = new Enseignant({
+                cin: req.body.cin,
+                matricule: req.body.matricule,
+                nom: req.body.nom,
+                prenom: req.body.prenom,
+                grade: req.body.grade,
+                photo: req.body.photo,
+                date_naissance: req.body.date_naissance,
+                adresse: req.body.adresse,
+                email: req.body.email,
+                telephone: req.body.telephone,
+                diplomes: req.body.diplomes,
+                specialite: req.body.specialite,
+                date_embauche: req.body.date_embauche,
+                cours: req.body.cours,
+                mot_de_passe: req.body.mot_de_passe,
+            });
+
+            const enseignantEnregistre = await nouvelEnseignant.save();
+
+            console.log("Enseignant ajouté :", enseignantEnregistre);
+
+            res.status(201).json({
+                message: 'Enseignant ajouté avec succès',
+                enseignant: enseignantEnregistre,
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `Une erreur est survenue lors de l'ajout de l'enseignant: ${error.message}` });
+        }
+    },
+
     findByIdEnseignant: async (req, res) => {
         try {
             const enseignantId = req.params.id; // Supposons que l'ID de l'enseignant soit passé en tant que paramètre dans l'URL

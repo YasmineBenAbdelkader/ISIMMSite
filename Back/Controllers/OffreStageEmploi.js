@@ -3,21 +3,31 @@ const OffreStageEmploi = require('../Models/OffreStageEmploi');
 
 exports.AjouterOffreStageEmploi = async (req, res) => {
     try {
+       
+        let stage = false;
+        let emploi = false;
+        if (req.body.nature === "Offre de stage") {
+            stage = true;
+        } else if (req.body.nature === "Offre d'emploi") {
+            emploi = true;
+        }
+
         const nouvelleOffreStageEmploi = new OffreStageEmploi({
+            ID: req.body.ID,
             titre: req.body.titre,
             entreprise: req.body.entreprise,
-            stage : req.body.stage,
-            emploi: req.body.emploi,
+            nature: req.body.nature,
+            stage: stage, // Utiliser la variable stage
+            emploi: emploi,
             description: req.body.description,
             photo: req.files['photo'] ? req.files['photo'][0].filename : null,
             files: req.files['files'] ? req.files['files'].map(files => files.filename) : null,
             formulaire: req.body.formulaire,
         });
-        
+
         const OffreStageEmploiEnregistre = await nouvelleOffreStageEmploi.save();
 
         console.log('OffreStageEmploi ajoutée :', OffreStageEmploiEnregistre);
-       
 
         res.status(201).json({
             message: 'OffreStageEmploi ajoutée avec succès',
@@ -31,6 +41,8 @@ exports.AjouterOffreStageEmploi = async (req, res) => {
         });
     }
 };
+
+
 
 
 
@@ -122,7 +134,9 @@ exports.ObtenirDernieresOffreStageEmploi = async (req, res) => {
 exports.ObtenirOffresStage = async (req, res) => {
     try {
         // Utilisez la méthode find de Mongoose pour obtenir les offres de stage où stage est true
-        const offresStage = await OffreStageEmploi.find({ stage: true });
+        const offresStage = await OffreStageEmploi.find({ stage: true })
+        .select(' -_id ID titre entreprise nature description photo files formulaire');
+
 
         res.status(200).json({
             message: 'Les offres de stage ont été récupérées avec succès',
@@ -140,7 +154,9 @@ exports.ObtenirOffresStage = async (req, res) => {
 exports.ObtenirOffresEmploi = async (req, res) => {
     try {
         // Utilisez la méthode find de Mongoose pour obtenir les offres de stage où stage est true
-        const offresEmploi = await OffreStageEmploi.find({ emploi: true });
+        const offresEmploi = await OffreStageEmploi.find({ emploi: true })    
+            .select('-_id ID titre entreprise nature description photo files formulaire');
+
 
         res.status(200).json({
             message: 'Les offres de emploi ont été récupérées avec succès',

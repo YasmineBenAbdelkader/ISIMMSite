@@ -5,7 +5,7 @@ const Club = require("../Controllers/Club"); // Assurez-vous que le chemin d'acc
 
 Route.post("/create", Club.AjouterClub);
 Route.get("/findAll", Club.findAllClubs);
-Route.delete("/:id", Club.SupprimerClub);
+Route.delete("/:ID", Club.SupprimerClub);
 Route.post("/Enregistrer", Club.EnregistrerClub);
 Route.get("/:id", Club.findByIdClub);
 Route.put("/updateNomPres/:id", Club.ModifierNomPresidentClub);

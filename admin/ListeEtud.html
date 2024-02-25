@@ -33,7 +33,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="../admin/Router/listEtud.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    
+    <style>
+        .supprimer-etudiant {
+            color: rgb(9, 9, 9);
+            background-color: red;
+        }
+    </style>
 
 </head>
 
@@ -53,7 +58,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>ISIMMSITE</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -174,6 +179,9 @@
         <!-- Sidebar End -->
 
 
+       
+
+
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
@@ -196,9 +204,9 @@
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/ya.jpg" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <h6 class="fw-normal mb-0">Yasmine send you a message</h6>
                                         <small>15 minutes ago</small>
                                     </div>
                                 </div>
@@ -206,9 +214,9 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/hh.webp" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <h6 class="fw-normal mb-0">Sami send you a message</h6>
                                         <small>15 minutes ago</small>
                                     </div>
                                 </div>
@@ -216,9 +224,9 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/testimonial-2.jpg" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <h6 class="fw-normal mb-0">louay send you a message</h6>
                                         <small>15 minutes ago</small>
                                     </div>
                                 </div>
@@ -240,12 +248,12 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <h6 class="fw-normal mb-0">New user added</h6>
-                                <small>15 minutes ago</small>
+                                <small>30 minutes ago</small>
                             </a>
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <h6 class="fw-normal mb-0">Password changed</h6>
-                                <small>15 minutes ago</small>
+                                <small>20 minutes ago</small>
                             </a>
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
@@ -253,8 +261,8 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <img class="rounded-circle me-lg-2" src="img/me.jpeg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Mouna Mestiri</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
@@ -366,7 +374,6 @@
     </div>
 
     <!-- JavaScript Libraries -->
-    <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/chart/chart.min.js"></script>
@@ -379,69 +386,70 @@
 
     <script src="js/main.js"></script>
     <script>
-        axios.get('http://localhost:5000/etudiant/findAll')
-    .then(response => {
-        // Handle successful response
-        console.log('Response from backend:', response.data);
-        
-        // Get the tbody element where you want to append the rows
-        const tableBody = document.getElementById('table-body');
+    axios.get('http://localhost:5000/etudiant/findAll')
+        .then(response => {
+            // Handle successful response
+            console.log('Response from backend:', response.data);
+            
+            // Get the tbody element where you want to append the rows
+            const tableBody = document.getElementById('table-body');
 
-        // Loop through each student in the response data
-        response.data.etudiants.forEach(student => {
-            // Create a new table row
-            const row = document.createElement('tr');
+            // Loop through each student in the response data
+            response.data.etudiants.forEach(student => {
+                // Create a new table row
+                const row = document.createElement('tr');
 
-            // Iterate over each property of the student object
-            Object.values(student).forEach(value => {
-                // Create a new table data cell
-                const cell = document.createElement('td');
-                // Set the text content of the cell to the value of the property
-                cell.textContent = value;
-                // Append the cell to the row
-                row.appendChild(cell);
+                // Iterate over each property of the student object
+                Object.values(student).forEach(value => {
+                    // Create a new table data cell
+                    const cell = document.createElement('td');
+                    // Set the text content of the cell to the value of the property
+                    cell.textContent = value;
+                    // Append the cell to the row
+                    row.appendChild(cell);
+                });
+
+                row.setAttribute('data-cin', student.cin);
+
+                // Append the row to the table body
+                tableBody.appendChild(row);
+
+                // Ajoutez un bouton de suppression à chaque ligne du tableau
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Supprimer';
+                deleteButton.classList.add('btn', 'btn-danger', 'supprimer-etudiant');
+                deleteButton.setAttribute('data-id', student.cin); 
+                row.appendChild(deleteButton);
             });
 
-            row.setAttribute('data-id', student.cin);
+            // Sélectionnez tous les boutons de suppression une fois qu'ils ont été ajoutés
+            const boutonsSupprimer = document.querySelectorAll('.supprimer-etudiant');
 
-            // Append the row to the table body
-            tableBody.appendChild(row);
-
-            // Ajoutez un bouton de suppression à chaque ligne du tableau
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Supprimer';
-            deleteButton.classList.add('btn', 'btn-danger', 'supprimer-etudiant');
-            deleteButton.setAttribute('data-id', student.cin); // Assurez-vous de stocker l'ID de l'étudiant dans l'attribut data-id
-            row.appendChild(deleteButton);
-        });
-
-        // Sélectionnez tous les boutons de suppression une fois qu'ils ont été ajoutés
-        const boutonsSupprimer = document.querySelectorAll('.supprimer-etudiant');
-
-        // Ajoutez un gestionnaire d'événements de clic à chaque bouton de suppression
-        boutonsSupprimer.forEach(bouton => {
-            bouton.addEventListener('click', () => {
-                const idEtudiant = bouton.dataset.cin;
-                if (confirm('Êtes-vous sûr de vouloir supprimer cet étudiant ?')) {
-                    axios.delete(`http://localhost:5000/etudiant/${idEtudiant}`)
-                        .then(response => {
-                            console.log(response.data); // Afficher le message de succès ou d'erreur
-                            // Actualiser la liste des étudiants après la suppression si nécessaire
-                        })
-                        .catch(error => {
-                            console.error('Erreur lors de la suppression de l\'étudiant:', error);
-                            // Gérer les erreurs
-                        });
-                }
+            // Ajoutez un gestionnaire d'événements de clic à chaque bouton de suppression
+            boutonsSupprimer.forEach(bouton => {
+                bouton.addEventListener('click', () => {
+                    const idEtudiant = bouton.dataset.id; // Utilisez dataset.id au lieu de dataset.cin
+                    if (confirm('Êtes-vous sûr de vouloir supprimer cet étudiant ?')) {
+                        axios.delete(`http://localhost:5000/etudiant/${idEtudiant}`)
+                            .then(response => {
+                                console.log(response.data); // Afficher le message de succès ou d'erreur
+                                bouton.closest('tr').remove();
+                            })
+                            .catch(error => {
+                                console.error('Erreur lors de la suppression de l\'étudiant:', error);
+                                // Gérer les erreurs
+                            });
+                    }
+                });
             });
+        })
+        .catch(error => {
+            // Handle error
+            console.error('Error fetching data:', error);
         });
-    })
-    .catch(error => {
-        // Handle error
-        console.error('Error fetching data:', error);
-    });
 
-    
-    </script>
+
+</script>
+
 </body>
 </html>

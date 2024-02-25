@@ -13,7 +13,7 @@ const EnseignantSchema = new mongoose.Schema({
     // Ajout par admin
     cin: {
         type: String,
-        required: true
+        required: false
     },
     nom: {
         type: String,
@@ -44,6 +44,9 @@ const EnseignantSchema = new mongoose.Schema({
     Poste: {
         type: String,
         required: false,
+        default: null
+
+
     },
     adresse_email: {
         type: String,
@@ -141,6 +144,40 @@ const EnseignantSchema = new mongoose.Schema({
             type: String,
             required: false,  
              default: null
+
+        },
+        niveau: {
+            type: String,
+            required: false,
+            default: null
+
+        }
+    }],
+    mot_de_passe: {
+    type: String,
+    required: false,
+    default: null
+    
+    },
+    enregistre: {
+    type: Boolean,
+    default: false
+    }, 
+
+    chefDep: {
+        type: String,
+        required: false,
+        default: null
+    },
+
+    
+    event : {
+        type: String,
+        required: false,
+    }
+
+
+
     }],
   
   

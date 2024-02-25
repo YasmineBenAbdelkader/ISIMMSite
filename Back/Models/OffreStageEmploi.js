@@ -6,6 +6,12 @@ const baseOptions = {
 
 const OffreStageEmploiSchema = new mongoose.Schema(
     {
+
+        ID:{
+            type: String,
+            required: true,
+            unique: true 
+        },
         titre: {
             type: String,
             required: true,
@@ -34,12 +40,17 @@ const OffreStageEmploiSchema = new mongoose.Schema(
             type: Date,
             default: Date.now,
         },
-        stage: {
+         stage: {
             type: Boolean,
-            required: false,
+            default: false,
         },
         emploi: {
             type: Boolean,
+            default: false,
+        },
+
+        nature : {
+            type: String,
             required: false,
         }
     },

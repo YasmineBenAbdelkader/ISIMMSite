@@ -4,8 +4,9 @@ const { AjouterEchangeAcad, SupprimerEchangeAcad, AfficherDernieresPubs, Affiche
 const uploadFile = require('../middlewares/uploadFile');
 
 router.post('/add-echangeAcad', uploadFile.fields([{ name: 'piece_jointe', maxCount: 1 }, { name: 'photo', maxCount: 1 }]), AjouterEchangeAcad);
-router.delete('/supprimerPubEchange/:EchangeAcadId', SupprimerEchangeAcad);
+router.delete('/:ID', SupprimerEchangeAcad);
 router.get('/dernieresPublications',AfficherDernieresPubs);
 router.get('/tous-echanges-acad', AfficherTousEchangesAcad);
+
 
 module.exports = router;

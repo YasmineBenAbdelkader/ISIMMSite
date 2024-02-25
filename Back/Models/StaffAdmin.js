@@ -11,7 +11,7 @@ const baseOptions = {
 const StaffSchema = new mongoose.Schema({
 
 
-    ID: {
+    cin: {
         type: String,
         required: true,
         unique: true
@@ -30,7 +30,7 @@ const StaffSchema = new mongoose.Schema({
     },
     grade: {
         type: String,
-        required: true,
+        required: false,
     },
     email: {
         type: String,
@@ -38,7 +38,7 @@ const StaffSchema = new mongoose.Schema({
     },
     photo: {
         type: String,
-        required: true,
+        required: false,
     },
     /** C'est quoi key area  */
     keyArea: {

@@ -7,7 +7,9 @@ const uploadFile = require('../middlewares/uploadFile');
 Route.post("/create", Enseignant.AjouterEnseignant);
 Route.put("/Inscrire",Enseignant.Inscrire);
 Route.put("/Enregistrer/:id",uploadFile.fields([{ name: 'photo', maxCount: 1 },{ name: 'cv', maxCount: 1 }, { name: 'cours', maxCount: 10 }]), Enseignant.CompleterProfil);
-Route.delete("/:id", Enseignant.SupprimerEnseignant);
+Route.get("/find4All", Enseignant.find4Enseignant);
+
+Route.delete("/:cin", Enseignant.SupprimerEnseignant);
 Route.get("/:id", Enseignant.findByIdEnseignant);
 Route.get("/findByGrade/:grade", Enseignant.findByGrade);
 Route.get("/", Enseignant.getAllEnseignants);
