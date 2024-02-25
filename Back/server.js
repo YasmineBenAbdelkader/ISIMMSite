@@ -65,7 +65,7 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something went wrong!');
 });
 
-app.listen(5001, () => {
-    console.log(`Server running on http://localhost:${5001}`);
+app.listen(5000, () => {
+    console.log(`Server running on http://localhost:${5000}`);
 });
 

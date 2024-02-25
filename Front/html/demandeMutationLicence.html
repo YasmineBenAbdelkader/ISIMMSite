@@ -19,6 +19,7 @@
                 flex: 1;
                 }
         </style>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
 
@@ -130,118 +131,169 @@
 
         
         
-                        <div class="container">
-                            <div class="title">Demande Mutation Des Groupes - Licence</div>
-                            <div class="content">
-                              <form action="#">
-                                <div class="user-details">
-                                  <div class="input-box">
-                                    <span class="details">Nom</span>
-                                    <input type="text" placeholder="Entrez Votre  Nom" required>                                  <br>
-                                  </div>
-                                  <br>
-                                  <div class="input-box">
-                                    <span class="details">Prénom</span>
-                                    <input type="text" placeholder="Entrez Votre Prénom" required>
-                                  </div>
-                                  <div class="input-box">
-                                    <span class="details">CIN /Passeport</span>
-                                    <input type="text" placeholder="Entrez Votre CIN/ Passeport" required>
-                                  </div>
-                                  
-                                  <div class="input-box">
-                                    <span class="details">Num Inscription </span>
-                                    <input type="text" placeholder="Entrez Votre Num d'inscription" required>
-                                  </div>
-                                  <div class="input-box">
-                                    <span class="details"> Groupe</span>
-                                    <select id="levelSelector">
-                                      <option value="#">Choisir</option>
-                                      <option value="CPI_1_TD1">CPI_1_TD1</option>
-                                      <option value="CPI_1_TD2">CPI_1_TD2</option>
-                                      <option value="CPI_2_TD1">CPI_2_TD1</option>
-                                      <option value="CPI_2_TD2">CPI_2_TD2</option>
-                                      <option value="ING1_EL_TD1">ING1_EL_TD1</option>
-                                      <option value="ING2_EL_TD1">ING2_EL_TD1</option>
-                                      <option value="ING3_EL_TD1">ING3_EL_TD1</option>
-                                      <option value="ING3_EL_TD2">ING3_EL_TD2</option>
-                                      <option value="ING1_INFO_TD1">ING1_INFO_TD1</option>
-                                      <option value="ING1_INFO_TD2">ING1_INFO_TD2</option>
-                                      <option value="L1Info_TD1">L1Info_TD1</option>
-                                      <option value="L1Info_TD2">L1Info_TD2</option>
-                                      <option value="L1Info_TD3">L1Info_TD3</option>
-                                      <option value="L1Info_Td4">L1Info_Td4</option>
-                                      <option value="L1_EEA_Td1">L1_EEA_Td1</option>
-                                      <option value="L1_EEA_Td2">L1_EEA_Td2</option>
-                                      <option value="L1_EEA_Td3">L1_EEA_Td3</option>
-                                      <option value="L1_MATH_Td1">L1_MATH_Td1</option>
-                                      <option value="L2_MATH_Td1">L2_MATH_Td1</option>
-                                      <option value="L2_MIM_Td1">L2_MIM_Td1</option>
-                                      <option value="L1_TIC_Td1">L1_TIC_Td1</option>
-                                      <option value="L1_TIC_Td2">L1_TIC_Td2</option>
-                                      <option value="L1_TIC_Td3">L1_TIC_Td3</option>
-                                      <option value="master">L1Info_TD7</option>
-                                      <option value="ing">L2Info_TD1</option>
-                                      <option value="L2Info_TD2">L2Info_TD2</option>
-                                      <option value="L2Info_TD3">L2Info_TD3</option>
-                                      <option value="L2Info_TD4">L2Info_TD4</option>
-                                      <option value="L2Info_Td5">L2Info_Td5</option>
-                                      <option value="L2_SE_Td1">L2_SE_Td1</option>
-                                      <option value="L2_SE_Td2">L2_SE_Td2</option>
-                                      <option value="L2_TIC_Td1">L2_TIC_Td1</option>
-                                      <option value="L2_TIC_Td2">L2_TIC_Td2</option>
-                                      <option value="L3Info_TD1">L3Info_TD1</option>
-                                      <option value="L3Info_TD2">L3Info_TD2</option>
-                                      <option value="L3Info_TD3">L3Info_TD3</option>
-                                      <option value="L3Info_Td4">L3Info_Td4</option>
-                                      <option value="L3Info_Td5">L3Info_Td5</option>
-                                      <option value="L3_MATH_Td1">L3_MATH_Td1</option>
-                                      <option value="L3_SE_Td1">L3_SE_Td1</option>
-                                      <option value="L3_SE_Td2">L3_SE_Td2</option>
-                                      <option value="L3_SE_Td3">L3_SE_Td3</option>
-                                      <option value="L3_TIC_Td1">L3_TIC_Td1</option>
-                                      <option value="L3_TIC_Td2">L3_TIC_Td2</option>
-                                      <option value="MP1_GL_Td2">MP1_GL_Td2</option>
-                                      <option value="MP1_III_Td2">MP1_III_Td2</option>
-                                      <option value="MP1_SD_Td2">MP1_SD_Td2</option>
-                                      <option value="MP2_GL_Td2">MP2_GL_Td2</option>
-                                      <option value="MP2_III_Td2">MP2_III_Td2</option>
-                                      <option value="MP2_SD_Td2">MP2_SD_Td2</option>
-                                      <option value="MR1_EL_Td2">MR1_EL_Td2</option>
-                                      <option value="MR1_GL_Td2">MR1_GL_Td2</option>
-                                      <option value="MR2_EL_Td2">MR2_EL_Td2</option>
-                                      <option value="MR2_GL_Td2">MR2_GL_Td2</option>
-                                      
-                                  </select>
-                                  </div>
-
-                                  <div class="input-box">
-                                    <span class="details"> CIN Etudiant 2</span>
-                                    <input type="text" placeholder="Entrez Votre CIN" required>
-                                  </div>
-                                </div>
-                                
-                                <div class="button">
-                                  <input type="submit" value="Envoyer">
-                                </div>
-                              </form>
-                            </div>
+                <div class="container">
+                  <div class="title">Demande Mutation Des Groupes - Licence</div>
+                  <div class="content">
+                    <form id="formulaire">
+                      <div class="user-details">
+                        <div class="input-box">
+                          <span class="details">Type de la demande</span>
+                          <select id="type">
+                            <option value="#">Choisir</option>
+                            <option value="Demande Mutation Des Groupes-Préparatoire">Demande Mutation Des Groupes-Préparatoire</option>
+                            <option value="Demande Mutation Des Groupes-Licence">Demande Mutation Des Groupes-Licence</option>
+                            <option value="Demande Attestation De Sortie">Demande Attestation De Sortie</option>
+                            <option value="Demande Attestation De Présence">Demande Attestation De Présence</option>
+                            <option value="Demande Duplicata">Demande Duplicata</option>
+                            <option value="Demande Correction Document Administratif">Demande Correction Document Administratif</option>
+                            <option value="Demande Relevé Note - Par Rang">Demande Relevé Note - Par Rang</option>
+                            <option value="Demande Relevé Note S1">Demande Relevé Note S1</option>
+                            <option value="Demande Diplome">Demande Diplome</option>
+                            </select>                                 
                           </div>
+
+                        <div class="input-box">
+                          <span class="details">Nom</span>
+                          <input type="text" id="nom" placeholder="Entrez Votre  Nom" required>                                  <br>
+                        </div>
+                        <br>
+                        <div class="input-box">
+                          <span class="details">Prénom</span>
+                          <input type="text" id="prenom" placeholder="Entrez Votre Prénom" required>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">CIN /Passeport</span>
+                          <input type="text" id="ID" placeholder="Entrez Votre CIN/ Passeport" required>
+                        </div>
                         
-                            
-        
-        
-        
-                    </div>	
+                        <div class="input-box">
+                          <span class="details">Num Inscription </span>
+                          <input type="text" id="num_insc" placeholder="Entrez Votre Num d'inscription" required>
+                        </div>
+                        <div class="input-box">
+                          <span class="details"> Groupe</span>
+                          <select id="groupe">
+                            <option value="#">Choisir</option>
+                            <option value="CPI_1_TD1">CPI_1_TD1</option>
+                            <option value="CPI_1_TD2">CPI_1_TD2</option>
+                            <option value="CPI_2_TD1">CPI_2_TD1</option>
+                            <option value="CPI_2_TD2">CPI_2_TD2</option>
+                            <option value="ING1_EL_TD1">ING1_EL_TD1</option>
+                            <option value="ING2_EL_TD1">ING2_EL_TD1</option>
+                            <option value="ING3_EL_TD1">ING3_EL_TD1</option>
+                            <option value="ING3_EL_TD2">ING3_EL_TD2</option>
+                            <option value="ING1_INFO_TD1">ING1_INFO_TD1</option>
+                            <option value="ING1_INFO_TD2">ING1_INFO_TD2</option>
+                            <option value="L1Info_TD1">L1Info_TD1</option>
+                            <option value="L1Info_TD2">L1Info_TD2</option>
+                            <option value="L1Info_TD3">L1Info_TD3</option>
+                            <option value="L1Info_Td4">L1Info_Td4</option>
+                            <option value="L1_EEA_Td1">L1_EEA_Td1</option>
+                            <option value="L1_EEA_Td2">L1_EEA_Td2</option>
+                            <option value="L1_EEA_Td3">L1_EEA_Td3</option>
+                            <option value="L1_MATH_Td1">L1_MATH_Td1</option>
+                            <option value="L2_MATH_Td1">L2_MATH_Td1</option>
+                            <option value="L2_MIM_Td1">L2_MIM_Td1</option>
+                            <option value="L1_TIC_Td1">L1_TIC_Td1</option>
+                            <option value="L1_TIC_Td2">L1_TIC_Td2</option>
+                            <option value="L1_TIC_Td3">L1_TIC_Td3</option>
+                            <option value="master">L1Info_TD7</option>
+                            <option value="ing">L2Info_TD1</option>
+                            <option value="L2Info_TD2">L2Info_TD2</option>
+                            <option value="L2Info_TD3">L2Info_TD3</option>
+                            <option value="L2Info_TD4">L2Info_TD4</option>
+                            <option value="L2Info_Td5">L2Info_Td5</option>
+                            <option value="L2_SE_Td1">L2_SE_Td1</option>
+                            <option value="L2_SE_Td2">L2_SE_Td2</option>
+                            <option value="L2_TIC_Td1">L2_TIC_Td1</option>
+                            <option value="L2_TIC_Td2">L2_TIC_Td2</option>
+                            <option value="L3Info_TD1">L3Info_TD1</option>
+                            <option value="L3Info_TD2">L3Info_TD2</option>
+                            <option value="L3Info_TD3">L3Info_TD3</option>
+                            <option value="L3Info_Td4">L3Info_Td4</option>
+                            <option value="L3Info_Td5">L3Info_Td5</option>
+                            <option value="L3_MATH_Td1">L3_MATH_Td1</option>
+                            <option value="L3_SE_Td1">L3_SE_Td1</option>
+                            <option value="L3_SE_Td2">L3_SE_Td2</option>
+                            <option value="L3_SE_Td3">L3_SE_Td3</option>
+                            <option value="L3_TIC_Td1">L3_TIC_Td1</option>
+                            <option value="L3_TIC_Td2">L3_TIC_Td2</option>
+                            <option value="MP1_GL_Td2">MP1_GL_Td2</option>
+                            <option value="MP1_III_Td2">MP1_III_Td2</option>
+                            <option value="MP1_SD_Td2">MP1_SD_Td2</option>
+                            <option value="MP2_GL_Td2">MP2_GL_Td2</option>
+                            <option value="MP2_III_Td2">MP2_III_Td2</option>
+                            <option value="MP2_SD_Td2">MP2_SD_Td2</option>
+                            <option value="MR1_EL_Td2">MR1_EL_Td2</option>
+                            <option value="MR1_GL_Td2">MR1_GL_Td2</option>
+                            <option value="MR2_EL_Td2">MR2_EL_Td2</option>
+                            <option value="MR2_GL_Td2">MR2_GL_Td2</option>
+                        </select>                                  </div>
+                        <div class="input-box">
+                          <span class="details"> CIN Etudiant 2</span>
+                          <input type="text" id="cin2" placeholder="Entrez Votre CIN" required>
+                        </div>
+
+                       
+                      
+                      </div>
+
+                      <div class="button">
+                        <input type="submit" value="Envoyer">
+                      </div>
+                    </form>
+                  </div>
                 </div>
-        
-        
+              
+                  
 
 
 
+          </div>	
+      </div>
+
+</section>
 
 
-        <footer><script src="../JS/footer.js"></script></footer>
+</body>
 
-    </body>
+
+<script>
+document.getElementById('formulaire').addEventListener('submit', async (event) => {
+event.preventDefault(); // Prevent the form from submitting normally
+
+// Retrieve form input values
+const type = document.getElementById('type').value;
+const nom = document.getElementById('nom').value;
+const prenom = document.getElementById('prenom').value;
+const ID = document.getElementById('ID').value;
+const num_insc = document.getElementById('num_insc').value;
+const groupe = document.getElementById('groupe').value;
+const cin2 = document.getElementById('cin2').value;
+
+// Construct JSON object with form data
+const formData = {
+    type,
+    nom,
+    prenom,
+    ID,
+    num_insc,
+    groupe,
+    cin2
+};
+
+try {
+    const response = await axios.post('http://localhost:5000/form/mutationCPI', formData);
+    console.log(response.data.message); // Display the server message
+
+    // Reset the form after successful addition
+    document.getElementById('formulaire').reset();
+    alert('Demande envoyée avec succès!');
+
+} catch (error) {
+    console.error('Error adding mutation demand:', error);
+}
+});
+</script>
+
 </html>
