@@ -27,6 +27,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
 
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     </head>
 
 
@@ -133,13 +136,30 @@
                         <div class="container">
                             <div class="title">Demande Duplicata</div>
                             <div class="content">
-                              <form action="#">
+                              <form id="formulaire">
                                 <div class="user-details">
+
+                                  <div class="input-box">
+                                    <span class="details">Type de la demande</span>
+                                    <select id="type">
+                                      <option value="#">Choisir</option>
+                                      <option value="Demande Mutation Des Groupes-Préparatoire">Demande Mutation Des Groupes-Préparatoire</option>
+                                      <option value="Demande Mutation Des Groupes-Licence">Demande Mutation Des Groupes-Licence</option>
+                                      <option value="Demande Attestation De Sortie">Demande Attestation De Sortie</option>
+                                      <option value="Demande Attestation De Présence">Demande Attestation De Présence</option>
+                                      <option value="Demande Duplicata">Demande Duplicata</option>
+                                      <option value="Demande Correction Document Administratif">Demande Correction Document Administratif</option>
+                                      <option value="Demande Relevé Note - Par Rang">Demande Relevé Note - Par Rang</option>
+                                      <option value="Demande Relevé Note S1">Demande Relevé Note S1</option>
+                                      <option value="Demande Diplome">Demande Diplome</option>
+                                      </select>                                 
+                                    </div>
+                                    
                                   <div class="input-box">
                                     <div class="input-box">
                                       <span class="details">Documents Administratifs</span>
-                                      <select id="levelSelector">
-                                        <option value="#">Choisir</option>
+                                      <select id="doc_admini">
+                                        <option value="">Choisir</option>
                                         <option value="Certificat de démarcation Carte d'étudiant">Certificat de démarcation Carte d'étudiant</option>
                                         <option value="Relevé de notes">Relevé de notes</option>
                                         <option value="Certificat de fin d'études">Certificat de fin d'études</option>
@@ -148,24 +168,24 @@
                                   <br>
                                   <div class="input-box">
                                     <span class="details">Nom</span>
-                                    <input type="text" placeholder="Entrez Votre Nom" required>                                  <br>
+                                    <input type="text"  id="nom"placeholder="Entrez Votre Nom" required>                                  <br>
                                   </div>
                                   <div class="input-box">
                                     <span class="details">Prénom</span>
-                                    <input type="text" placeholder="Entrez Votre Prénom" required>
+                                    <input type="text" id="prenom" placeholder="Entrez Votre Prénom" required>
                                   </div>
                                   <div class="input-box">
                                     <span class="details">CIN /Passeport</span>
-                                    <input type="text" placeholder="Entrez Votre CIN/ Passeport" required>
+                                    <input type="text" id="ID" placeholder="Entrez Votre CIN/ Passeport" required>
                                   </div>
                                   
                                   <div class="input-box">
                                     <span class="details">Num Télephone </span>
-                                    <input type="text" placeholder="Entrez Votre Num Télephone" required>
+                                    <input type="text"  id="num_tel"placeholder="Entrez Votre Num Télephone" required>
                                   </div>
                                   <div class="input-box">
                                     <span class="details">Groupe</span>
-                                    <select id="levelSelector">
+                                    <select id="groupe">
                                       <option value="#">Choisir</option>
                                       <option value="CPI_1_TD1">CPI_1_TD1</option>
                                       <option value="CPI_1_TD2">CPI_1_TD2</option>
@@ -245,11 +265,45 @@
         
         
 
+        <script>
+          document.getElementById('formulaire').addEventListener('submit', async (event) => {
+              event.preventDefault(); // Prevent the form from submitting normally
+      
+              // Retrieve form input values
+              const type = document.getElementById('type').value;
+              const doc_admini = document.getElementById('doc_admini').value;
+              const nom = document.getElementById('nom').value;
+              const prenom = document.getElementById('prenom').value;
+              const ID = document.getElementById('ID').value;
+              const num_tel = document.getElementById('num_tel').value;
+              const groupe = document.getElementById('groupe').value;
+      
+              const formData = {
+                  type,
+                  doc_admini,
+                  nom,
+                  prenom,
+                  ID,
+                  num_tel,
+                  groupe
+              };
+      
+              try {
+                  const response = await axios.post('http://localhost:5000/form/duplicata', formData);
+                  console.log(response.data.message);
+                  alert('Demande envoyée avec succès!');
+    
+                  document.getElementById('formulaire').reset();
+              } catch (error) {
+                  console.error('Error adding demande de duplicata:', error);
+              }
+          });
+      </script>
 
 
+      <footer><script src="../JS/footer.js"></script></footer>
 
-
-        <footer><script src="../JS/footer.js"></script></footer>
+      
 
     </body>
 </html>

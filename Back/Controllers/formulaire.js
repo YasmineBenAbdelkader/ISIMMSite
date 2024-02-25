@@ -30,8 +30,8 @@ const FormController = {
         try {
           // Créer un nouvel étudiant à partir des données du formulaire dans le corps de la requête
           const nouvelForm = new Formulaire({
-            ID: req.body.ID,
             nom: req.body.nom,
+            langue:req.body.langue,
             prenom: req.body.prenom,
             num_insc: req.body.num_insc,
             groupe: req.body.groupe,
@@ -64,8 +64,7 @@ const FormController = {
             num_tel:req.body.num_tel,
             doc_admini:req.body.doc_admini,
             etat:req.body.etat,
-            type:req.body.type
-            
+            type:req.body.type,
           });
       
           // Enregistrer le nouvel étudiant dans la base de données

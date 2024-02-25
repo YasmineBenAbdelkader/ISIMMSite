@@ -9,7 +9,7 @@ const FormSchema = new mongoose.Schema({
 
     ID: {
         type:String,
-        required:true
+        required:false
     },
     nom: {
         type:String,
@@ -55,7 +55,7 @@ const FormSchema = new mongoose.Schema({
     
     doc_admini: {
         type: String,
-        required: false ,
+        required: false,
 
     },
 
@@ -90,7 +90,8 @@ const FormSchema = new mongoose.Schema({
         type:String,
         required: true,
 
-    }
+    },
+   
 
 
 

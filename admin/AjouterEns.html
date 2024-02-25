@@ -343,7 +343,8 @@
 
     <script>
         document.getElementById('ajouterEnsgForm').addEventListener('submit', async (event) => {
-        event.preventDefault(); // Prevent the form from submitting normally
+        event.preventDe
+        fault(); // Prevent the form from submitting normally
     
         // Retrieve form input values
         const cin = document.getElementById('cin').value;
